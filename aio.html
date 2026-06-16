@@ -2653,18 +2653,22 @@ data, including river networks, watersheds, and drainage basins.</td>
 </table>
 <hr>
 </div>
-</section><section><h2 class="section-heading" id="practicum-exercise">Practicum Exercise<a class="anchor" aria-label="anchor" href="#practicum-exercise"></a>
+</section><section><h2 class="section-heading" id="practical-exercise-optional">Practical Exercise (Optional)<a class="anchor" aria-label="anchor" href="#practical-exercise-optional"></a>
 </h2>
 <hr class="half-width">
-<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout discussion">
+<div id="discussion1" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout-inner">
-<h3 class="callout-title">Explore, Evaluate, and Map a Dataset of Your
-Choice</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
+<p><strong>Do this after Getting Started with QGIS: Your First
+Map</strong>. It will make much more sense!</p>
+<div class="section level3">
+<h3 id="explore-evaluate-and-map-a-dataset-of-your-choice">Explore, Evaluate, and Map a Dataset of Your Choice<a class="anchor" aria-label="anchor" href="#explore-evaluate-and-map-a-dataset-of-your-choice"></a>
+</h3>
 <p>Now that you have a working QGIS project and familiarity with loading
 data (from the previous episode), put those skills together using an
 external data source.</p>
@@ -2718,6 +2722,7 @@ arrow, and data credit.</li>
 a second dataset on a related theme. Add it to your map as a second
 layer and adjust the symbology so both layers are visible and
 distinguishable.</p>
+</div>
 </div>
 </div>
 </div>
@@ -3168,8 +3173,8 @@ the scale or adjust the extent if needed.</li>
 <p>A complete, publication-ready map must include the following
 elements. Use the <strong>Add Item</strong> menu in the toolbar to
 insert each one:</p>
-<figure><img src="additemmap.png" title="QGIS Print Layout with Map Elements" alt="The QGIS Print Layout window showing a map with a title, legend, scale bar, and north arrow added." class="figure mx-auto d-block"><div class="figcaption">The QGIS Print Layout window showing a map with
-a title, legend, scale bar, and north arrow added.</div>
+<figure><img src="additemmap.png" title="QGIS Print Layout with Map Elements" alt="The QGIS Print Layout window showing a map and option to add title, legend, scale bar, and north arrow." class="figure mx-auto d-block"><div class="figcaption">The QGIS Print Layout window showing a map and
+option to add title, legend, scale bar, and north arrow.</div>
 </figure><table class="table">
 <colgroup>
 <col width="33%">
@@ -3294,37 +3299,74 @@ something specific</td>
 build a multi-layer map.</p>
 <p><strong>Setup:</strong> Create a new QGIS project saved to your
 Session_1a folder.</p>
-<p><strong>Step 1 — Download shapefiles from Natural Earth</strong></p>
+<div class="section level4">
+<h4 id="step-1-download-shapefiles-from-natural-earth">
+<strong>Step 1 — Download shapefiles from Natural
+Earth</strong><a class="anchor" aria-label="anchor" href="#step-1-download-shapefiles-from-natural-earth"></a>
+</h4>
 <p>Go to <a href="https://www.naturalearthdata.com" class="external-link">naturalearthdata.com</a> and
 read the homepage briefly to understand the data’s purpose, scale, and
 reliability. Then navigate to <strong>Downloads → Medium Scale
 Data</strong> and download the following:</p>
-<p>From <strong>Cultural</strong>: - Admin-0 Country boundaries
-(polygon) - Admin-1 States and Provinces (polygon) - Populated Places
-(point)</p>
-<p>From <strong>Physical</strong>: - Rivers, Lake Centerlines (line)</p>
+<p>From <strong>Cultural</strong>:</p>
+<ul>
+<li>Admin-0 Country boundaries (polygon)</li>
+<li>Admin-1 States and Provinces (polygon)</li>
+<li>Populated Places (point)</li>
+</ul>
+<p>From <strong>Physical</strong>:</p>
+<ul>
+<li>Rivers, Lake Centerlines (line)</li>
+</ul>
 <p>Save all files to your Session_1a folder and add them to your QGIS
 project.</p>
-<p><strong>Step 2 — Add UFO sighting data from a CSV</strong></p>
+</div>
+<div class="section level4">
+<h4 id="step-2-add-ufo-sighting-data-from-a-csv">
+<strong>Step 2 — Add UFO sighting data from a CSV</strong><a class="anchor" aria-label="anchor" href="#step-2-add-ufo-sighting-data-from-a-csv"></a>
+</h4>
 <p>Download <code>UFOreports_USonly_WorkshopLayer.csv</code> from the
 shared Session 1a Google folder. Use <strong>Layer → Data Source Manager
 → Delimited Text</strong> to add it as a point layer, setting the X and
 Y fields to the longitude and latitude columns.</p>
-<p><strong>Step 3 — Add live OSM data</strong></p>
+</div>
+<div class="section level4">
+<h4 id="step-3-add-live-osm-data">
+<strong>Step 3 — Add live OSM data</strong><a class="anchor" aria-label="anchor" href="#step-3-add-live-osm-data"></a>
+</h4>
 <p>Use the <strong>QuickOSM</strong> plugin to query two features in
-West Lafayette, IN: - <code>facilities/education/universities</code> (to
-get Purdue University) - <code>shops/food</code> (to get food stores
-near campus)</p>
+West Lafayette, IN:</p>
+<ul>
+<li>
+<code>facilities/education/universities</code> (to get Purdue
+University)</li>
+<li>
+<code>shops/food</code> (to get food stores near campus)</li>
+</ul>
 <p>Style each layer with a distinct color and adjust transparency as
 needed.</p>
-<p><strong>Step 4 — Build a map layout</strong></p>
+</div>
+<div class="section level4">
+<h4 id="step-4-build-a-map-layout">
+<strong>Step 4 — Build a map layout</strong><a class="anchor" aria-label="anchor" href="#step-4-build-a-map-layout"></a>
+</h4>
 <p>Turn off all layers except the Purdue campus polygon and the food
 stores layer. Open a new <strong>Print Layout</strong> and build a
-finished map that includes: - A descriptive title - A legend with
-readable layer names - A scale bar - A north arrow - A data credit
-noting your name, data sources, and today’s date</p>
-<p><strong>Step 5 — Export</strong></p>
+finished map that includes:</p>
+<ul>
+<li>A descriptive title</li>
+<li>A legend with readable layer names</li>
+<li>A scale bar</li>
+<li>A north arrow</li>
+<li>A data credit noting your name, data sources, and today’s date</li>
+</ul>
+</div>
+<div class="section level4">
+<h4 id="step-5-export">
+<strong>Step 5 — Export</strong><a class="anchor" aria-label="anchor" href="#step-5-export"></a>
+</h4>
 <p>Export your layout as both a PDF and a PNG image.</p>
+</div>
 </div>
 </div>
 </div>
