@@ -685,25 +685,18 @@ would you change?</p>
 <td>Great starting point</td>
 </tr>
 <tr>
-<td>Beginner–Intermediate</td>
-<td>Tableau Public / Power BI</td>
-<td>Interactive dashboards</td>
-<td>Partial</td>
-<td>Excellent for non-coders</td>
-</tr>
-<tr>
 <td>Intermediate</td>
-<td>Python + Matplotlib / Seaborn</td>
+<td>Python + Matplotlib</td>
 <td>Publication-quality static plots</td>
 <td>Yes</td>
 <td><strong>Highly recommended</strong></td>
 </tr>
 <tr>
-<td>Intermediate–Advanced</td>
-<td>Python + Plotly</td>
-<td>Interactive web-ready charts</td>
+<td>Intermediate</td>
+<td>QGIS (uses Python)</td>
+<td>Publication-quality static maps</td>
 <td>Yes</td>
-<td>Perfect for sharing</td>
+<td><strong>Highly recommended</strong></td>
 </tr>
 <tr>
 <td>Advanced</td>
@@ -719,19 +712,11 @@ would you change?</p>
 <td>Yes</td>
 <td>For web developers</td>
 </tr>
-<tr>
-<td>All levels</td>
-<td>Observable / Vega-Lite</td>
-<td>Notebook-style interactive viz</td>
-<td>Yes</td>
-<td>Modern and flexible</td>
-</tr>
 </tbody>
 </table>
-<p>In this workshop we focus primarily on <strong>Python</strong>
-(Matplotlib, Seaborn, Plotly) because these tools integrate directly
-with the data-cleaning and analysis skills covered in earlier
-episodes.</p>
+<p>In this workshop we focus primarily on <strong>QGIS</strong> and
+<strong>Python</strong> because these tools integrate directly with the
+data-cleaning and analysis skills that we will be covering today.</p>
 </section><section><h2 class="section-heading" id="principles-of-effective-visualization">Principles of Effective Visualization<a class="anchor" aria-label="anchor" href="#principles-of-effective-visualization"></a>
 </h2>
 <hr class="half-width">
@@ -875,14 +860,40 @@ explained?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Identify the purpose and audience of a map</li>
-<li>Choose appropriate data and variables to visualize</li>
-<li>Design maps that communicate clearly and accurately</li>
-<li>Evaluate whether additional data or research is needed</li>
-<li>Apply a checklist-based approach to cartographic design</li>
+<li>Identify the purpose and audience of a map before starting
+design</li>
+<li>Choose appropriate data and variables to support your message</li>
+<li>Design maps that communicate clearly, honestly, and accessibly</li>
+<li>Evaluate whether additional data or context is needed</li>
+<li>Apply a checklist-based approach to cartographic design
+decisions</li>
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Always define your audience and message before making any design
+decisions.</li>
+<li>Not all data belongs on a map — choose variables that are spatially
+meaningful and support your story.</li>
+<li>Design choices (color, scale, symbology) are never neutral; they
+shape how readers interpret your map.</li>
+<li>Match your map’s complexity and medium to what your audience needs
+and expects.</li>
+<li>If your map informs decisions, accuracy, transparency, and
+uncertainty communication are critical.</li>
+<li>Run through the cartography checklist before finalizing any
+map.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -890,41 +901,57 @@ explained?</li>
 </h2>
 <hr class="half-width">
 <p>Maps are powerful tools for communication. A well-designed map can
-reveal patterns, support decisions, and tell compelling stories. A
-poorly designed map can mislead, confuse, or hide important insights</p>
-<p>Before making a map, it’s essential to ask the right questions. Good
-cartography follows core design principles:</p>
+reveal spatial patterns, support decisions, and tell compelling stories.
+A poorly designed map can mislead, confuse, or hide important
+insights.</p>
+<p>Before making a map, it is essential to ask the right questions. Good
+cartography is guided by a set of core design principles:</p>
 <ul>
-<li>legibility (easy to read)</li>
-<li>visual contrast (important elements stand out)</li>
-<li>figure-ground (main features pop from the background)</li>
-<li>hierarchy (what’s most important first)</li>
-<li>balance (pleasing layout without clutter)</li>
+<li>
+<strong>Legibility</strong> — the map is easy to read at its
+intended size and medium</li>
+<li>
+<strong>Visual contrast</strong> — important elements stand out from
+the background</li>
+<li>
+<strong>Figure-ground</strong> — the main features pop from the
+background clearly</li>
+<li>
+<strong>Hierarchy</strong> — the most important information is
+visually prominent</li>
+<li>
+<strong>Balance</strong> — the layout feels organized without
+clutter</li>
 </ul>
+<p>These principles interact with every decision you make, from color
+palette to label placement. The nine sections below translate them into
+concrete questions you should answer before finalizing any map.</p>
 <hr></section><section><h2 class="section-heading" id="know-your-audience">1. Know Your Audience<a class="anchor" aria-label="anchor" href="#know-your-audience"></a>
 </h2>
 <hr class="half-width">
-<p>Your audience determines everything about your map.</p>
+<p>Your audience determines everything — the level of detail, the choice
+of terminology, the complexity of symbology, and even whether a legend
+needs to define basic terms.</p>
 <div class="section level3">
-<h3 id="ask-yourself">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself"></a>
+<h3 id="ask-yourself">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself"></a>
 </h3>
 <ul>
 <li>Are they experts, policymakers, or the general public?</li>
-<li>What is their familiarity with maps and your topic?</li>
-<li>What level of detail is appropriate?</li>
+<li>How familiar are they with maps and with your specific topic?</li>
+<li>What level of detail is appropriate, and what would overwhelm
+them?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="example">Example:<a class="anchor" aria-label="anchor" href="#example"></a>
+<h3 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h3>
 <ul>
 <li>
 <strong>General audience</strong> → simple labels, clear legend,
-minimal jargon<br>
-</li>
+minimal jargon, large text</li>
 <li>
-<strong>Scientific audience</strong> → more detail, precise scales,
-technical terminology</li>
+<strong>Scientific audience</strong> → more detail, precise scale
+bars, technical terminology, data source citations</li>
 </ul>
 <div id="key-idea" class="callout">
 <div class="callout-square">
@@ -934,8 +961,9 @@ technical terminology</li>
 <div id="key-idea" class="callout-inner">
 <h3 class="callout-title">Key Idea</h3>
 <div class="callout-content">
-<p>A map for scientists and a map for the public should <em>not</em>
-look the same.</p>
+<p>A map designed for scientists and a map designed for the general
+public should not look the same — even if they show identical data.
+Tailor every design choice to the reader, not to the data.</p>
 </div>
 </div>
 </div>
@@ -944,54 +972,101 @@ look the same.</p>
 </section><section><h2 class="section-heading" id="define-your-message">2. Define Your Message<a class="anchor" aria-label="anchor" href="#define-your-message"></a>
 </h2>
 <hr class="half-width">
-<p>Every map should answer a clear question.</p>
+<p>Every map should answer a single, clearly stated question. Maps that
+try to show everything end up communicating nothing.</p>
 <div class="section level3">
-<h3 id="ask-yourself-1">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-1"></a>
+<h3 id="ask-yourself-1">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-1"></a>
 </h3>
 <ul>
-<li>What is the single most important takeaway?</li>
-<li>Are you showing patterns, comparisons, or changes over time?</li>
+<li>What is the one most important takeaway a reader should leave
+with?</li>
+<li>Are you showing spatial patterns, comparisons between places, or
+change over time?</li>
+<li>Can you state the map’s purpose in a single sentence?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="avoid">Avoid:<a class="anchor" aria-label="anchor" href="#avoid"></a>
+<h3 id="avoid">Avoid<a class="anchor" aria-label="anchor" href="#avoid"></a>
 </h3>
 <ul>
-<li>Trying to show too many variables at once</li>
-<li>Making the user “figure it out” without guidance</li>
+<li>Encoding too many variables at once (e.g., color + size + shape +
+animation simultaneously)</li>
+<li>Leaving the reader to “figure it out” without a guiding title or
+annotation</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="good-example">Good Example:<a class="anchor" aria-label="anchor" href="#good-example"></a>
+<h3 id="good-example">Good example<a class="anchor" aria-label="anchor" href="#good-example"></a>
 </h3>
 <blockquote>
-<p>“This map shows areas at highest risk of flooding.”</p>
+<p>“This map shows U.S. counties projected to face the highest flood
+risk by 2050.”</p>
 </blockquote>
+<p>That sentence is a complete map brief: it names the variable (flood
+risk), the geography (U.S. counties), the time horizon (2050), and the
+framing (highest risk).</p>
 <figure><img src="floodrisk.png" title="A map showing projected flood risk changes in the USA between 2020 and 2050." alt="Flood-Risk USA Map" class="figure mx-auto d-block"><div class="figcaption">Flood-Risk USA Map</div>
 </figure><hr>
 </div>
 </section><section><h2 class="section-heading" id="choose-the-right-data-attributes">3. Choose the Right Data Attributes<a class="anchor" aria-label="anchor" href="#choose-the-right-data-attributes"></a>
 </h2>
 <hr class="half-width">
-<p>Not all data belongs on your map. Select variables that support your
-message and are spatially meaningful.</p>
+<p>Not all data belongs on your map. Only include variables that are
+spatially meaningful and directly support your stated message.</p>
 <div class="section level3">
-<h3 id="ask-yourself-2">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-2"></a>
+<h3 id="ask-yourself-2">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-2"></a>
 </h3>
 <ul>
-<li>Which variable is most important?</li>
-<li>Are there supporting variables (e.g., population, elevation)?</li>
-<li>Is your data spatially appropriate (points, lines, polygons)?</li>
+<li>Which single variable is most important to show?</li>
+<li>Are there supporting variables (e.g., population, elevation) that
+add necessary context without cluttering the map?</li>
+<li>Is the data type appropriate for the geometry — points for discrete
+locations, lines for networks, polygons for areas?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="tips">Tips:<a class="anchor" aria-label="anchor" href="#tips"></a>
+<h3 id="visual-encoding-guidelines">Visual encoding guidelines<a class="anchor" aria-label="anchor" href="#visual-encoding-guidelines"></a>
 </h3>
-<ul>
-<li>Use <strong>color</strong> for magnitude (e.g., rainfall)</li>
-<li>Use <strong>size</strong> for comparison (e.g., population)</li>
-<li>Use <strong>symbols</strong> for categories (e.g., land use)</li>
-</ul>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Visual variable</th>
+<th>Best used for</th>
+<th>Example</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Color hue</strong></td>
+<td>Categories (nominal data)</td>
+<td>Land use types</td>
+</tr>
+<tr>
+<td>
+<strong>Color value</strong> (light → dark)</td>
+<td>Magnitude (ordinal or continuous data)</td>
+<td>Rainfall amount</td>
+</tr>
+<tr>
+<td><strong>Size</strong></td>
+<td>Quantities at point locations</td>
+<td>City population</td>
+</tr>
+<tr>
+<td><strong>Shape</strong></td>
+<td>Distinguishing symbol types</td>
+<td>Hospitals vs. schools</td>
+</tr>
+<tr>
+<td><strong>Pattern / texture</strong></td>
+<td>Categories on print maps</td>
+<td>Zoning districts</td>
+</tr>
+</tbody>
+</table>
 <div id="quick-check" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1000,8 +1075,16 @@ message and are spatially meaningful.</p>
 <div id="quick-check" class="callout-inner">
 <h3 class="callout-title">Quick Check</h3>
 <div class="callout-content">
-<p>You have temperature, precipitation, and elevation data.<br>
-Which one would you prioritize if your goal is to show drought risk?</p>
+<p>You have three variables available: temperature, precipitation, and
+elevation.</p>
+<p>Your goal is to create a map that highlights areas at greatest
+drought risk.</p>
+<ul>
+<li>Which variable would you prioritize as your primary encoded
+attribute?</li>
+<li>Which (if any) would you include as supporting context?</li>
+<li>Which would you leave off entirely, and why?</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1010,80 +1093,112 @@ Which one would you prioritize if your goal is to show drought risk?</p>
 </section><section><h2 class="section-heading" id="consider-audience-perception">4. Consider Audience Perception<a class="anchor" aria-label="anchor" href="#consider-audience-perception"></a>
 </h2>
 <hr class="half-width">
-<p>Maps are not neutral — design choices influence interpretation.</p>
+<p>Maps are never neutral. Every design choice — color, scale,
+projection, classification method — shapes how readers interpret what
+they see. Being aware of this is not optional; it is part of responsible
+cartography.</p>
 <div class="section level3">
-<h3 id="ask-yourself-3">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-3"></a>
+<h3 id="ask-yourself-3">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-3"></a>
 </h3>
 <ul>
-<li>Could colors be misleading (e.g., red = danger)?</li>
-<li>Are you introducing bias unintentionally?</li>
-<li>Is the map easy to interpret at a glance?</li>
+<li>Could your color choices carry unintended connotations (e.g., red
+implying danger, green implying safety)?</li>
+<li>Are you inadvertently introducing bias through classification breaks
+or data selection?</li>
+<li>Can the map’s main message be grasped within a few seconds?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="example-1">Example:<a class="anchor" aria-label="anchor" href="#example-1"></a>
+<h3 id="common-perception-pitfalls">Common perception pitfalls<a class="anchor" aria-label="anchor" href="#common-perception-pitfalls"></a>
 </h3>
 <ul>
-<li>Darker/Very Light colors may imply higher value and importance</li>
-<li>Certain color schemes may exclude colorblind users (see next
-module)</li>
+<li>
+<strong>Color value confusion</strong>: Using very light colors for
+high values (or vice versa) contradicts most readers’ intuition that
+darker = more.</li>
+<li>
+<strong>Unequal class intervals</strong>: A choropleth using natural
+breaks will look very different from one using equal intervals on the
+same data — neither is “correct,” but the choice must match your
+message.</li>
+<li>
+<strong>Colorblind inaccessibility</strong>: Approximately 8% of men
+and 0.5% of women have some form of color vision deficiency. Red-green
+combinations are the most common problem. Always test your palette.</li>
 </ul>
-<figure><img src="badmap.jpg" title="A map showing bad colors being used to represent a data." alt="Bad USA Map" class="figure mx-auto d-block"><div class="figcaption">Bad USA Map</div>
-</figure><p><strong>Best Practice:</strong> Establish clear contrast between
-foreground (data) and background (basemap). Use figure-ground
-techniques, such as subtle vignettes or lighter basemaps, so your data
-stands out.</p>
+<figure><img src="badmap.jpg" title="A map demonstrating how poor color choices distort the interpretation of data." alt="Bad USA Map" class="figure mx-auto d-block"><div class="figcaption">Bad USA Map</div>
+</figure><p><strong>Best practice:</strong> Establish clear contrast between your
+data layer (foreground) and the basemap (background). Use figure-ground
+techniques — such as a lighter or desaturated basemap — so your data
+stands out without competition.</p>
 <hr>
 </div>
 </section><section><h2 class="section-heading" id="choose-the-right-medium">5. Choose the Right Medium<a class="anchor" aria-label="anchor" href="#choose-the-right-medium"></a>
 </h2>
 <hr class="half-width">
-<p>Where your map is displayed affects design decisions.</p>
+<p>Where and how your map will be displayed has a direct effect on every
+design decision, from font size to layer complexity.</p>
 <div class="section level3">
-<h3 id="common-mediums">Common mediums:<a class="anchor" aria-label="anchor" href="#common-mediums"></a>
+<h3 id="common-display-contexts">Common display contexts<a class="anchor" aria-label="anchor" href="#common-display-contexts"></a>
 </h3>
 <ul>
 <li>
-<strong>Web maps</strong> → interactive, zoomable</li>
+<strong>Web maps</strong> → interactive and zoomable; can include
+multiple layers, tooltips, and filters</li>
 <li>
-<strong>Print maps</strong> → static, high resolution</li>
+<strong>Print maps</strong> → static and fixed-resolution; require
+careful attention to font size, line weight, and color accuracy across
+printers</li>
 <li>
-<strong>Presentations</strong> → simple, bold visuals</li>
+<strong>Presentation slides</strong> → typically viewed from a
+distance; need bold, simple visuals with large text and minimal fine
+detail</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="ask-yourself-4">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-4"></a>
+<h3 id="ask-yourself-4">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-4"></a>
 </h3>
 <ul>
-<li>Will users zoom in?</li>
-<li>Will the map be printed in black and white?</li>
-<li>How large will it appear?</li>
+<li>Will users be able to zoom in, or is this a fixed view?</li>
+<li>Could the map be printed in black and white? If so, does it still
+work?</li>
+<li>How large will the map appear in its final context — full screen,
+half a slide, a column in a report?</li>
 </ul>
-<p><strong>Tip for Web:</strong> Simplify basemaps and use halos on
-labels for readability over varied backgrounds. For print, test a
-physical proof.</p>
+<p><strong>Web tip:</strong> Simplify basemaps and add halos (outlines)
+behind text labels so they remain readable over varied background
+colors. <strong>Print tip:</strong> Always test a physical proof before
+finalizing — colors on screen differ from colors on paper.</p>
 <hr>
 </div>
 </section><section><h2 class="section-heading" id="will-your-map-inform-decisions">6. Will Your Map Inform Decisions?<a class="anchor" aria-label="anchor" href="#will-your-map-inform-decisions"></a>
 </h2>
 <hr class="half-width">
-<p>Some maps are purely exploratory, while others guide real-world
-actions.</p>
+<p>Some maps are purely exploratory tools for the analyst. Others are
+used by planners, health officials, emergency managers, or the public to
+make real-world decisions. The stakes of design errors are very
+different in each case.</p>
 <div class="section level3">
-<h3 id="decision-making-maps-should">Decision-making maps should:<a class="anchor" aria-label="anchor" href="#decision-making-maps-should"></a>
+<h3 id="decision-making-maps-should">Decision-making maps should<a class="anchor" aria-label="anchor" href="#decision-making-maps-should"></a>
 </h3>
 <ul>
-<li>Be highly accurate</li>
-<li>Include uncertainty (if possible)</li>
-<li>Avoid misleading simplifications</li>
+<li>Be as accurate as the underlying data allows</li>
+<li>Communicate uncertainty explicitly (e.g., confidence intervals, data
+vintage, known gaps)</li>
+<li>Avoid simplifications that could lead to misinterpretation with
+serious consequences</li>
+<li>Be reviewed by a domain expert before publication</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="example-2">Example:<a class="anchor" aria-label="anchor" href="#example-2"></a>
+<h3 id="examples-1">Examples<a class="anchor" aria-label="anchor" href="#examples-1"></a>
 </h3>
 <ul>
-<li>Flood risk maps used by city planners</li>
-<li>Public health maps used during outbreaks</li>
+<li>Flood-risk maps used by city planners to determine zoning
+regulations</li>
+<li>Public health maps showing disease outbreak locations used by
+response teams</li>
+<li>Wildfire evacuation route maps used by emergency services</li>
 </ul>
 <div id="important" class="callout">
 <div class="callout-square">
@@ -1093,8 +1208,10 @@ actions.</p>
 <div id="important" class="callout-inner">
 <h3 class="callout-title">Important</h3>
 <div class="callout-content">
-<p>If your map influences decisions, accuracy and clarity are
-critical.</p>
+<p>If your map could influence a policy, resource allocation, or safety
+decision, treat accuracy and clarity as non-negotiable. Include a data
+source citation, a date, and any relevant caveats directly on the
+map.</p>
 </div>
 </div>
 </div>
@@ -1103,107 +1220,137 @@ critical.</p>
 </section><section><h2 class="section-heading" id="understand-your-audiences-knowledge">7. Understand Your Audience’s Knowledge<a class="anchor" aria-label="anchor" href="#understand-your-audiences-knowledge"></a>
 </h2>
 <hr class="half-width">
+<p>Even a technically accurate map fails if the audience cannot decode
+it. Match your map’s language and symbology to what your readers already
+understand.</p>
 <div class="section level3">
-<h3 id="ask-yourself-5">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-5"></a>
+<h3 id="ask-yourself-5">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-5"></a>
 </h3>
 <ul>
-<li>Do they understand your variables?</li>
-<li>Do you need to explain units or scales?</li>
-<li>Should you include annotations or context?</li>
+<li>Do your readers understand the variables and units you are
+using?</li>
+<li>Do you need to explain what the color scale represents, or will they
+infer it correctly?</li>
+<li>Would annotations or a short explanatory text block help orient the
+reader?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="tips-1">Tips:<a class="anchor" aria-label="anchor" href="#tips-1"></a>
+<h3 id="tips">Tips<a class="anchor" aria-label="anchor" href="#tips"></a>
 </h3>
 <ul>
-<li>Add legends and labels</li>
-<li>Use plain language when possible</li>
-<li>Provide context (e.g., time period, data source)</li>
-<li>Include essential map elements: <code>scale bar</code> (when
-distance matters), <code>north arrow</code> (if orientation isn’t
-standard), and <code>source</code> citation</li>
+<li>Always include a legend for any encoded variable</li>
+<li>Use plain language in labels and titles wherever possible</li>
+<li>Provide temporal context (e.g., “Data from 2021 ACS 5-Year
+Estimates”)</li>
+<li>Cite your data source directly on the map, not just in a
+caption</li>
+<li>Include a <strong>scale bar</strong> whenever distance relationships
+matter</li>
+<li>Include a <strong>north arrow</strong> if map orientation is not
+immediately obvious from context</li>
 </ul>
-<p><strong>Pro Tip:</strong> Aim for “maximum information at minimum
-effort” — the viewer should grasp the main idea quickly without
-struggling.</p>
+<p><strong>Pro tip:</strong> Aim for “maximum information at minimum
+effort.” The reader should grasp the map’s main message within a few
+seconds, without having to search for the legend or decode ambiguous
+symbology.</p>
 <hr>
 </div>
 </section><section><h2 class="section-heading" id="do-you-need-more-data">8. Do You Need More Data?<a class="anchor" aria-label="anchor" href="#do-you-need-more-data"></a>
 </h2>
 <hr class="half-width">
-<p>Incomplete data can lead to misleading maps.</p>
+<p>A map built on incomplete data can be accurate in what it shows while
+being misleading about what it omits. Missing data, outdated data, or
+insufficient spatial resolution can all undermine your conclusions.</p>
 <div class="section level3">
-<h3 id="ask-yourself-6">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-6"></a>
+<h3 id="ask-yourself-6">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-6"></a>
 </h3>
 <ul>
-<li>Are there missing variables that affect interpretation?</li>
-<li>Is your data up to date?</li>
-<li>Is the spatial resolution sufficient?</li>
+<li>Are there variables absent from your dataset that a reader would
+need to interpret your map correctly?</li>
+<li>Is your data current enough for the decision or story it will
+support?</li>
+<li>Is the spatial resolution (e.g., county vs. census tract vs. block
+group) appropriate for the patterns you are trying to show?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="example-3">Example:<a class="anchor" aria-label="anchor" href="#example-3"></a>
+<h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h3>
-<p>Mapping income without population density may mislead
-conclusions.</p>
-<figure><img src="incomemap.png" title="A map household income data in the U.S in 2021." alt="This is a good map but needs supporting information to better understand this distribution of income across the country. Green here indicates higher income." class="figure mx-auto d-block"><div class="figcaption">This is a good map but needs supporting
-information to better understand this distribution of income across the
-country. Green here indicates higher income.</div>
-</figure><figure><img src="popden.png" title="A map household income data in the U.S in 2021." alt="This population density map is in positive correlation with the map. As in, a higher population density would ideally mean a greater household income in that county. Lighter colors indicate greater population density." class="figure mx-auto d-block"><div class="figcaption">This population density map is in positive
-correlation with the map. As in, a higher population density would
-ideally mean a greater household income in that county. Lighter colors
-indicate greater population density.</div>
+<p>The two maps below illustrate why supporting context matters. The
+income map alone suggests a clear geographic pattern — but without the
+population density map alongside it, a reader might draw incorrect
+conclusions about <em>why</em> that pattern exists.</p>
+<figure><img src="incomemap.png" title="Median household income by U.S. county, 2021." alt="A choropleth map of median household income across U.S. counties in 2021. Green shading indicates higher income. The map shows a clear pattern but requires additional context for full interpretation." class="figure mx-auto d-block"><div class="figcaption">A choropleth map of median household income
+across U.S. counties in 2021. Green shading indicates higher income. The
+map shows a clear pattern but requires additional context for full
+interpretation.</div>
+</figure><figure><img src="popden.png" title="U.S. population density by county." alt="A map of U.S. population density by county. Lighter shading indicates greater population density. This map is positively correlated with the income map above — higher-density counties tend to have higher median incomes." class="figure mx-auto d-block"><div class="figcaption">A map of U.S. population density by county.
+Lighter shading indicates greater population density. This map is
+positively correlated with the income map above — higher-density
+counties tend to have higher median incomes.</div>
 </figure><hr>
 </div>
 </section><section><h2 class="section-heading" id="do-you-understand-your-data">9. Do You Understand Your Data?<a class="anchor" aria-label="anchor" href="#do-you-understand-your-data"></a>
 </h2>
 <hr class="half-width">
-<p>Before mapping, you should fully understand your dataset.</p>
+<p>Before mapping, you should have a thorough understanding of the
+dataset itself — not just the spatial layer but what each variable
+actually measures, how it was collected, and where it may be
+unreliable.</p>
 <div class="section level3">
-<h3 id="ask-yourself-7">Ask yourself:<a class="anchor" aria-label="anchor" href="#ask-yourself-7"></a>
+<h3 id="ask-yourself-7">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-7"></a>
 </h3>
 <ul>
-<li>What does each variable represent?</li>
-<li>Are there biases or limitations?</li>
-<li>Have you explored the data (e.g., summary statistics)?</li>
+<li>What does each variable represent, and at what level of
+aggregation?</li>
+<li>Are there known biases, gaps, or limitations in the data collection
+methodology?</li>
+<li>Have you explored the data with summary statistics and distributions
+before committing to a map?</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="if-not">If not:<a class="anchor" aria-label="anchor" href="#if-not"></a>
+<h3 id="if-the-answer-to-any-of-these-is-not-yet">If the answer to any of these is “not yet”<a class="anchor" aria-label="anchor" href="#if-the-answer-to-any-of-these-is-not-yet"></a>
 </h3>
 <ul>
-<li>Perform exploratory data analysis (EDA)</li>
-<li>Read metadata and documentation</li>
-<li>Consult someone if needed</li>
-<li>Research about the data more online!</li>
-<li>Advanced: Conduct sensitivity tests as in, do the results change
-under different assumptions?</li>
+<li>Perform exploratory data analysis (EDA) first — histograms, summary
+statistics, and scatter plots before you touch a spatial layer</li>
+<li>Read the metadata and any accompanying documentation carefully</li>
+<li>Look up the source methodology online or consult a domain
+expert</li>
+<li>For high-stakes maps, consider sensitivity testing: does the pattern
+change meaningfully if you use a different classification scheme or
+exclude outliers?</li>
 </ul>
 <hr>
 </div>
-</section><section><h2 class="section-heading" id="cartography-checklist-summary">Cartography Checklist (Summary)<a class="anchor" aria-label="anchor" href="#cartography-checklist-summary"></a>
+</section><section><h2 class="section-heading" id="cartography-checklist">Cartography Checklist<a class="anchor" aria-label="anchor" href="#cartography-checklist"></a>
 </h2>
 <hr class="half-width">
-<p>Before finalizing your map, review this checklist:</p>
+<p>Before finalizing your map, work through this checklist. If you
+cannot check a box, revisit that section above before publishing.</p>
 <ul class="task-list">
-<li><label><input type="checkbox">I know my target
-audience</label></li>
-<li><label><input type="checkbox">My map has a clear
-purpose/message</label></li>
-<li><label><input type="checkbox">I selected the most relevant
-data</label></li>
-<li><label><input type="checkbox">My design avoids misleading
-interpretations</label></li>
-<li><label><input type="checkbox">The map fits its intended
-medium</label></li>
-<li><label><input type="checkbox">The map is appropriate for
-decision-making (if applicable)</label></li>
-<li><label><input type="checkbox">I accounted for audience knowledge
-level</label></li>
-<li><label><input type="checkbox">My dataset is complete and
-appropriate</label></li>
-<li><label><input type="checkbox">I fully understand the data and
-topic</label></li>
+<li><label><input type="checkbox">I have identified my target audience
+and tailored the design to their needs</label></li>
+<li><label><input type="checkbox">My map has a single, clearly stated
+purpose or message</label></li>
+<li><label><input type="checkbox">I have selected only the data
+variables that support that message</label></li>
+<li><label><input type="checkbox">My design choices (color, scale,
+symbology) do not introduce misleading interpretations</label></li>
+<li><label><input type="checkbox">The map is designed for its intended
+medium (web, print, or presentation)</label></li>
+<li><label><input type="checkbox">If the map informs decisions, I have
+ensured accuracy and communicated uncertainty</label></li>
+<li><label><input type="checkbox">I have accounted for my audience’s
+level of knowledge and included appropriate context</label></li>
+<li><label><input type="checkbox">My dataset is complete, current, and
+at an appropriate spatial resolution</label></li>
+<li><label><input type="checkbox">I fully understand what the data
+measures and its known limitations</label></li>
+<li><label><input type="checkbox">The map includes a legend, data
+source citation, and scale bar (where applicable)</label></li>
 </ul>
 <hr></section><section><h2 class="section-heading" id="final-thought">Final Thought<a class="anchor" aria-label="anchor" href="#final-thought"></a>
 </h2>
@@ -1211,20 +1358,23 @@ topic</label></li>
 <p>A good map is not just visually appealing — it is honest, clear, and
 purposeful. It respects the data, serves the audience, and communicates
 effectively without distortion.</p>
-<div id="discussion2" class="callout discussion">
+<div id="reflect-and-share" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div class="callout-inner">
+<div id="reflect-and-share" class="callout-inner">
+<h3 class="callout-title">Reflect and Share</h3>
 <div class="callout-content">
 <ul>
-<li><p>Think of a map you’ve seen recently.<br>
-What did it do well? What could be improved?</p></li>
-<li><p>How might the same data be presented differently for another
-audience?</p></li>
-<li><p>Share an example of a map that misled you (or succeeded
-brilliantly) and why.</p></li>
+<li>Think of a map you have seen recently — in the news, in a report, or
+online. What did it do well? What could be improved?</li>
+<li>How might the same data be presented differently for a different
+audience (e.g., the same flood-risk data shown to engineers versus to
+homeowners)?</li>
+<li>Can you recall a map that misled you, or one that succeeded
+brilliantly at making a complex pattern clear? What design choices made
+the difference?</li>
 </ul>
 </div>
 </div>
