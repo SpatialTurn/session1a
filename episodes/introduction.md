@@ -139,14 +139,12 @@ What specific design choices in Chart B make it misleading? What would you chang
 | Skill Level | Tool / Library | Best For | Open Source? | Carpentries Recommendation |
 |---|---|---|---|---|
 | Beginner | Excel / Google Sheets | Quick bar, line, and pie charts | No | Great starting point |
-| Beginner–Intermediate | Tableau Public / Power BI | Interactive dashboards | Partial | Excellent for non-coders |
-| Intermediate | Python + Matplotlib / Seaborn | Publication-quality static plots | Yes | **Highly recommended** |
-| Intermediate–Advanced | Python + Plotly | Interactive web-ready charts | Yes | Perfect for sharing |
+| Intermediate | Python + Matplotlib | Publication-quality static plots | Yes | **Highly recommended** |
+| Intermediate | QGIS (uses Python) | Publication-quality static maps | Yes | **Highly recommended** |
 | Advanced | R + ggplot2 | Statistical graphics | Yes | Data Carpentry favorite |
 | Advanced | JavaScript + D3.js | Fully custom web visualizations | Yes | For web developers |
-| All levels | Observable / Vega-Lite | Notebook-style interactive viz | Yes | Modern and flexible |
 
-In this workshop we focus primarily on **Python** (Matplotlib, Seaborn, Plotly) because these tools integrate directly with the data-cleaning and analysis skills covered in earlier episodes.
+In this workshop we focus primarily on **QGIS** and **Python** because these tools integrate directly with the data-cleaning and analysis skills that we will be covering today.
 
 ## Principles of Effective Visualization
 
