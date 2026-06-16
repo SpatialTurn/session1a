@@ -210,16 +210,14 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#what-is-data-visualization">What Is Data Visualization?</a></li>
-<li><a href="#why-is-data-visualization-important">Why Is Data Visualization Important?</a></li>
-<li><a href="#advantages-of-data-visualization">Advantages of Data Visualization</a></li>
-<li><a href="#disadvantages-and-risks">Disadvantages and Risks</a></li>
+<li><a href="#why-visualize-data">Why Visualize Data?</a></li>
+<li><a href="#advantages-and-disadvantages">Advantages and Disadvantages</a></li>
 <li><a href="#big-data-and-the-need-for-visualization">Big Data and the Need for Visualization</a></li>
 <li><a href="#real-world-examples">Real-World Examples</a></li>
 <li><a href="#popular-tools-from-beginner-to-advanced">Popular Tools — From Beginner to Advanced</a></li>
-<li><a href="#principles-of-effective-visualization-the-rules">Principles of Effective Visualization (The “Rules”)</a></li>
+<li><a href="#principles-of-effective-visualization">Principles of Effective Visualization</a></li>
 <li><a href="#ethical-considerations">Ethical Considerations</a></li>
-<li><a href="#challenges-you-will-face-and-how-we-solve-them">Challenges You Will Face (and How We Solve Them)</a></li>
-<li><a href="#key-takeaways">Key Takeaways</a></li>
+<li><a href="#challenges-you-will-face">Challenges You Will Face</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -341,14 +339,13 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What exactly is data visualization and how does it differ from
-simple charts?</li>
-<li>Why do humans understand visualized data much faster than raw
+<ul><li>What is data visualization and how does it differ from simply
+displaying charts?</li>
+<li>Why do humans process visualized data so much faster than raw
 numbers or tables?</li>
-<li>What are the real advantages and hidden pitfalls of using visuals in
-data analysis?</li>
-<li>How does visualization help (or complicate) working with big
-data?</li>
+<li>What are the advantages and risks of using visuals in data
+analysis?</li>
+<li>How does visualization help when working with big data?</li>
 <li>Which tools are most suitable for beginners, intermediate users, and
 advanced programmers?</li>
 <li>What makes a visualization “good” versus “misleading”?</li>
@@ -360,12 +357,12 @@ advanced programmers?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul><li>Define data visualization and explain its core purpose</li>
-<li>List at least five advantages and three disadvantages of data
+<li>Distinguish between exploratory and explanatory visualizations with
+real-world examples</li>
+<li>Describe at least five advantages and three disadvantages of data
 visualization</li>
 <li>Describe how visualization addresses challenges posed by big
 data</li>
-<li>Identify and differentiate between exploratory and explanatory
-visualizations with real-world examples</li>
 <li>Compare popular open-source and commercial tools for creating
 visualizations</li>
 <li>Recognize key principles of effective visualization design</li>
@@ -400,169 +397,218 @@ flair.</li>
 </div>
 <section><h2 class="section-heading" id="what-is-data-visualization">What Is Data Visualization?<a class="anchor" aria-label="anchor" href="#what-is-data-visualization"></a></h2>
 <hr class="half-width"><p><strong>Data visualization</strong> is the graphical representation
-of information and data.<br>
-Instead of showing rows and columns of numbers, it uses charts, graphs,
-maps, diagrams, and interactive dashboards to make patterns, trends,
-relationships, and outliers immediately understandable.</p>
+of information and data. Instead of showing rows and columns of numbers,
+it uses charts, graphs, maps, diagrams, and interactive dashboards to
+make patterns, trends, relationships, and outliers immediately
+understandable.</p>
 <p>Think of it as <strong>data storytelling</strong> with graphics. A
 well-designed visualization does in seconds what a 10-page spreadsheet
 cannot: it lets the human brain — which processes images 60,000 times
 faster than text — grasp complex information at a glance.</p>
 <p>In the Carpentries context, data visualization is not just “making
 pretty pictures.” It is a core skill that bridges <strong>data
-wrangling</strong> (what you learned in previous episodes) and
+wrangling</strong> (covered in previous episodes) and
 <strong>data-driven decision making</strong>.</p>
-</section><section><h2 class="section-heading" id="why-is-data-visualization-important">Why Is Data Visualization Important?<a class="anchor" aria-label="anchor" href="#why-is-data-visualization-important"></a></h2>
-<hr class="half-width"><ol style="list-style-type: decimal"><li><p><strong>Humans are visual creatures</strong><br>
-Our brains devote more than 50% of their processing power to vision. A
-bar chart showing sales growth is far more memorable than a table of 50
-monthly figures.</p></li>
-<li>
-<p><strong>Reveals what numbers hide</strong></p>
-<ul><li>Trends over time<br></li>
-<li>Clusters and correlations<br></li>
-<li>Outliers and anomalies<br></li>
-<li>Geographic patterns<br></li>
-<li>Distributions and variability</li>
-</ul></li>
-<li><p><strong>Enables faster decision-making</strong><br>
-Executives, scientists, journalists, and policymakers routinely use
-visualizations to justify budgets, publish papers, or influence public
-opinion.</p></li>
-<li><p><strong>Democratizes data</strong><br>
-A clear chart can be understood by domain experts and non-technical
-stakeholders alike.</p></li>
-<li>
-<p><strong>Supports both exploration and explanation</strong></p>
+<p>There are two broad modes of visualization, and knowing which one you
+are doing shapes every design decision:</p>
 <ul><li>
 <strong>Exploratory visualizations</strong> help <em>you</em>
-discover insights while analyzing data.<br></li>
+discover insights while analyzing data — quick, rough, and
+disposable.</li>
 <li>
 <strong>Explanatory visualizations</strong> help <em>others</em>
-understand your discoveries.</li>
-</ul></li>
-</ol></section><section><h2 class="section-heading" id="advantages-of-data-visualization">Advantages of Data Visualization<a class="anchor" aria-label="anchor" href="#advantages-of-data-visualization"></a></h2>
-<hr class="half-width"><ul><li>
-<strong>Speed</strong>: Spot trends in seconds instead of
-hours.</li>
+understand your discoveries — polished, annotated, and purposeful.</li>
+</ul></section><section><h2 class="section-heading" id="why-visualize-data">Why Visualize Data?<a class="anchor" aria-label="anchor" href="#why-visualize-data"></a></h2>
+<hr class="half-width"><p>Our brains devote more than 50% of their processing power to vision.
+This means a well-chosen chart is not just convenient — it is
+cognitively more efficient than a table for most tasks. Visualization
+matters because it:</p>
+<ul><li>
+<strong>Reveals what numbers hide</strong> — trends over time,
+clusters, correlations, outliers, geographic patterns, and distributions
+are rarely obvious in raw data but leap out in a well-chosen chart.</li>
 <li>
-<strong>Clarity</strong>: Reduce cognitive load — one image can
-replace thousands of numbers.</li>
+<strong>Enables faster decision-making</strong> — executives,
+scientists, journalists, and policymakers routinely use visualizations
+to justify budgets, publish findings, or inform public opinion.</li>
 <li>
-<strong>Pattern recognition</strong>: Humans excel at seeing lines,
-clusters, and shapes.</li>
+<strong>Democratizes data</strong> — a clear chart can be understood
+by domain experts and non-technical stakeholders alike, lowering the
+barrier to engaging with evidence.</li>
 <li>
-<strong>Engagement</strong>: Colorful, interactive visuals capture
-attention and improve retention.</li>
+<strong>Supports error detection</strong> — visuals often surface
+data quality problems (missing values, impossible ranges, duplicate
+records) that automated checks miss entirely.</li>
+</ul></section><section><h2 class="section-heading" id="advantages-and-disadvantages">Advantages and Disadvantages<a class="anchor" aria-label="anchor" href="#advantages-and-disadvantages"></a></h2>
+<hr class="half-width"><p>Understanding both sides helps you use visualization responsibly.</p>
+<div class="section level3">
+<h3 id="advantages">Advantages<a class="anchor" aria-label="anchor" href="#advantages"></a></h3>
+<ul><li>
+<strong>Speed</strong>: Spot trends in seconds rather than hours of
+table-reading.</li>
 <li>
-<strong>Storytelling power</strong>: Turn dry statistics into
-compelling narratives.</li>
+<strong>Clarity</strong>: One well-designed image can replace
+thousands of numbers and reduce cognitive load significantly.</li>
 <li>
-<strong>Error detection</strong>: Visuals often reveal data quality
-problems (missing values, typos, impossible ranges) that automated
-checks miss.</li>
+<strong>Pattern recognition</strong>: Humans excel at detecting
+lines, clusters, and shapes — abilities that do not transfer well to
+reading numbers.</li>
 <li>
-<strong>Accessibility for diverse audiences</strong>: Good visuals
-can communicate across language barriers and technical skill
+<strong>Engagement</strong>: Interactive or well-designed visuals
+capture attention and improve information retention.</li>
+<li>
+<strong>Storytelling power</strong>: Visualization turns dry
+statistics into compelling, memorable narratives.</li>
+<li>
+<strong>Accessibility across audiences</strong>: Good visuals
+communicate across language barriers and varying technical skill
 levels.</li>
-</ul></section><section><h2 class="section-heading" id="disadvantages-and-risks">Disadvantages and Risks<a class="anchor" aria-label="anchor" href="#disadvantages-and-risks"></a></h2>
-<hr class="half-width"><ul><li>
-<strong>Misleading results</strong>: A truncated y-axis, 3D effects,
-or cherry-picked colors can completely distort the truth (classic
-example: the “exploding” pie chart).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="disadvantages-and-risks">Disadvantages and Risks<a class="anchor" aria-label="anchor" href="#disadvantages-and-risks"></a></h3>
+<ul><li>
+<strong>Misleading results</strong>: A truncated y-axis, 3D
+perspective effects, or cherry-picked color scales can distort the truth
+— sometimes dramatically.</li>
 <li>
 <strong>Chartjunk</strong> (Edward Tufte’s term): Decorative
-elements that add noise without adding information.</li>
+elements that add visual noise without adding information, such as
+unnecessary gridlines, shadows, or clip art.</li>
 <li>
 <strong>Time investment</strong>: Creating a professional,
-publication-ready visualization can take longer than the analysis
-itself.</li>
+publication-ready visualization can take longer than the underlying
+analysis.</li>
 <li>
-<strong>Skill gap</strong>: Requires both analytical thinking
-<em>and</em> design sensibility.</li>
+<strong>Skill gap</strong>: Effective visualization requires both
+analytical thinking <em>and</em> design sensibility — a combination that
+takes practice to develop.</li>
 <li>
-<strong>Over-simplification</strong>: Complex multi-variable
-relationships can be flattened into something misleading.</li>
+<strong>Over-simplification</strong>: Reducing a complex
+multi-variable relationship to a single chart can flatten important
+nuance into something misleading.</li>
 <li>
-<strong>Accessibility barriers</strong>: Poor color contrast or lack
-of alt text excludes people with color blindness or screen readers.</li>
-</ul><blockquote>
-<p><strong>Callout: The “lying with charts” phenomenon</strong><br>
-Always ask: “Does this visual tell the <em>whole</em> story, or just the
-story I want to tell?”</p>
-</blockquote>
+<strong>Accessibility barriers</strong>: Poor color contrast, the
+absence of alt text, or reliance on color alone to encode information
+excludes users with color blindness or who use screen readers.</li>
+</ul><div id="the-lying-with-charts-phenomenon" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-lying-with-charts-phenomenon" class="callout-inner">
+<h3 class="callout-title">The “Lying With Charts” Phenomenon</h3>
+<div class="callout-content">
+<p>Visual choices that seem minor — axis scale, color palette, which
+data points to include — can completely change what a chart appears to
+say. Always ask yourself: <em>“Does this visual tell the whole story, or
+just the story I want to tell?”</em></p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="big-data-and-the-need-for-visualization">Big Data and the Need for Visualization<a class="anchor" aria-label="anchor" href="#big-data-and-the-need-for-visualization"></a></h2>
-<hr class="half-width"><p>The explosion of big data (volume, velocity, variety, veracity) has
-made visualization not just helpful — but
-<strong>essential</strong>.</p>
+<hr class="half-width"><p>The explosion of big data — characterized by high
+<strong>volume</strong>, <strong>velocity</strong>,
+<strong>variety</strong>, and <strong>veracity</strong> — has made
+visualization not just helpful, but <strong>essential</strong>.</p>
 <ul><li>
-<strong>Volume</strong>: A 1-million-row dataset is impossible to
-read. A heatmap or density plot shows the entire distribution
-instantly.</li>
+<strong>Volume</strong>: A dataset with one million rows is
+impossible to read. A heatmap or density plot can show the entire
+distribution at a glance.</li>
 <li>
 <strong>Velocity</strong>: Real-time dashboards (stock markets,
-COVID-19 trackers, IoT sensor networks) update every second.</li>
+public health trackers, IoT sensor networks) must update continuously
+and communicate change instantly.</li>
 <li>
-<strong>Variety</strong>: Combining structured tables, text, images,
-and geospatial data requires multi-layered visuals (e.g., a map with
-overlaid time-series).</li>
+<strong>Variety</strong>: Combining structured tables, free text,
+imagery, and geospatial data requires multi-layered visuals — for
+example, a choropleth map with an overlaid time-series.</li>
 <li>
-<strong>Dimensionality</strong>: With 50+ variables, we use
-techniques like PCA, t-SNE, or parallel coordinates plots to reduce
-complexity.</li>
-</ul><p>Modern big-data visualizations are often: - Interactive (zoom,
-filter, hover tooltips) - Scalable (handle millions of points without
-crashing) - Collaborative (shared dashboards in Tableau Server, Power
-BI, or Plotly Dash)</p>
-</section><section><h2 class="section-heading" id="real-world-examples">Real-World Examples<a class="anchor" aria-label="anchor" href="#real-world-examples"></a></h2>
+<strong>Dimensionality</strong>: With 50 or more variables,
+techniques like PCA, t-SNE, or parallel coordinates plots are needed to
+reduce complexity without losing meaning.</li>
+</ul><p>Modern big-data visualizations are generally:</p>
+<ul><li>
+<strong>Interactive</strong> — users can zoom, filter, and hover for
+tooltips rather than reading a static snapshot.</li>
+<li>
+<strong>Scalable</strong> — capable of rendering millions of data
+points without crashing the browser or notebook.</li>
+<li>
+<strong>Collaborative</strong> — built on shared dashboard platforms
+(Tableau Server, Power BI, Plotly Dash) so teams can explore the same
+data together.</li>
+</ul></section><section><h2 class="section-heading" id="real-world-examples">Real-World Examples<a class="anchor" aria-label="anchor" href="#real-world-examples"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="simple-but-powerful">Simple but powerful<a class="anchor" aria-label="anchor" href="#simple-but-powerful"></a></h3>
 <ul><li>
-<strong>Line chart</strong>: Global temperature rise 1880–2025
-(clear upward trend)</li>
+<strong>Line chart</strong>: Global average temperature rise from
+1880 to present — a single trend line communicates over a century of
+climate data immediately.</li>
 <li>
-<strong>Bar chart</strong>: Top 10 countries by renewable energy
-adoption</li>
+<strong>Bar chart</strong>: Top 10 countries by share of renewable
+energy, ranked — comparisons across categories are instant.</li>
 <li>
-<strong>Scatter plot</strong>: Relationship between study hours and
-exam scores (with regression line)</li>
+<strong>Scatter plot</strong>: Study hours versus exam scores with a
+regression line — reveals both the relationship and individual
+variation.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="more-advanced">More advanced<a class="anchor" aria-label="anchor" href="#more-advanced"></a></h3>
 <ul><li>
-<strong>Heatmap</strong>: Correlation matrix of 20 variables in a
-genomics dataset</li>
+<strong>Heatmap</strong>: Correlation matrix of 20 genomics
+variables — shows which pairs of variables are related without producing
+190 individual scatter plots.</li>
 <li>
-<strong>Treemap</strong>: Breakdown of a company’s revenue by
-department and region</li>
+<strong>Treemap</strong>: Company revenue broken down by department
+and region — shows both composition and relative size
+simultaneously.</li>
 <li>
-<strong>Network graph</strong>: Social media connections or protein
-interaction maps</li>
+<strong>Network graph</strong>: Social media follower connections or
+protein interaction maps — structures that have no natural x/y
+axis.</li>
 <li>
-<strong>Choropleth map</strong>: U.S. election results or COVID case
-rates by county</li>
+<strong>Choropleth map</strong>: COVID case rates or election
+results by county — geographic patterns that are invisible in a
+table.</li>
 <li>
 <strong>Animated bubble chart</strong> (Hans Rosling style): 200
-years of health and wealth data showing global progress</li>
-</ul></div>
-<div class="section level3">
-<h3 id="good-vs--bad-examples-you-will-practice-these-in-exercises">Good vs. Bad examples (you will practice these in exercises)<a class="anchor" aria-label="anchor" href="#good-vs--bad-examples-you-will-practice-these-in-exercises"></a></h3>
+years of global health and wealth data — adds time as a dimension
+without requiring 200 separate charts.</li>
+</ul><div id="good-vs.-bad" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="good-vs.-bad" class="callout-inner">
+<h3 class="callout-title">Good vs. Bad</h3>
+<div class="callout-content">
+<p>Look at the two descriptions below and identify what makes one
+effective and one misleading:</p>
 <ul><li>
-<strong>Good</strong>: Minimalist line chart with clear labels and
-honest scale.</li>
+<strong>Chart A</strong>: A line chart showing annual global CO₂
+emissions from 1960 to present. The y-axis starts at zero, the source is
+labeled, and the title reads “Global CO₂ Emissions Have Risen Steadily
+Since 1960.”</li>
 <li>
-<strong>Bad</strong>: 3D exploding pie chart with 12 slices, rainbow
-colors, and no legend.</li>
-</ul></div>
+<strong>Chart B</strong>: A 3D exploding pie chart with 12
+color-coded slices, no legend, a y-axis that starts at 94%, and a title
+that reads “Our Product Dominates the Market.”</li>
+</ul><p>What specific design choices in Chart B make it misleading? What
+would you change?</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="popular-tools-from-beginner-to-advanced">Popular Tools — From Beginner to Advanced<a class="anchor" aria-label="anchor" href="#popular-tools-from-beginner-to-advanced"></a></h2>
-<hr class="half-width"><table style="width:100%;" class="table"><colgroup><col width="14%"><col width="24%"><col width="27%"><col width="11%"><col width="22%"></colgroup><thead><tr><th>Skill Level</th>
-<th>Tool/Library</th>
+<hr class="half-width"><table class="table"><colgroup><col width="20%"><col width="20%"><col width="20%"><col width="20%"><col width="20%"></colgroup><thead><tr><th>Skill Level</th>
+<th>Tool / Library</th>
 <th>Best For</th>
 <th>Open Source?</th>
 <th>Carpentries Recommendation</th>
 </tr></thead><tbody><tr><td>Beginner</td>
 <td>Excel / Google Sheets</td>
-<td>Quick bar/line/pie charts</td>
+<td>Quick bar, line, and pie charts</td>
 <td>No</td>
 <td>Great starting point</td>
 </tr><tr><td>Beginner–Intermediate</td>
@@ -571,7 +617,7 @@ colors, and no legend.</li>
 <td>Partial</td>
 <td>Excellent for non-coders</td>
 </tr><tr><td>Intermediate</td>
-<td>Python + Matplotlib/Seaborn</td>
+<td>Python + Matplotlib / Seaborn</td>
 <td>Publication-quality static plots</td>
 <td>Yes</td>
 <td><strong>Highly recommended</strong></td>
@@ -594,58 +640,89 @@ colors, and no legend.</li>
 <td>Observable / Vega-Lite</td>
 <td>Notebook-style interactive viz</td>
 <td>Yes</td>
-<td>Modern &amp; flexible</td>
-</tr></tbody></table><p>In this workshop series we will focus primarily on
-<strong>Python</strong> (Matplotlib, Seaborn, Plotly) and briefly touch
-on R’s ggplot2 because they integrate seamlessly with the data-cleaning
-skills you already learned.</p>
-</section><section><h2 class="section-heading" id="principles-of-effective-visualization-the-rules">Principles of Effective Visualization (The “Rules”)<a class="anchor" aria-label="anchor" href="#principles-of-effective-visualization-the-rules"></a></h2>
-<hr class="half-width"><p>Inspired by Edward Tufte, William Cleveland, and Alberto Cairo:</p>
+<td>Modern and flexible</td>
+</tr></tbody></table><p>In this workshop we focus primarily on <strong>Python</strong>
+(Matplotlib, Seaborn, Plotly) because these tools integrate directly
+with the data-cleaning and analysis skills covered in earlier
+episodes.</p>
+</section><section><h2 class="section-heading" id="principles-of-effective-visualization">Principles of Effective Visualization<a class="anchor" aria-label="anchor" href="#principles-of-effective-visualization"></a></h2>
+<hr class="half-width"><p>These principles draw on the work of Edward Tufte, William Cleveland,
+and Alberto Cairo:</p>
 <ol style="list-style-type: decimal"><li>
-<strong>Maximize data-ink ratio</strong> — remove everything that is
-not data.</li>
+<strong>Maximize the data-ink ratio</strong> — every drop of ink (or
+pixel) should carry information. Remove gridlines, borders, and
+decorations that do not contribute.</li>
 <li>
-<strong>Use small multiples</strong> instead of overloading one
-chart.</li>
+<strong>Use small multiples</strong> instead of overloading a single
+chart with too many variables or series.</li>
 <li>
-<strong>Choose the right chart type</strong> for the message (never
-use pie charts for &gt;5 categories!).</li>
+<strong>Choose the right chart type</strong> for the message — bar
+charts for comparison, lines for trends, scatter plots for
+relationships. Avoid pie charts with more than four or five slices.</li>
 <li>
-<strong>Label everything</strong> clearly — titles, axes, legends,
-units.</li>
+<strong>Label everything clearly</strong> — titles, axis labels,
+legends, and units should never require guessing.</li>
 <li>
-<strong>Be honest</strong> — never truncate axes without
-disclosure.</li>
+<strong>Be honest about scale</strong> — never truncate axes without
+a clear disclosure; never use 3D effects that distort area or
+angle.</li>
 <li>
-<strong>Consider color carefully</strong> — use colorblind-friendly
-palettes (ColorBrewer, viridis).</li>
+<strong>Choose colors deliberately</strong> — use
+colorblind-friendly palettes such as ColorBrewer or viridis; avoid
+rainbow scales that imply ordering where none exists.</li>
 <li>
-<strong>Make it accessible</strong> — alt text, high contrast,
-patterns in addition to color.</li>
+<strong>Make it accessible</strong> — provide alt text for images,
+ensure sufficient contrast ratios, and encode information with shape or
+pattern in addition to color alone.</li>
 <li>
-<strong>Tell a story</strong> — guide the viewer’s eye with titles,
-annotations, and sequence.</li>
+<strong>Guide the viewer</strong> — use titles, subtitles, and
+annotations to direct attention and make the main takeaway
+explicit.</li>
 </ol></section><section><h2 class="section-heading" id="ethical-considerations">Ethical Considerations<a class="anchor" aria-label="anchor" href="#ethical-considerations"></a></h2>
-<hr class="half-width"><ul><li>Visualizations can influence policy, investment, and public
-opinion.</li>
-<li>Avoid cherry-picking time windows or subsets.</li>
-<li>Disclose data sources and limitations.</li>
-<li>Respect privacy (especially with geospatial or personal data).</li>
-</ul></section><section><h2 class="section-heading" id="challenges-you-will-face-and-how-we-solve-them">Challenges You Will Face (and How We Solve Them)<a class="anchor" aria-label="anchor" href="#challenges-you-will-face-and-how-we-solve-them"></a></h2>
-<hr class="half-width"><ul><li>Too many variables → dimensionality reduction + faceting</li>
-<li>Performance with millions of points → sampling, aggregation, or
-WebGL-based tools</li>
-<li>Reproducibility → always save code alongside the image</li>
-<li>Version control → store plots in Git (we’ll show you how)</li>
-</ul></section><section><h2 class="section-heading" id="key-takeaways">Key Takeaways<a class="anchor" aria-label="anchor" href="#key-takeaways"></a></h2>
-<hr class="half-width"><p>Data visualization is not decoration — it is <strong>analysis made
-visible</strong>.<br>
-Mastering it will transform how you explore data, how you communicate
-results, and how much impact your work has. <!--
+<hr class="half-width"><p>Visualizations can influence policy, investment decisions, and public
+opinion at scale, which creates real responsibility:</p>
+<ul><li>
+<strong>Avoid cherry-picking</strong>: Selecting only the time
+window or data subset that supports your conclusion is a form of
+dishonesty, even if every data point shown is accurate.</li>
+<li>
+<strong>Disclose sources and limitations</strong>: Readers cannot
+evaluate a chart they cannot trace back to its data. Always cite the
+source and note key caveats (sample size, date range, missing
+data).</li>
+<li>
+<strong>Respect privacy</strong>: Geospatial and demographic data
+can expose individuals even when names are removed. Consider aggregation
+levels carefully.</li>
+<li>
+<strong>Consider unintended consequences</strong>: A map of crime
+rates, for example, can reinforce harmful stereotypes if presented
+without context about policing patterns or historical
+disinvestment.</li>
+</ul></section><section><h2 class="section-heading" id="challenges-you-will-face">Challenges You Will Face<a class="anchor" aria-label="anchor" href="#challenges-you-will-face"></a></h2>
+<hr class="half-width"><table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Challenge</th>
+<th>Recommended approach</th>
+</tr></thead><tbody><tr><td>Too many variables to show at once</td>
+<td>Use dimensionality reduction (PCA, t-SNE) or faceting (small
+multiples)</td>
+</tr><tr><td>Slow rendering with millions of data points</td>
+<td>Sample the data, pre-aggregate, or use WebGL-based tools like
+Datashader</td>
+</tr><tr><td>Plots that can’t be reproduced later</td>
+<td>Always save the code that generated the image alongside the image
+file</td>
+</tr><tr><td>Tracking how a visualization changes over time</td>
+<td>Store plots and notebooks in version control (Git)</td>
+</tr><tr><td>Color choices that exclude colorblind users</td>
+<td>Test palettes with a simulator; default to viridis or ColorBrewer
+sequential schemes</td>
+</tr><tr><td>Audiences with different technical backgrounds</td>
+<td>Provide layered detail — a clear headline finding up front,
+supporting data behind a click or in an appendix</td>
+</tr></tbody></table><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></p>
-</section></div> <!-- / div.lesson-content -->
+ --></section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter Bottom"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/mapvisual.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
