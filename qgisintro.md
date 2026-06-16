@@ -37,8 +37,6 @@ exercises: 45
 
 QGIS is a free, open-source Geographic Information System that runs on Windows, macOS, and Linux. In this episode we will go from a blank project to a finished, exported map using real spatial data.
 
-If you need help with the QGIS interface before starting, refer to the setup guide [here](https://spatialturn.github.io/DataVisualization/index.html).
-
 We will work through three stages:
 
 1. **Loading data** — adding a basemap, shapefiles, and point data
