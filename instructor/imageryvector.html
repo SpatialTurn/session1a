@@ -118,7 +118,7 @@
     <a id="search-button" class="btn btn-primary" href="../instructor/aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><aside class="col-md-12 lesson-progress"><div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">64%</div>
+    <div class="progress-bar incubator" role="progressbar" style="width: 61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">61%</div>
   </div>
 </aside><div class="container">
       <div class="row">
@@ -236,8 +236,10 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#introduction-to-data-collection">Introduction to Data Collection</a></li>
-<li><a href="#acquiring-pre-existing-vector-datasets-from-data-repositories">Acquiring Pre-Existing Vector Datasets from Data Repositories</a></li>
+        <ul><li><a href="#introduction-original-data-vs.-pre-existing-data">Introduction: Original Data vs. Pre-Existing Data</a></li>
+<li><a href="#evaluating-data-quality">Evaluating Data Quality</a></li>
+<li><a href="#data-source-directory">Data Source Directory</a></li>
+<li><a href="#practicum-exercise">Practicum Exercise</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -317,7 +319,7 @@
 
 
 
-        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
+        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
 
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -332,58 +334,346 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-</div>
+<ul><li>What kinds of vector data already exist online and where can I find
+them?</li>
+<li>How do I evaluate whether a dataset is accurate, current, and
+appropriate for my needs?</li>
+<li>How do I download and bring external vector data into QGIS?</li>
+</ul></div>
 </div>
 </div>
 <div class="col-md-8">
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
+<ul><li>Distinguish between collecting original data and using pre-existing
+data from repositories</li>
+<li>Identify appropriate data sources for different geographic and
+thematic needs</li>
+<li>Evaluate a dataset’s quality, accuracy, and fitness for purpose by
+examining its metadata</li>
+<li>Download vector datasets from public repositories and load them into
+QGIS</li>
+</ul></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<section><h2 class="section-heading" id="introduction-to-data-collection">Introduction to Data Collection<a class="anchor" aria-label="anchor" href="#introduction-to-data-collection"></a></h2>
-<hr class="half-width"><p>An important decision faced at the start of any geospatial project
-(from making a basic map to advanced spatial analysis) is whether the
-project requires original data collected in the field or digitized from
-maps or can make use of pre-existing data captured by others (e.g.,
-colleagues or online sources). For example, vector data for natural
-features, political boundaries, transportation networks, etc., already
-exist somewhere on the web and don’t need to be created from scratch.
-Many vector datasets are freely available on government or open-source
-websites, while some specialized datasets are sold as commodities. Open
-access datasets can vary widely by quality and accuracy depending on the
-methods used to create them, as well as by how much preprocessing and
-filtering is required to render them useful. It is therefore important
-to explore the data carefully to see if they will meet your needs.</p>
-</section><section><h2 class="section-heading" id="acquiring-pre-existing-vector-datasets-from-data-repositories">Acquiring Pre-Existing Vector Datasets from Data Repositories<a class="anchor" aria-label="anchor" href="#acquiring-pre-existing-vector-datasets-from-data-repositories"></a></h2>
-<hr class="half-width"><p>Below is a list of sources of free vector data from public access
-sources; other data sources specific to your locality will be available
-from your local or state government’s webpage. Examine the sources and
-explore the metadata to see how and when the data sources were created
-to get a sense of their precision and accuracy. Bookmark sites that seem
-most useful for your classroom or research applications.</p>
-<ul><li><a href="https://hub.arcgis.com/search" class="external-link">Esri Open Data Hub</a></li>
-<li><a href="https://geo.nyu.edu/" class="external-link">NYU Spatial repository</a></li>
-<li><a href="https://geodata.tufts.edu/" class="external-link">GeoPortal at Tufts</a></li>
-<li><a href="https://geo.btaa.org/" class="external-link">Big10 Geoportal</a></li>
-<li><a href="https://spatialdata.dhsprogram.com/home/" class="external-link">Spatial Data
-Repository</a></li>
-<li><a href="https://download.geofabrik.de/" class="external-link">Open Street Maps
-Data</a></li>
-<li><a href="https://www.hydrosheds.org/" class="external-link">HydroSHEDS</a></li>
-<li><a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a></li>
-</ul><div id="keypoints1" class="callout keypoints">
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-
+<ul><li>Pre-existing vector datasets are available from government portals,
+academic repositories, and open-source platforms — you rarely need to
+create data from scratch.</li>
+<li>Always examine a dataset’s metadata before using it: understand when
+it was created, how it was collected, and what its limitations are.</li>
+<li>Open-access datasets vary widely in quality and completeness;
+exploring the data carefully is as important as finding it.</li>
+<li>OpenStreetMap provides a rich, continuously updated global dataset
+accessible both as downloads and through QGIS plugins like
+QuickOSM.</li>
+<li>Bookmark sources relevant to your research area — a curated list of
+trusted repositories saves significant time at the start of future
+projects.</li>
+</ul></div>
 </div>
+</div>
+<section><h2 class="section-heading" id="introduction-original-data-vs--pre-existing-data">Introduction: Original Data vs. Pre-Existing Data<a class="anchor" aria-label="anchor" href="#introduction-original-data-vs--pre-existing-data"></a></h2>
+<hr class="half-width"><p>An important decision at the start of any geospatial project —
+whether you are making a basic reference map or conducting advanced
+spatial analysis — is whether you need to collect original data or
+whether suitable data already exists.</p>
+<p><strong>Original data collection</strong> is appropriate when: - No
+existing dataset covers the geographic area or time period you need -
+The precision or accuracy requirements of your project exceed what
+publicly available data provides - You are documenting something that
+has not been mapped before</p>
+<p><strong>Pre-existing data</strong> is appropriate when: - The feature
+type you need (political boundaries, road networks, river systems,
+populated places, etc.) has already been digitized and made available by
+a government agency, research institution, or open-source community -
+Time or resources do not permit original data collection - You need a
+large geographic extent — for example, country-level or global
+coverage</p>
+<p>For most common geographic features, pre-existing data exists
+somewhere on the web and does not need to be recreated. Knowing where to
+find it, and how to evaluate its quality, is one of the most practical
+skills a GIS practitioner can develop.</p>
+<hr></section><section><h2 class="section-heading" id="evaluating-data-quality">Evaluating Data Quality<a class="anchor" aria-label="anchor" href="#evaluating-data-quality"></a></h2>
+<hr class="half-width"><p>Before using any dataset in your project, take time to examine it
+critically. Open-access datasets vary widely in quality, precision,
+currency, and the amount of preprocessing required before they are
+useful. Key questions to ask:</p>
+<ul><li>
+<strong>When was it created or last updated?</strong> A road network
+dataset from 2005 may be unreliable for current analysis.</li>
+<li>
+<strong>How was it collected?</strong> Was it digitized from
+satellite imagery? Surveyed in the field? Derived from crowd-sourced
+contributions? Each method carries different accuracy expectations.</li>
+<li>
+<strong>What is the spatial resolution or scale?</strong> A dataset
+designed for 1:1,000,000 global mapping will look imprecise if zoomed to
+the neighborhood level.</li>
+<li>
+<strong>What do the attribute fields represent?</strong> Read the
+metadata and data dictionary — field names are often cryptic codes that
+need interpretation.</li>
+<li>
+<strong>Are there known gaps or limitations?</strong> Most reputable
+data providers document these in their metadata pages.</li>
+</ul><p>As a rule: <strong>explore the data before you use it.</strong> Load
+it into QGIS, open the attribute table, check the geographic coverage,
+and compare it against a basemap or another source before building
+analysis or a finished map on top of it.</p>
+<hr></section><section><h2 class="section-heading" id="data-source-directory">Data Source Directory<a class="anchor" aria-label="anchor" href="#data-source-directory"></a></h2>
+<hr class="half-width"><p>The following sections organize free, publicly accessible vector data
+sources by category. Sources specific to your local area (city, county,
+or state open data portals) are not listed here but are worth
+bookmarking — search for
+<code>[your city or state] open data GIS</code>.</p>
+<p>This list is provided as a reference only; we do not guarantee the
+accuracy or timeliness of any individual dataset.</p>
+<hr><div class="section level3">
+<h3 id="data-consortiums-and-hubs">Data Consortiums and Hubs<a class="anchor" aria-label="anchor" href="#data-consortiums-and-hubs"></a></h3>
+<p>These platforms aggregate datasets from multiple providers and are a
+good starting point when you are not sure which specific source to
+use.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://hub.arcgis.com/search" class="external-link">Esri Open Data Hub</a></td>
+<td>A large, searchable collection of open datasets contributed by
+government agencies and organizations worldwide. Datasets are
+downloadable in shapefile, GeoJSON, and other formats.</td>
+</tr><tr><td><a href="https://geo.nyu.edu/" class="external-link">NYU Spatial Data Repository</a></td>
+<td>A curated academic geospatial repository maintained by New York
+University Libraries. Strong coverage of urban and international
+datasets.</td>
+</tr><tr><td><a href="https://geodata.tufts.edu/" class="external-link">GeoPortal at Tufts</a></td>
+<td>Tufts University’s geospatial data repository, with strong coverage
+of historical and international data.</td>
+</tr><tr><td><a href="https://geo.btaa.org/" class="external-link">Big Ten Academic Alliance
+Geoportal</a></td>
+<td>A collaborative geoportal maintained by Big Ten universities,
+aggregating geospatial data from government and academic sources across
+North America.</td>
+</tr><tr><td><a href="https://spatialdata.dhsprogram.com/home/" class="external-link">Demographic and
+Health Surveys (DHS) Spatial Repository</a></td>
+<td>Spatial data tied to DHS survey results, covering health indicators
+across low- and middle-income countries.</td>
+</tr></tbody></table><hr></div>
+<div class="section level3">
+<h3 id="openstreetmap">OpenStreetMap<a class="anchor" aria-label="anchor" href="#openstreetmap"></a></h3>
+<p>OpenStreetMap (OSM) is a collaborative, open-license global map built
+by volunteers. It is one of the richest freely available sources of
+detailed, up-to-date geographic data, particularly for urban
+features.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://www.openstreetmap.org/" class="external-link">openstreetmap.org</a></td>
+<td>The main OSM website. You can browse the map, contribute edits, and
+learn about the project.</td>
+</tr><tr><td><a href="https://download.geofabrik.de/" class="external-link">Geofabrik
+Downloads</a></td>
+<td>Pre-packaged OSM data downloads organized by country and region,
+available in Shapefile and other common GIS formats. Best for
+downloading a whole country or region.</td>
+</tr><tr><td><a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map
+Features Wiki</a></td>
+<td>The reference guide to OSM’s tagging system — explains how features
+like roads, buildings, land use, and amenities are classified and coded.
+Essential reading before running QuickOSM queries.</td>
+</tr><tr><td><a href="https://www.hotosm.org/en/" class="external-link">Humanitarian OpenStreetMap Team
+(HOT)</a></td>
+<td>A nonprofit that activates OSM mapping in response to humanitarian
+crises. Provides curated datasets for disaster-affected areas.</td>
+</tr></tbody></table><hr></div>
+<div class="section level3">
+<h3 id="government-data-sources">Government Data Sources<a class="anchor" aria-label="anchor" href="#government-data-sources"></a></h3>
+<p>Most government data portals provide data specific to their
+jurisdiction. The sources below cover a range of U.S. scales — city,
+county, federal — as well as a few of the most useful thematic federal
+datasets.</p>
+<p><strong>City and regional portals</strong> (most major cities have
+something comparable):</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://data.indy.gov/" class="external-link">Open Indy Data Portal</a></td>
+<td>Indianapolis’s open data platform, typical of what major U.S. cities
+provide.</td>
+</tr><tr><td><a href="https://data.cityofchicago.org" class="external-link">City of Chicago Open Data
+Portal</a></td>
+<td>One of the most comprehensive U.S. city open data portals, with
+hundreds of datasets on crime, health, transit, zoning, and more.</td>
+</tr><tr><td><a href="https://bostonopendata-boston.opendata.arcgis.com" class="external-link">City of
+Boston Open Data Portal</a></td>
+<td>Boston’s geospatial open data, including parcels, neighborhoods, and
+public infrastructure.</td>
+</tr><tr><td><a href="https://www.nyc.gov/content/planning/pages/resources#datasets" class="external-link">NYC
+Planning Department Datasets</a></td>
+<td>New York City Department of City Planning data including zoning,
+land use, and administrative boundaries.</td>
+</tr></tbody></table><p><strong>Federal U.S. sources:</strong></p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://www.census.gov/data.html" class="external-link">US Census Bureau Data and
+Maps</a></td>
+<td>The primary source for demographic, economic, and boundary data for
+the United States. Includes TIGER/Line shapefiles for census geographies
+at all levels.</td>
+</tr><tr><td><a href="https://www.nhgis.org/" class="external-link">National Historical GIS
+(NHGIS)</a></td>
+<td>Historical U.S. census data and boundary files from 1790 to the
+present, maintained by the University of Minnesota. Invaluable for
+temporal analysis.</td>
+</tr><tr><td><a href="https://hudgis-hud.opendata.arcgis.com/" class="external-link">US HUD Geospatial
+Data Storefront</a></td>
+<td>Housing and Urban Development spatial data including fair market
+rents, opportunity zones, and public housing locations.</td>
+</tr><tr><td><a href="https://data.cms.gov/provider-data/datasets" class="external-link">US CMS
+Provider Data Portal</a></td>
+<td>Healthcare provider locations and quality metrics from the Centers
+for Medicare and Medicaid Services.</td>
+</tr><tr><td><a href="https://www.countyhealthrankings.org/explore-health-rankings" class="external-link">US
+County Health Rankings and Roadmaps</a></td>
+<td>Annual county-level health outcome and health factor rankings for
+all U.S. counties. Tabular data linkable to Census boundary files.</td>
+</tr><tr><td><a href="https://www.ers.usda.gov/data-products/county-level-data-sets/" class="external-link">USDA
+Economic Research Service, County-Level Data</a></td>
+<td>Agricultural, economic, and food environment indicators at the U.S.
+county level.</td>
+</tr></tbody></table><hr></div>
+<div class="section level3">
+<h3 id="global-peace-health-and-economic-well-being">Global Peace, Health, and Economic Well-Being<a class="anchor" aria-label="anchor" href="#global-peace-health-and-economic-well-being"></a></h3>
+<p>These sources provide indicators relevant to global comparative
+research and humanitarian applications.</p>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://spatialdata.dhsprogram.com/home/" class="external-link">DHS Program
+Spatial Data Repository</a></td>
+<td>Geospatial data linked to Demographic and Health Survey results
+across low- and middle-income countries.</td>
+</tr><tr><td><a href="https://www.gu.se/en/quality-government/qog-data" class="external-link">University of
+Gothenburg Quality of Government (QoG) Portal</a></td>
+<td>Cross-national governance, corruption, and institutional quality
+indicators compiled from dozens of sources.</td>
+</tr><tr><td><a href="https://www.visionofhumanity.org/maps/" class="external-link">Vision of Humanity
+— Global Peace Index</a></td>
+<td>Annual country-level peace and conflict indicators with interactive
+and downloadable maps.</td>
+</tr><tr><td><a href="https://ucdp.uu.se/encyclopedia" class="external-link">Uppsala Conflict Data
+Program (UCDP)</a></td>
+<td>Maintained by Uppsala University; one of the most comprehensive
+databases of organized violence and armed conflict globally.</td>
+</tr><tr><td><a href="https://www.who.int/data/gho" class="external-link">WHO Global Health
+Observatory</a></td>
+<td>World Health Organization data on disease burden, health system
+capacity, and mortality globally.</td>
+</tr><tr><td><a href="https://databank.worldbank.org/source/world-development-indicators" class="external-link">World
+Bank World Development Indicators</a></td>
+<td>Comprehensive development data covering 200+ countries across
+economics, education, health, and environment.</td>
+</tr><tr><td><a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020" class="external-link">Maddison
+Project Database (University of Groningen)</a></td>
+<td>Long-run historical GDP and population estimates for countries
+worldwide, going back centuries.</td>
+</tr><tr><td><a href="https://freedomhouse.org/report/freedom-world" class="external-link">Freedom
+House — Freedom in the World</a></td>
+<td>Annual assessments of political rights and civil liberties for
+countries and territories.</td>
+</tr></tbody></table><hr></div>
+<div class="section level3">
+<h3 id="physical-and-environmental-features">Physical and Environmental Features<a class="anchor" aria-label="anchor" href="#physical-and-environmental-features"></a></h3>
+<table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Source</th>
+<th>Description</th>
+</tr></thead><tbody><tr><td><a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a></td>
+<td>A public domain dataset of natural and cultural features at 1:10m,
+1:50m, and 1:110m scales. Ideal for world and continental maps. Covers
+coastlines, rivers, lakes, country boundaries, populated places, and
+much more.</td>
+</tr><tr><td><a href="https://www.hydrosheds.org/" class="external-link">HydroSHEDS</a></td>
+<td>High-resolution hydrological data derived from NASA SRTM elevation
+data, including river networks, watersheds, and drainage basins.</td>
+</tr></tbody></table><hr></div>
+</section><section><h2 class="section-heading" id="practicum-exercise">Practicum Exercise<a class="anchor" aria-label="anchor" href="#practicum-exercise"></a></h2>
+<hr class="half-width"><div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout-inner">
+<h3 class="callout-title">Explore, Evaluate, and Map a Dataset of Your
+Choice</h3>
+<div class="callout-content">
+<p>Now that you have a working QGIS project and familiarity with loading
+data (from the previous episode), put those skills together using an
+external data source.</p>
+<p><strong>Part A — Choose and evaluate a dataset</strong></p>
+<p>Browse the data source directory above and select one dataset that
+interests you. Before downloading anything:</p>
+<ol style="list-style-type: decimal"><li>Read the source’s homepage or “About” page to understand its origin,
+coverage, and update frequency.</li>
+<li>Find and read the metadata for your chosen dataset. Note:
+<ul><li>When was it last updated?</li>
+<li>How was it collected?</li>
+<li>What geographic area does it cover?</li>
+<li>What do the key attribute fields represent?</li>
+</ul></li>
+<li>Write two to three sentences summarizing whether you think this
+dataset is reliable and appropriate for the kind of analysis you have in
+mind.</li>
+</ol><p><strong>Part B — Download and add to QGIS</strong></p>
+<ol style="list-style-type: decimal"><li>Download your chosen dataset and save it to your Session_1a
+folder.</li>
+<li>Add it to your QGIS project using the appropriate method:
+<ul><li>Shapefile or GeoJSON → <strong>Layer → Add Vector
+Layer</strong>
+</li>
+<li>CSV with coordinates → <strong>Layer → Data Source Manager →
+Delimited Text</strong>
+</li>
+</ul></li>
+<li>Open the <strong>Attribute Table</strong> and explore the fields.
+Identify at least one field that could be used to style the layer with
+<strong>Graduated</strong> or <strong>Categorized</strong>
+symbology.</li>
+<li>Style the layer using that field.</li>
+</ol><p><strong>Part C — Build a simple map layout</strong></p>
+<ol style="list-style-type: decimal"><li>Create a <strong>New Print Layout</strong> and add your styled
+layer.</li>
+<li>Include all required map elements: title, legend, scale bar, north
+arrow, and data credit.</li>
+<li>Export your map as a PNG or PDF.</li>
+</ol><p><strong>Bonus:</strong> Return to the data source directory and find
+a second dataset on a related theme. Add it to your map as a second
+layer and adjust the symbology so both layers are visible and
+distinguishable.</p>
+</div>
+</div>
+</div>
+<hr><div id="evaluating-data-sources" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="evaluating-data-sources" class="callout-inner">
+<h3 class="callout-title">Evaluating Data Sources</h3>
+<div class="callout-content">
+<ul><li>You found two datasets covering the same topic from different
+providers. They do not agree — features that appear in one are missing
+from the other, or the boundaries differ. How do you decide which to
+trust?</li>
+<li>When would you choose to download a full country dataset from
+Geofabrik rather than running a QuickOSM query? What are the
+trade-offs?</li>
+<li>Think about the research or mapping work you want to do. Which two
+or three sources from the directory above are most relevant to your area
+of interest, and why?</li>
+</ul></div>
 </div>
 </div>
 <!--

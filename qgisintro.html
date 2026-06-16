@@ -118,7 +118,7 @@
     <a id="search-button" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><aside class="col-md-12 lesson-progress"><div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">74%</div>
+    <div class="progress-bar incubator" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">75%</div>
   </div>
 </aside><div class="container">
       <div class="row">
@@ -245,13 +245,13 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#loading-your-first-dataset">Loading Your First Dataset</a></li>
-<li><a href="#styling-your-first-map">Styling Your First Map</a></li>
-<li><a href="#creating-a-map-layout">Creating a Map Layout</a></li>
-<li><a href="#exporting-your-map">Exporting Your Map</a></li>
+        <ul><li><a href="#introduction">Introduction</a></li>
+<li><a href="#part-1-loading-data">Part 1: Loading Data</a></li>
+<li><a href="#part-2-styling-your-map">Part 2: Styling Your Map</a></li>
+<li><a href="#part-3-adding-different-data-types">Part 3: Adding Different Data Types</a></li>
+<li><a href="#part-4-creating-a-map-layout">Part 4: Creating a Map Layout</a></li>
 <li><a href="#common-beginner-mistakes">Common Beginner Mistakes</a></li>
 <li><a href="#hands-on-exercise">Hands-On Exercise</a></li>
-<li><a href="#final-takeaways">Final Takeaways</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -336,8 +336,11 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>How do I load spatial data into QGIS?</li>
-<li>How can I style and visualize data on a map?</li>
-<li>How do I export a finished map?</li>
+<li>How can I add different types of vector data — shapefiles, CSV
+files, and live OSM data — to a map?</li>
+<li>How do I style and symbolize data to communicate clearly?</li>
+<li>How do I build and export a finished, publication-ready map
+layout?</li>
 </ul></div>
 </div>
 </div>
@@ -345,179 +348,423 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Load and explore spatial datasets</li>
-<li>Create and style a simple map</li>
-<li>Export a publication-ready map</li>
+<ul><li>Load and explore spatial datasets from multiple sources</li>
+<li>Install and use QGIS plugins to extend functionality</li>
+<li>Style layers using Single Symbol, Categorized, and Graduated
+options</li>
+<li>Build a map layout with all essential map elements</li>
+<li>Export a publication-ready map as an image or PDF</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="loading-your-first-dataset">Loading Your First Dataset<a class="anchor" aria-label="anchor" href="#loading-your-first-dataset"></a></h2>
-<hr class="half-width"><p>We will start with a simple dataset (e.g., shapefile or GeoJSON). You
-can find a sample dataset <a href="https://github.com/qgis/QGIS-Sample-Data/tree/master/qgis_sample_data" class="external-link">here</a></p>
-<p>For our example, we will use <code>airport.shp</code> in the
-shapefiles folder in the link. Along with the .shp file make sure to
-download its supporting files to load in the .shp correctly. They
-are:</p>
-<ul><li>airports.cpg</li>
-<li>airports.dbf</li>
-<li>airports.prj</li>
-<li>airports.shx</li>
-</ul><p>If you lead help with the interface of QGIS refer to the setup guide
-<a href="https://spatialturn.github.io/DataVisualization/index.html" class="external-link">here</a>.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul><li>QGIS can load vector data from shapefiles, GeoJSON files, geocoded
+CSV files, and live OpenStreetMap queries.</li>
+<li>Layer order matters — drag layers so that points and polygons of
+interest sit above basemap layers.</li>
+<li>Styling choices (symbol, color, size) should serve the map’s
+purpose, not just look decorative.</li>
+<li>A complete map layout includes a title, legend, scale bar, north
+arrow, and data source credit.</li>
+<li>Save your project frequently using <code>.qgz</code> — losing work
+to an unsaved session is the most common beginner mistake.</li>
+</ul></div>
+</div>
+</div>
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
+<hr class="half-width"><p>QGIS is a free, open-source Geographic Information System that runs
+on Windows, macOS, and Linux. In this episode we will go from a blank
+project to a finished, exported map using real spatial data.</p>
+<p>If you need help with the QGIS interface before starting, refer to
+the setup guide <a href="https://spatialturn.github.io/DataVisualization/index.html" class="external-link">here</a>.</p>
+<p>We will work through three stages:</p>
+<ol style="list-style-type: decimal"><li>
+<strong>Loading data</strong> — adding a basemap, shapefiles, and
+point data</li>
+<li>
+<strong>Styling layers</strong> — controlling how features look on
+the map</li>
+<li>
+<strong>Creating and exporting a layout</strong> — building a
+finished map with all required elements</li>
+</ol><hr></section><section><h2 class="section-heading" id="part-1-loading-data">Part 1: Loading Data<a class="anchor" aria-label="anchor" href="#part-1-loading-data"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="step-0-create-a-project-folder">Step 0: Create a Project Folder<a class="anchor" aria-label="anchor" href="#step-0-create-a-project-folder"></a></h3>
+<p>Before opening QGIS, create a folder on your desktop called
+<strong>Session_1a</strong>. All data files you download will go here,
+and your QGIS project file (<code>.qgz</code>) will be saved here too.
+Keeping data and project files together prevents broken layer links
+later.</p>
+<hr></div>
 <div class="section level3">
-<h3 id="step-0-add-base-map">Step 0: Add Base Map<a class="anchor" aria-label="anchor" href="#step-0-add-base-map"></a></h3>
-<ol style="list-style-type: decimal"><li>In the Browser Panel click on <code>XYZ Tiles</code>.</li>
-<li>You should see 2 options: Global Terrain and Open Street Map.</li>
-<li>Right click on Open Street Map and Add Layer to Project.</li>
-<li>You should now see a world map on you Map Panel.</li>
-</ol></div>
-<div class="section level3">
-<h3 id="step-1-add-a-vector-layer">Step 1: Add a Vector Layer<a class="anchor" aria-label="anchor" href="#step-1-add-a-vector-layer"></a></h3>
-<ol style="list-style-type: decimal"><li>Go to: <strong>Layer → Add Layer → Add Vector Layer</strong>. Since
-we are working with point data here.</li>
-<li>Browse to your dataset</li>
-<li>Click <strong>Add</strong> or double click on the file.</li>
-<li>(If Applicable), drag the airports layer above the Open Street Map
-Layer since you want the points on top of the world map.</li>
+<h3 id="step-1-add-a-basemap">Step 1: Add a Basemap<a class="anchor" aria-label="anchor" href="#step-1-add-a-basemap"></a></h3>
+<ol style="list-style-type: decimal"><li>In the <strong>Browser Panel</strong>, click on <strong>XYZ
+Tiles</strong>.</li>
+<li>You will see two options: <strong>Global Terrain</strong> and
+<strong>OpenStreetMap</strong>.</li>
+<li>Right-click <strong>OpenStreetMap</strong> and select <strong>Add
+Layer to Project</strong>.</li>
+<li>A world map should now appear in the <strong>Map
+Panel</strong>.</li>
 </ol><hr></div>
 <div class="section level3">
-<h3 id="step-2-view-the-data">Step 2: View the Data<a class="anchor" aria-label="anchor" href="#step-2-view-the-data"></a></h3>
-<ul><li>Your data will appear on the map</li>
-<li>The layer will show in the <strong>Layers Panel</strong>
-</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-3-explore-attributes">Step 3: Explore Attributes<a class="anchor" aria-label="anchor" href="#step-3-explore-attributes"></a></h3>
-<ol style="list-style-type: decimal"><li>Right-click the layer</li>
-<li>Click <strong>Open Attribute Table</strong>
-</li>
-<li>You should see 76 entries for number of airports in Alaska.</li>
-</ol><p>This table contains the data behind your map.</p>
-<div class="section level4">
-<h4 id="note-make-sure-to-save-the-project-at-regular-intervals-to-save-your-progress">Note: Make sure to save the project at regular intervals to save
-your progress!<a class="anchor" aria-label="anchor" href="#note-make-sure-to-save-the-project-at-regular-intervals-to-save-your-progress"></a></h4>
-<hr></div>
-</div>
-</section><section><h2 class="section-heading" id="styling-your-first-map">Styling Your First Map<a class="anchor" aria-label="anchor" href="#styling-your-first-map"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="step-1-open-layer-properties">Step 1: Open Layer Properties<a class="anchor" aria-label="anchor" href="#step-1-open-layer-properties"></a></h3>
-<ul><li>Right-click the layer → <strong>Properties</strong>
-</li>
-<li>Go to the <strong>Symbology</strong> tab</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-2-choose-a-style">Step 2: Choose a Style<a class="anchor" aria-label="anchor" href="#step-2-choose-a-style"></a></h3>
-<figure><img src="symbology.png" title="Airport Map Alaska" alt="You can change marker size, symbols, transparency etc. Make your map visually good such that it is clear to viewer!" class="figure mx-auto d-block"><div class="figcaption">You can change marker size, symbols,
-transparency etc. Make your map visually good such that it is clear to
-viewer!</div>
-</figure><ul><li>Set the <code>Magnifier</code> at the bottom of the Map Panel to
-75%.</li>
-<li>To change layer name right click on the Layer → Properties → Source
-→ Change Layer Name and apply. This is important as later this reflects
-the naming of the Legend when exporting the map.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="common-styling-options">Common styling options:<a class="anchor" aria-label="anchor" href="#common-styling-options"></a></h3>
-<ul><li>
-<strong>Single Symbol</strong> → same style for all features<br></li>
-<li>
-<strong>Categorized</strong> → different colors for categories<br></li>
-<li>
-<strong>Graduated</strong> → color ramp for numeric data</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-3-apply-colors-applicable-if-working-with-a-lot-more-data-like-elevation-climate-data">Step 3: Apply Colors (Applicable if working with a lot more data
-like elevation, climate data)<a class="anchor" aria-label="anchor" href="#step-3-apply-colors-applicable-if-working-with-a-lot-more-data-like-elevation-climate-data"></a></h3>
-<ul><li>Try downloading the <code>elevp</code> file in csv folder</li>
-<li>Choose a color ramp</li>
-<li>Adjust classes (for graduated maps)</li>
-<li>Click <strong>Apply</strong>
-</li>
-</ul><hr></div>
-</section><section><h2 class="section-heading" id="creating-a-map-layout">Creating a Map Layout<a class="anchor" aria-label="anchor" href="#creating-a-map-layout"></a></h2>
-<hr class="half-width"><p>To export your map, use the <strong>Print Layout</strong>.</p>
-<div class="section level3">
-<h3 id="step-1-open-layout">Step 1: Open Layout<a class="anchor" aria-label="anchor" href="#step-1-open-layout"></a></h3>
-<ul><li>Go to: <strong>Project → New Print Layout</strong>
-</li>
-<li>Give it a name</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-2-add-map">Step 2: Add Map<a class="anchor" aria-label="anchor" href="#step-2-add-map"></a></h3>
-<ul><li>Click Add Item then <strong>Add Map</strong>
-</li>
-<li>Draw a rectangle on the page</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-3-add-map-elements">Step 3: Add Map Elements<a class="anchor" aria-label="anchor" href="#step-3-add-map-elements"></a></h3>
-<figure><img src="additemmap.png" title="Map Elements" alt="Add all the necessary map items as mentioned in the previous module. Your map needs to convey information as clearly as possible." class="figure mx-auto d-block"><div class="figcaption">Add all the necessary map items as mentioned in
-the previous module. Your map needs to convey information as clearly as
-possible.</div>
-</figure><p>Include: - <strong>Title</strong>, Add Item → Add Label → Draw
-Rectangle on top of map - <strong>Legend</strong> - <strong>Scale
-Bar</strong> - <strong>North Arrow</strong> - Add Metadata (who created
-the map?). Do this at the bottom of the map</p>
-<hr></div>
-</section><section><h2 class="section-heading" id="exporting-your-map">Exporting Your Map<a class="anchor" aria-label="anchor" href="#exporting-your-map"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="step-1-export">Step 1: Export<a class="anchor" aria-label="anchor" href="#step-1-export"></a></h3>
-<ul><li>In layout window:
-<ul><li><strong>Export as Image</strong></li>
-<li><strong>Export as PDF</strong></li>
-</ul></li>
-<li>You can leave the default options and click ok.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="step-2-save-your-project">Step 2: Save Your Project<a class="anchor" aria-label="anchor" href="#step-2-save-your-project"></a></h3>
-<ul><li>Always save your QGIS project file (<code>.qgz</code>)</li>
-</ul><figure><img src="airportmap.png" title="Alaska Airport Map" alt="This is the map we came up with for representing Airports in Alaska." class="figure mx-auto d-block"><div class="figcaption">This is the map we came up with for representing
-Airports in Alaska.</div>
-</figure><hr></div>
-</section><section><h2 class="section-heading" id="common-beginner-mistakes">Common Beginner Mistakes<a class="anchor" aria-label="anchor" href="#common-beginner-mistakes"></a></h2>
-<hr class="half-width"><ul><li>Forgetting to save the project</li>
-<li>Using raw counts instead of normalized data</li>
-<li>Overcomplicating symbology</li>
-<li>Ignoring legends and labels/naming</li>
-</ul><div id="keep-it-simple" class="callout">
+<h3 id="step-2-download-and-add-a-shapefile">Step 2: Download and Add a Shapefile<a class="anchor" aria-label="anchor" href="#step-2-download-and-add-a-shapefile"></a></h3>
+<p>We will use the QGIS sample dataset for this walkthrough. Download
+the airport data from the <a href="https://github.com/qgis/QGIS-Sample-Data/tree/master/qgis_sample_data" class="external-link">QGIS
+Sample Data repository</a> — specifically, <code>airports.shp</code>
+from the <code>shapefiles</code> folder.</p>
+<p>A shapefile is not a single file. You must download all of the
+following supporting files alongside the <code>.shp</code> or the layer
+will not load correctly:</p>
+<table class="table"><thead><tr><th>File</th>
+<th>Purpose</th>
+</tr></thead><tbody><tr><td><code>airports.shp</code></td>
+<td>Geometry (the point locations)</td>
+</tr><tr><td><code>airports.dbf</code></td>
+<td>Attribute table (the data)</td>
+</tr><tr><td><code>airports.prj</code></td>
+<td>Coordinate reference system</td>
+</tr><tr><td><code>airports.shx</code></td>
+<td>Spatial index</td>
+</tr><tr><td><code>airports.cpg</code></td>
+<td>Character encoding</td>
+</tr></tbody></table><p>Save all files to your <strong>Session_1a</strong> folder.</p>
+<p>To add the shapefile to your map:</p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Layer → Add Layer → Add Vector Layer</strong>.</li>
+<li>Under <strong>Source</strong>, click the <strong>…</strong> button
+and navigate to <code>airports.shp</code>.</li>
+<li>Click <strong>Add</strong>, then close the dialog.</li>
+<li>In the <strong>Layers Panel</strong>, drag the <code>airports</code>
+layer above the OpenStreetMap layer so the airport points appear on top
+of the basemap.</li>
+</ol><div id="layer-order-matters" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="keep-it-simple" class="callout-inner">
-<h3 class="callout-title">Keep It Simple</h3>
+<div id="layer-order-matters" class="callout-inner">
+<h3 class="callout-title">Layer Order Matters</h3>
 <div class="callout-content">
-<p>Start with a clear, simple map before adding complexity.</p>
+<p>QGIS draws layers from bottom to top. If your data layer is
+underneath the basemap in the Layers Panel, it will be hidden. Always
+check that your data sits above any basemap layers.</p>
 </div>
 </div>
 </div>
-<hr></section><section><h2 class="section-heading" id="hands-on-exercise">Hands-On Exercise<a class="anchor" aria-label="anchor" href="#hands-on-exercise"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="task">Task:<a class="anchor" aria-label="anchor" href="#task"></a></h3>
-<p>Create a choropleth map showing a variable of your choice.</p>
-</div>
+<hr></div>
 <div class="section level3">
-<h3 id="steps">Steps:<a class="anchor" aria-label="anchor" href="#steps"></a></h3>
-<ol style="list-style-type: decimal"><li>Load a dataset</li>
-<li>Open Symbology → Graduated</li>
-<li>Choose a numeric field</li>
-<li>Apply a color ramp</li>
-<li>Export the map</li>
+<h3 id="step-3-explore-the-attribute-table">Step 3: Explore the Attribute Table<a class="anchor" aria-label="anchor" href="#step-3-explore-the-attribute-table"></a></h3>
+<p>The attribute table contains the data values behind every feature on
+the map. To open it:</p>
+<ol style="list-style-type: decimal"><li>Right-click the <code>airports</code> layer in the Layers
+Panel.</li>
+<li>Select <strong>Open Attribute Table</strong>.</li>
+<li>You should see 76 rows — one for each airport in Alaska.</li>
+</ol><p>Explore the columns: you will see fields for airport name, elevation,
+and other attributes that can be used to style the map in the next
+section.</p>
+<div id="save-often" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="save-often" class="callout-inner">
+<h3 class="callout-title">Save Often</h3>
+<div class="callout-content">
+<p>Go to <strong>Project → Save</strong> (or Ctrl+S / Cmd+S) regularly.
+QGIS does not autosave. Losing progress to an unsaved session is the
+single most common beginner mistake.</p>
+</div>
+</div>
+</div>
+<hr></div>
+</section><section><h2 class="section-heading" id="part-2-styling-your-map">Part 2: Styling Your Map<a class="anchor" aria-label="anchor" href="#part-2-styling-your-map"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="step-1-open-layer-properties">Step 1: Open Layer Properties<a class="anchor" aria-label="anchor" href="#step-1-open-layer-properties"></a></h3>
+<p>Right-click the <code>airports</code> layer →
+<strong>Properties</strong> → navigate to the <strong>Symbology</strong>
+tab.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="step-2-choose-a-symbol-style">Step 2: Choose a Symbol Style<a class="anchor" aria-label="anchor" href="#step-2-choose-a-symbol-style"></a></h3>
+<p>QGIS offers three main styling modes:</p>
+<table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr><th>Style</th>
+<th>Use when…</th>
+<th>Example</th>
+</tr></thead><tbody><tr><td><strong>Single Symbol</strong></td>
+<td>All features should look the same</td>
+<td>All airports shown as identical blue dots</td>
+</tr><tr><td><strong>Categorized</strong></td>
+<td>Features belong to named groups</td>
+<td>Airports colored by type (international, regional, private)</td>
+</tr><tr><td><strong>Graduated</strong></td>
+<td>Features vary along a numeric scale</td>
+<td>Airport symbols sized by elevation</td>
+</tr></tbody></table><p>For the airports layer, try <strong>Single Symbol</strong> first to
+get comfortable with the controls. You can adjust the marker shape,
+size, color, and transparency from this panel.</p>
+<figure><img src="symbology.png" title="QGIS Symbology Panel" alt="The QGIS Symbology panel showing marker style, size, and color options for the airports layer." class="figure mx-auto d-block"><div class="figcaption">The QGIS Symbology panel showing marker style,
+size, and color options for the airports layer.</div>
+</figure><p><strong>Tip:</strong> Set the Magnifier at the bottom of the Map
+Panel to 75% if the map feels too large for your screen.</p>
+<p><strong>Tip:</strong> To rename a layer (which also controls how it
+appears in the legend), right-click the layer → <strong>Properties →
+Source → Layer Name</strong>. Give it a clear, human-readable name
+before building your layout.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="step-3-apply-a-graduated-style-optional-for-numeric-data">Step 3: Apply a Graduated Style (Optional — for numeric data)<a class="anchor" aria-label="anchor" href="#step-3-apply-a-graduated-style-optional-for-numeric-data"></a></h3>
+<p>Graduated symbology is useful when your data has a meaningful numeric
+field. The QGIS sample data includes an elevation CSV
+(<code>elevp</code>) in the <code>csv</code> folder of the same
+repository. Download it and try:</p>
+<ol style="list-style-type: decimal"><li>Load the CSV as a delimited text layer (see Part 3, Step 2 below for
+the full method).</li>
+<li>Open its Symbology → select <strong>Graduated</strong>.</li>
+<li>Choose the elevation field as the value column.</li>
+<li>Select a sequential color ramp (light to dark).</li>
+<li>Adjust the number of classes and click <strong>Apply</strong>.</li>
+</ol><p>This is the same graduated approach you would use for a choropleth
+map of Census data or any other continuous numeric variable.</p>
+<hr></div>
+</section><section><h2 class="section-heading" id="part-3-adding-different-data-types">Part 3: Adding Different Data Types<a class="anchor" aria-label="anchor" href="#part-3-adding-different-data-types"></a></h2>
+<hr class="half-width"><p>Real-world GIS projects rarely use a single data source. This section
+covers the three most common ways to bring vector data into QGIS.</p>
+<hr><div class="section level3">
+<h3 id="method-1-add-a-downloaded-shapefile">Method 1: Add a Downloaded Shapefile<a class="anchor" aria-label="anchor" href="#method-1-add-a-downloaded-shapefile"></a></h3>
+<p>This is the method covered in Part 1 Step 2 above. Use it for any
+shapefile you have downloaded to disk:</p>
+<ol style="list-style-type: decimal"><li><strong>Layer → Add Layer → Add Vector Layer</strong></li>
+<li>Browse to the <code>.shp</code> file</li>
+<li>Click <strong>Add</strong>
+</li>
+</ol><p>Alternatively, locate the folder containing your shapefiles in your
+file explorer and <strong>drag the <code>.shp</code> file directly onto
+the Layers Panel</strong>.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="method-2-add-a-geocoded-csv-file-point-data-from-coordinates">Method 2: Add a Geocoded CSV File (Point Data from Coordinates)<a class="anchor" aria-label="anchor" href="#method-2-add-a-geocoded-csv-file-point-data-from-coordinates"></a></h3>
+<p>If you have a spreadsheet containing latitude and longitude columns,
+QGIS can treat it as a point layer. We will use a UFO sightings dataset
+for this example — download it from the shared Session 1a Google folder
+(<code>UFOreports_USonly_WorkshopLayer.csv</code>) and save it to your
+Session_1a folder.</p>
+<ol style="list-style-type: decimal"><li>Click the <strong>Open Data Source Manager</strong> button in the
+toolbar (or <strong>Layer → Data Source Manager</strong>).</li>
+<li>Select <strong>Delimited Text</strong> in the left panel.</li>
+<li>In the <strong>File Name</strong> field, navigate to
+<code>UFOreports_USonly_WorkshopLayer.csv</code>.</li>
+<li>Confirm that <strong>File Format</strong> is set to
+<strong>CSV</strong>.</li>
+<li>Verify that the <strong>X field</strong> and <strong>Y
+field</strong> are set to the longitude and latitude columns
+respectively.</li>
+<li>Click <strong>Add</strong>, then close the dialog.</li>
+</ol><p>This creates a temporary point layer. If you want to keep it
+permanently, right-click the layer → <strong>Export → Save Features
+As…</strong> and save it as a shapefile or GeoPackage.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="method-3-add-live-data-via-the-quickosm-plugin">Method 3: Add Live Data via the QuickOSM Plugin<a class="anchor" aria-label="anchor" href="#method-3-add-live-data-via-the-quickosm-plugin"></a></h3>
+<p>OpenStreetMap contains a vast, continuously updated collection of
+mapped features — roads, buildings, parks, universities, restaurants,
+and much more. The QuickOSM plugin lets you query this data directly
+from within QGIS without downloading anything manually.</p>
+<p><strong>Install the plugin first:</strong></p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Plugins → Manage and Install Plugins…</strong>
+</li>
+<li>Search for <strong>QuickOSM</strong> and click <strong>Install
+Plugin</strong>.</li>
+<li>While you have the plugin manager open, also install <strong>NextGIS
+QuickMapServices</strong> — this gives you access to a much wider range
+of basemap options beyond OpenStreetMap.</li>
+</ol><p><strong>Run a query:</strong></p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Vector → QuickOSM → Quick Query</strong>.</li>
+<li>In the <strong>Preset</strong> field, type <code>university</code>
+and select <strong>facilities/education/universities</strong>.</li>
+<li>In the <strong>In</strong> field, type
+<code>West Lafayette, IN</code>.</li>
+<li>Click <strong>Run Query</strong>. A polygon layer for Purdue
+University’s campus should appear on your map.</li>
+<li>Right-click the new layer → <strong>Properties → Symbology</strong>
+to adjust its color and transparency.</li>
+</ol><p>Try a second query: repeat the process with <code>shops/food</code>
+in the Preset field and the same location. This returns footprints for
+food stores around Purdue’s campus.</p>
+<div id="osm-feature-tags" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="osm-feature-tags" class="callout-inner">
+<h3 class="callout-title">OSM Feature Tags</h3>
+<div class="callout-content">
+<p>OpenStreetMap uses a structured tagging system to classify features.
+To explore what categories are available (roads, healthcare facilities,
+landuse types, and more), see the <a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map Features
+Wiki</a>.</p>
+</div>
+</div>
+</div>
+<hr></div>
+</section><section><h2 class="section-heading" id="part-4-creating-a-map-layout">Part 4: Creating a Map Layout<a class="anchor" aria-label="anchor" href="#part-4-creating-a-map-layout"></a></h2>
+<hr class="half-width"><p>The <strong>Print Layout</strong> is QGIS’s dedicated tool for
+building finished, export-ready maps. It is separate from the main map
+canvas — the main canvas is for exploration, the Print Layout is for
+publication.</p>
+<div class="section level3">
+<h3 id="step-1-open-a-new-layout">Step 1: Open a New Layout<a class="anchor" aria-label="anchor" href="#step-1-open-a-new-layout"></a></h3>
+<ol style="list-style-type: decimal"><li>Go to <strong>Project → New Print Layout</strong> (or click the New
+Print Layout icon in the toolbar).</li>
+<li>Give the layout a name and click <strong>OK</strong>.</li>
+<li>A new window will open with a blank white canvas representing your
+page.</li>
 </ol><hr></div>
-</section><section><h2 class="section-heading" id="final-takeaways">Final Takeaways<a class="anchor" aria-label="anchor" href="#final-takeaways"></a></h2>
-<hr class="half-width"><ul><li>QGIS is a powerful, free tool for spatial analysis</li>
-<li>Good maps start with clean data and simple design</li>
-<li>Symbology and layout are key to communication</li>
-</ul><div id="discussion1" class="callout discussion">
+<div class="section level3">
+<h3 id="step-2-add-the-map-frame">Step 2: Add the Map Frame<a class="anchor" aria-label="anchor" href="#step-2-add-the-map-frame"></a></h3>
+<ol style="list-style-type: decimal"><li>In the toolbar on the left side of the Layout window, click
+<strong>Add Item → Add Map</strong>.</li>
+<li>Draw a rectangle on the canvas by clicking and dragging. The current
+map view from your main canvas will appear inside the rectangle.</li>
+<li>Use the <strong>Item Properties</strong> panel on the right to lock
+the scale or adjust the extent if needed.</li>
+</ol><hr></div>
+<div class="section level3">
+<h3 id="step-3-add-all-required-map-elements">Step 3: Add All Required Map Elements<a class="anchor" aria-label="anchor" href="#step-3-add-all-required-map-elements"></a></h3>
+<p>A complete, publication-ready map must include the following
+elements. Use the <strong>Add Item</strong> menu in the toolbar to
+insert each one:</p>
+<figure><img src="additemmap.png" title="QGIS Print Layout with Map Elements" alt="The QGIS Print Layout window showing a map with a title, legend, scale bar, and north arrow added." class="figure mx-auto d-block"><div class="figcaption">The QGIS Print Layout window showing a map with
+a title, legend, scale bar, and north arrow added.</div>
+</figure><table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr><th>Element</th>
+<th>How to add</th>
+<th>Notes</th>
+</tr></thead><tbody><tr><td><strong>Title</strong></td>
+<td>Add Item → Add Label</td>
+<td>Draw a text box at the top of the canvas; enter a descriptive
+title</td>
+</tr><tr><td><strong>Legend</strong></td>
+<td>Add Item → Add Legend</td>
+<td>QGIS auto-populates from layer names — this is why renaming layers
+matters</td>
+</tr><tr><td><strong>Scale Bar</strong></td>
+<td>Add Item → Add Scale Bar</td>
+<td>Choose units appropriate for your map extent</td>
+</tr><tr><td><strong>North Arrow</strong></td>
+<td>Add Item → Add North Arrow</td>
+<td>Only strictly necessary if north is not obviously up</td>
+</tr><tr><td><strong>Data credit / metadata</strong></td>
+<td>Add Item → Add Label</td>
+<td>Add at the bottom: your name, data sources, and date</td>
+</tr></tbody></table><hr></div>
+<div class="section level3">
+<h3 id="step-4-export-the-layout">Step 4: Export the Layout<a class="anchor" aria-label="anchor" href="#step-4-export-the-layout"></a></h3>
+<p>Once you are satisfied with the layout:</p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Layout → Export as Image</strong> (for PNG/JPEG) or
+<strong>Layout → Export as PDF</strong>.</li>
+<li>Accept the default settings and click <strong>OK</strong>.</li>
+<li>Return to the main QGIS window and save your project:
+<strong>Project → Save</strong> (<code>.qgz</code>).</li>
+</ol><p>Below is an example of a finished map created using this workflow —
+Alaska airports displayed as point symbols over an OpenStreetMap
+basemap:</p>
+<figure><img src="airportmap.png" title="Finished Alaska Airport Map" alt="A finished map showing 76 airports in Alaska as point symbols, with a title, legend, scale bar, north arrow, and data credit." class="figure mx-auto d-block"><div class="figcaption">A finished map showing 76 airports in Alaska as
+point symbols, with a title, legend, scale bar, north arrow, and data
+credit.</div>
+</figure><hr></div>
+</section><section><h2 class="section-heading" id="common-beginner-mistakes">Common Beginner Mistakes<a class="anchor" aria-label="anchor" href="#common-beginner-mistakes"></a></h2>
+<hr class="half-width"><table class="table"><colgroup><col width="50%"><col width="50%"></colgroup><thead><tr><th>Mistake</th>
+<th>How to avoid it</th>
+</tr></thead><tbody><tr><td>Forgetting to save the project</td>
+<td>Use Ctrl+S / Cmd+S frequently; save before every major step</td>
+</tr><tr><td>Data layer hidden beneath the basemap</td>
+<td>Check layer order in the Layers Panel; drag data layers above
+basemaps</td>
+</tr><tr><td>Shapefile won’t load</td>
+<td>Ensure all five supporting files (<code>.dbf</code>,
+<code>.prj</code>, <code>.shx</code>, <code>.cpg</code>) are in the same
+folder as the <code>.shp</code>
+</td>
+</tr><tr><td>Legend shows code names instead of readable labels</td>
+<td>Rename layers before building the layout via <strong>Properties →
+Source → Layer Name</strong>
+</td>
+</tr><tr><td>Map exports blank</td>
+<td>Make sure the layout’s map frame is linked to the correct map
+canvas</td>
+</tr><tr><td>Overcomplicating symbology</td>
+<td>Start with Single Symbol; add complexity only when it communicates
+something specific</td>
+</tr></tbody></table><hr></section><section><h2 class="section-heading" id="hands-on-exercise">Hands-On Exercise<a class="anchor" aria-label="anchor" href="#hands-on-exercise"></a></h2>
+<hr class="half-width"><div id="build-a-multi-layer-map-of-west-lafayette" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div class="callout-inner">
+<div id="build-a-multi-layer-map-of-west-lafayette" class="callout-inner">
+<h3 class="callout-title">Build a Multi-Layer Map of West Lafayette</h3>
 <div class="callout-content">
-<ul><li>What challenges did you face while creating your first map?</li>
-<li>How would you improve your map for a different audience?</li>
+<p>In this exercise you will combine all three data-loading methods to
+build a multi-layer map.</p>
+<p><strong>Setup:</strong> Create a new QGIS project saved to your
+Session_1a folder.</p>
+<p><strong>Step 1 — Download shapefiles from Natural Earth</strong></p>
+<p>Go to <a href="https://www.naturalearthdata.com" class="external-link">naturalearthdata.com</a> and
+read the homepage briefly to understand the data’s purpose, scale, and
+reliability. Then navigate to <strong>Downloads → Medium Scale
+Data</strong> and download the following:</p>
+<p>From <strong>Cultural</strong>: - Admin-0 Country boundaries
+(polygon) - Admin-1 States and Provinces (polygon) - Populated Places
+(point)</p>
+<p>From <strong>Physical</strong>: - Rivers, Lake Centerlines (line)</p>
+<p>Save all files to your Session_1a folder and add them to your QGIS
+project.</p>
+<p><strong>Step 2 — Add UFO sighting data from a CSV</strong></p>
+<p>Download <code>UFOreports_USonly_WorkshopLayer.csv</code> from the
+shared Session 1a Google folder. Use <strong>Layer → Data Source Manager
+→ Delimited Text</strong> to add it as a point layer, setting the X and
+Y fields to the longitude and latitude columns.</p>
+<p><strong>Step 3 — Add live OSM data</strong></p>
+<p>Use the <strong>QuickOSM</strong> plugin to query two features in
+West Lafayette, IN: - <code>facilities/education/universities</code> (to
+get Purdue University) - <code>shops/food</code> (to get food stores
+near campus)</p>
+<p>Style each layer with a distinct color and adjust transparency as
+needed.</p>
+<p><strong>Step 4 — Build a map layout</strong></p>
+<p>Turn off all layers except the Purdue campus polygon and the food
+stores layer. Open a new <strong>Print Layout</strong> and build a
+finished map that includes: - A descriptive title - A legend with
+readable layer names - A scale bar - A north arrow - A data credit
+noting your name, data sources, and today’s date</p>
+<p><strong>Step 5 — Export</strong></p>
+<p>Export your layout as both a PDF and a PNG image.</p>
+</div>
+</div>
+</div>
+<hr><div id="reflect-on-your-first-map" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="reflect-on-your-first-map" class="callout-inner">
+<h3 class="callout-title">Reflect on Your First Map</h3>
+<div class="callout-content">
+<ul><li>What was the most confusing step in the workflow? How did you
+resolve it?</li>
+<li>Look at your finished map — what would you change to make it clearer
+for someone unfamiliar with the area?</li>
+<li>How does working with live OSM data (QuickOSM) differ from working
+with a downloaded shapefile? What are the trade-offs of each
+approach?</li>
 </ul></div>
 </div>
 </div>
