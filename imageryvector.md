@@ -150,9 +150,11 @@ These sources provide indicators relevant to global comparative research and hum
 
 ---
 
-## Practicum Exercise
+## Practical Exercise (Optional)
 
 ::::::::::::::::::::::::::::::::::::: challenge
+
+**Do this after Getting Started with QGIS: Your First Map**. It will make much more sense!
 
 ### Explore, Evaluate, and Map a Dataset of Your Choice
 

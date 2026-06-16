@@ -246,7 +246,7 @@ The **Print Layout** is QGIS's dedicated tool for building finished, export-read
 
 A complete, publication-ready map must include the following elements. Use the **Add Item** menu in the toolbar to insert each one:
 
-![The QGIS Print Layout window showing a map with a title, legend, scale bar, and north arrow added.](additemmap.png "QGIS Print Layout with Map Elements")
+![The QGIS Print Layout window showing a map and option to add title, legend, scale bar, and north arrow.](additemmap.png "QGIS Print Layout with Map Elements")
 
 | Element | How to add | Notes |
 |---|---|---|
@@ -295,42 +295,46 @@ In this exercise you will combine all three data-loading methods to build a mult
 
 **Setup:** Create a new QGIS project saved to your Session_1a folder.
 
-**Step 1 — Download shapefiles from Natural Earth**
+#### **Step 1 — Download shapefiles from Natural Earth**
 
 Go to [naturalearthdata.com](https://www.naturalearthdata.com) and read the homepage briefly to understand the data's purpose, scale, and reliability. Then navigate to **Downloads → Medium Scale Data** and download the following:
 
 From **Cultural**:
+
 - Admin-0 Country boundaries (polygon)
 - Admin-1 States and Provinces (polygon)
 - Populated Places (point)
 
 From **Physical**:
+
 - Rivers, Lake Centerlines (line)
 
 Save all files to your Session_1a folder and add them to your QGIS project.
 
-**Step 2 — Add UFO sighting data from a CSV**
+#### **Step 2 — Add UFO sighting data from a CSV**
 
 Download `UFOreports_USonly_WorkshopLayer.csv` from the shared Session 1a Google folder. Use **Layer → Data Source Manager → Delimited Text** to add it as a point layer, setting the X and Y fields to the longitude and latitude columns.
 
-**Step 3 — Add live OSM data**
+#### **Step 3 — Add live OSM data**
 
 Use the **QuickOSM** plugin to query two features in West Lafayette, IN:
+
 - `facilities/education/universities` (to get Purdue University)
 - `shops/food` (to get food stores near campus)
 
 Style each layer with a distinct color and adjust transparency as needed.
 
-**Step 4 — Build a map layout**
+#### **Step 4 — Build a map layout**
 
 Turn off all layers except the Purdue campus polygon and the food stores layer. Open a new **Print Layout** and build a finished map that includes:
+
 - A descriptive title
 - A legend with readable layer names
 - A scale bar
 - A north arrow
 - A data credit noting your name, data sources, and today's date
 
-**Step 5 — Export**
+#### **Step 5 — Export**
 
 Export your layout as both a PDF and a PNG image.
 
