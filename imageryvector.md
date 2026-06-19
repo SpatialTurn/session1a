@@ -150,49 +150,6 @@ These sources provide indicators relevant to global comparative research and hum
 
 ---
 
-## Practical Exercise (Optional)
-
-::::::::::::::::::::::::::::::::::::: challenge
-
-**Do this after Getting Started with QGIS: Your First Map**. It will make much more sense!
-
-### Explore, Evaluate, and Map a Dataset of Your Choice
-
-Now that you have a working QGIS project and familiarity with loading data (from the previous episode), put those skills together using an external data source.
-
-**Part A — Choose and evaluate a dataset**
-
-Browse the data source directory above and select one dataset that interests you. Before downloading anything:
-
-1. Read the source's homepage or "About" page to understand its origin, coverage, and update frequency.
-2. Find and read the metadata for your chosen dataset. Note:
-   - When was it last updated?
-   - How was it collected?
-   - What geographic area does it cover?
-   - What do the key attribute fields represent?
-3. Write two to three sentences summarizing whether you think this dataset is reliable and appropriate for the kind of analysis you have in mind.
-
-**Part B — Download and add to QGIS**
-
-1. Download your chosen dataset and save it to your Session_1a folder.
-2. Add it to your QGIS project using the appropriate method:
-   - Shapefile or GeoJSON → **Layer → Add Vector Layer**
-   - CSV with coordinates → **Layer → Data Source Manager → Delimited Text**
-3. Open the **Attribute Table** and explore the fields. Identify at least one field that could be used to style the layer with **Graduated** or **Categorized** symbology.
-4. Style the layer using that field.
-
-**Part C — Build a simple map layout**
-
-1. Create a **New Print Layout** and add your styled layer.
-2. Include all required map elements: title, legend, scale bar, north arrow, and data credit.
-3. Export your map as a PNG or PDF.
-
-**Bonus:** Return to the data source directory and find a second dataset on a related theme. Add it to your map as a second layer and adjust the symbology so both layers are visible and distinguishable.
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
----
-
 ::::::::::::::::::::::::::::::::::::: discussion
 
 ### Evaluating Data Sources
