@@ -1,5 +1,5 @@
 ---
-title: "Getting Started with QGIS: Your First Map"
+title: "Exercise 1a: Acquiring Data and Making Your First Map in QGIS"
 teaching: 60
 exercises: 45
 ---

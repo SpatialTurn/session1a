@@ -67,11 +67,11 @@ contact: 'team@carpentries.org' # FIXME
 
 # Order of episodes in your lesson
 episodes: 
+- imageryvector.md
+- qgisintro.md
 - introduction.md
 - mapvisual.md
 - mapbasics.md
-- imageryvector.md
-- qgisintro.md
 
 # Information for Learners
 learners: 
