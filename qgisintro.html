@@ -118,7 +118,7 @@
     <a id="search-button" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><aside class="col-md-12 lesson-progress"><div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 14%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">14%</div>
+    <div class="progress-bar incubator" role="progressbar" style="width: 27%" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">27%</div>
   </div>
 </aside><div class="container">
       <div class="row">
@@ -221,11 +221,12 @@
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#part-1-loading-data">Part 1: Loading Data</a></li>
 <li><a href="#part-2-styling-your-map">Part 2: Styling Your Map</a></li>
-<li><a href="#part-3-adding-different-data-types">Part 3: Adding Different Data Types</a></li>
-<li><a href="#part-4-creating-a-map-layout">Part 4: Creating a Map Layout</a></li>
+<li><a href="#part-3-creating-a-map-layout">Part 3: Creating a Map Layout</a></li>
 <li><a href="#common-beginner-mistakes">Common Beginner Mistakes</a></li>
-<li><a href="#hands-on-exercise">Hands-On Exercise</a></li>
-<li><a href="#practical-exercise-optional">Practical Exercise (Optional)</a></li>
+<li><a href="#exercise-1a.1-guided-walkthrough">Exercise 1a.1: Guided Walkthrough</a></li>
+<li><a href="#exercise-1a.2-build-a-multi-layer-map-of-west-lafayette">Exercise 1a.2: Build a Multi-Layer Map of West Lafayette</a></li>
+<li><a href="#exercise-1a.3-explore-evaluate-and-map-a-dataset-of-your-choice">Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your
+Choice</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -235,25 +236,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="introduction.html">3. Introduction to Data Visualization</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush5">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading5">
-        <a href="mapvisual.html">4. Cartography Checklists</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="mapbasics.html">5. Fundamentals of Map Design</a>
+        <a href="additional-reading.html">3. Additional Reading</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -302,7 +285,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter Top"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="imageryvector.html" rel="prev"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="introduction.html" rel="next">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="additional-reading.html" rel="next">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -310,14 +293,14 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Acquiring Vector
         </a>
-        <a class="chapter-link float-end" href="introduction.html" rel="next">
-          Next: Introduction to Data...
+        <a class="chapter-link float-end" href="additional-reading.html" rel="next">
+          Next: Additional Reading...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Exercise 1a: Acquiring Data and Making Your First Map in QGIS</h1>
-        <p>Last updated on 2026-06-23 |
+        <p>Last updated on 2026-06-24 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/qgisintro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -384,17 +367,11 @@ to an unsaved session is the most common beginner mistake.</li>
 <hr class="half-width"><p>QGIS is a free, open-source Geographic Information System that runs
 on Windows, macOS, and Linux. In this episode we will go from a blank
 project to a finished, exported map using real spatial data.</p>
-<p>We will work through three stages:</p>
-<ol style="list-style-type: decimal"><li>
-<strong>Loading data</strong> — adding a basemap, shapefiles, and
-point data</li>
-<li>
-<strong>Styling layers</strong> — controlling how features look on
-the map</li>
-<li>
-<strong>Creating and exporting a layout</strong> — building a
-finished map with all required elements</li>
-</ol><hr></section><section><h2 class="section-heading" id="part-1-loading-data">Part 1: Loading Data<a class="anchor" aria-label="anchor" href="#part-1-loading-data"></a></h2>
+<p>The walkthrough below covers the core workflow — loading a shapefile,
+styling it, and building a map layout. The exercises that follow
+introduce additional data types (CSV files and live OpenStreetMap data)
+and give you practice combining multiple layers into a single map.</p>
+<hr></section><section><h2 class="section-heading" id="part-1-loading-data">Part 1: Loading Data<a class="anchor" aria-label="anchor" href="#part-1-loading-data"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="step-0-create-a-project-folder">Step 0: Create a Project Folder<a class="anchor" aria-label="anchor" href="#step-0-create-a-project-folder"></a></h3>
 <p>Before opening QGIS, create a folder on your desktop called
@@ -525,8 +502,8 @@ before building your layout.</p>
 field. The QGIS sample data includes an elevation CSV
 (<code>elevp</code>) in the <code>csv</code> folder of the same
 repository. Download it and try:</p>
-<ol style="list-style-type: decimal"><li>Load the CSV as a delimited text layer (see Part 3, Step 2 below for
-the full method).</li>
+<ol style="list-style-type: decimal"><li>Load the CSV as a delimited text layer (the full method is covered
+in Exercise 1a.2 below).</li>
 <li>Open its Symbology → select <strong>Graduated</strong>.</li>
 <li>Choose the elevation field as the value column.</li>
 <li>Select a sequential color ramp (light to dark).</li>
@@ -534,87 +511,7 @@ the full method).</li>
 </ol><p>This is the same graduated approach you would use for a choropleth
 map of Census data or any other continuous numeric variable.</p>
 <hr></div>
-</section><section><h2 class="section-heading" id="part-3-adding-different-data-types">Part 3: Adding Different Data Types<a class="anchor" aria-label="anchor" href="#part-3-adding-different-data-types"></a></h2>
-<hr class="half-width"><p>Real-world GIS projects rarely use a single data source. This section
-covers the three most common ways to bring vector data into QGIS.</p>
-<hr><div class="section level3">
-<h3 id="method-1-add-a-downloaded-shapefile">Method 1: Add a Downloaded Shapefile<a class="anchor" aria-label="anchor" href="#method-1-add-a-downloaded-shapefile"></a></h3>
-<p>This is the method covered in Part 1 Step 2 above. Use it for any
-shapefile you have downloaded to disk:</p>
-<ol style="list-style-type: decimal"><li><strong>Layer → Add Layer → Add Vector Layer</strong></li>
-<li>Browse to the <code>.shp</code> file</li>
-<li>Click <strong>Add</strong>
-</li>
-</ol><p>Alternatively, locate the folder containing your shapefiles in your
-file explorer and <strong>drag the <code>.shp</code> file directly onto
-the Layers Panel</strong>.</p>
-<hr></div>
-<div class="section level3">
-<h3 id="method-2-add-a-geocoded-csv-file-point-data-from-coordinates">Method 2: Add a Geocoded CSV File (Point Data from Coordinates)<a class="anchor" aria-label="anchor" href="#method-2-add-a-geocoded-csv-file-point-data-from-coordinates"></a></h3>
-<p>If you have a spreadsheet containing latitude and longitude columns,
-QGIS can treat it as a point layer. We will use a UFO sightings dataset
-for this example — download it from the shared Session 1a Google folder
-(<code>UFOreports_USonly_WorkshopLayer.csv</code>) and save it to your
-Session_1a folder.</p>
-<ol style="list-style-type: decimal"><li>Click the <strong>Open Data Source Manager</strong> button in the
-toolbar (or <strong>Layer → Data Source Manager</strong>).</li>
-<li>Select <strong>Delimited Text</strong> in the left panel.</li>
-<li>In the <strong>File Name</strong> field, navigate to
-<code>UFOreports_USonly_WorkshopLayer.csv</code>.</li>
-<li>Confirm that <strong>File Format</strong> is set to
-<strong>CSV</strong>.</li>
-<li>Verify that the <strong>X field</strong> and <strong>Y
-field</strong> are set to the longitude and latitude columns
-respectively.</li>
-<li>Click <strong>Add</strong>, then close the dialog.</li>
-</ol><p>This creates a temporary point layer. If you want to keep it
-permanently, right-click the layer → <strong>Export → Save Features
-As…</strong> and save it as a shapefile or GeoPackage.</p>
-<hr></div>
-<div class="section level3">
-<h3 id="method-3-add-live-data-via-the-quickosm-plugin">Method 3: Add Live Data via the QuickOSM Plugin<a class="anchor" aria-label="anchor" href="#method-3-add-live-data-via-the-quickosm-plugin"></a></h3>
-<p>OpenStreetMap contains a vast, continuously updated collection of
-mapped features — roads, buildings, parks, universities, restaurants,
-and much more. The QuickOSM plugin lets you query this data directly
-from within QGIS without downloading anything manually.</p>
-<p><strong>Install the plugin first:</strong></p>
-<ol style="list-style-type: decimal"><li>Go to <strong>Plugins → Manage and Install Plugins…</strong>
-</li>
-<li>Search for <strong>QuickOSM</strong> and click <strong>Install
-Plugin</strong>.</li>
-<li>While you have the plugin manager open, also install <strong>NextGIS
-QuickMapServices</strong> — this gives you access to a much wider range
-of basemap options beyond OpenStreetMap.</li>
-</ol><p><strong>Run a query:</strong></p>
-<ol style="list-style-type: decimal"><li>Go to <strong>Vector → QuickOSM → Quick Query</strong>.</li>
-<li>In the <strong>Preset</strong> field, type <code>university</code>
-and select <strong>facilities/education/universities</strong>.</li>
-<li>In the <strong>In</strong> field, type
-<code>West Lafayette, IN</code>.</li>
-<li>Click <strong>Run Query</strong>. A polygon layer for Purdue
-University’s campus should appear on your map.</li>
-<li>Right-click the new layer → <strong>Properties → Symbology</strong>
-to adjust its color and transparency.</li>
-</ol><p>Try a second query: repeat the process with <code>shops/food</code>
-in the Preset field and the same location. This returns footprints for
-food stores around Purdue’s campus.</p>
-<div id="osm-feature-tags" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="osm-feature-tags" class="callout-inner">
-<h3 class="callout-title">OSM Feature Tags</h3>
-<div class="callout-content">
-<p>OpenStreetMap uses a structured tagging system to classify features.
-To explore what categories are available (roads, healthcare facilities,
-landuse types, and more), see the <a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map Features
-Wiki</a>.</p>
-</div>
-</div>
-</div>
-<hr></div>
-</section><section><h2 class="section-heading" id="part-4-creating-a-map-layout">Part 4: Creating a Map Layout<a class="anchor" aria-label="anchor" href="#part-4-creating-a-map-layout"></a></h2>
+</section><section><h2 class="section-heading" id="part-3-creating-a-map-layout">Part 3: Creating a Map Layout<a class="anchor" aria-label="anchor" href="#part-3-creating-a-map-layout"></a></h2>
 <hr class="half-width"><p>The <strong>Print Layout</strong> is QGIS’s dedicated tool for
 building finished, export-ready maps. It is separate from the main map
 canvas — the main canvas is for exploration, the Print Layout is for
@@ -702,22 +599,42 @@ canvas</td>
 </tr><tr><td>Overcomplicating symbology</td>
 <td>Start with Single Symbol; add complexity only when it communicates
 something specific</td>
-</tr></tbody></table><hr></section><section><h2 class="section-heading" id="hands-on-exercise">Hands-On Exercise<a class="anchor" aria-label="anchor" href="#hands-on-exercise"></a></h2>
-<hr class="half-width"><div id="build-a-multi-layer-map-of-west-lafayette" class="callout discussion">
+</tr></tbody></table><hr></section><section><h2 class="section-heading" id="exercise-1a-1-guided-walkthrough">Exercise 1a.1: Guided Walkthrough<a class="anchor" aria-label="anchor" href="#exercise-1a-1-guided-walkthrough"></a></h2>
+<hr class="half-width"><div id="load-style-and-export-your-first-map" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="build-a-multi-layer-map-of-west-lafayette" class="callout-inner">
-<h3 class="callout-title">Build a Multi-Layer Map of West Lafayette</h3>
+<div id="load-style-and-export-your-first-map" class="callout-inner">
+<h3 class="callout-title">Load, Style, and Export Your First Map</h3>
 <div class="callout-content">
-<p>In this exercise you will combine all three data-loading methods to
-build a multi-layer map.</p>
+<p>Complete Parts 1–3 above using the QGIS sample airport dataset. By
+the end you should have:</p>
+<ol style="list-style-type: decimal"><li>A QGIS project with an OpenStreetMap basemap and the airports
+shapefile loaded</li>
+<li>The airports layer styled with a symbol of your choice</li>
+<li>A Print Layout exported as a PDF or PNG that includes a title,
+legend, scale bar, north arrow, and data credit</li>
+</ol></div>
+</div>
+</div>
+<hr></section><section><h2 class="section-heading" id="exercise-1a-2-build-a-multi-layer-map-of-west-lafayette">Exercise 1a.2: Build a Multi-Layer Map of West Lafayette<a class="anchor" aria-label="anchor" href="#exercise-1a-2-build-a-multi-layer-map-of-west-lafayette"></a></h2>
+<hr class="half-width"><div id="discussion2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>Real-world GIS projects rarely use a single data source. In this
+exercise you will combine three different data-loading methods —
+shapefiles, a geocoded CSV, and a live OpenStreetMap query — to build a
+multi-layer map.</p>
 <p><strong>Setup:</strong> Create a new QGIS project saved to your
 Session_1a folder.</p>
 <div class="section level4">
-<h4 id="step-1-download-shapefiles-from-natural-earth"><strong>Step 1 — Download shapefiles from Natural
-Earth</strong><a class="anchor" aria-label="anchor" href="#step-1-download-shapefiles-from-natural-earth"></a></h4>
+<h4 id="step-1-download-shapefiles-from-natural-earth">Step 1 — Download shapefiles from Natural Earth<a class="anchor" aria-label="anchor" href="#step-1-download-shapefiles-from-natural-earth"></a></h4>
 <p>Go to <a href="https://www.naturalearthdata.com" class="external-link">naturalearthdata.com</a> and
 read the homepage briefly to understand the data’s purpose, scale, and
 reliability. Then navigate to <strong>Downloads → Medium Scale
@@ -729,32 +646,77 @@ Data</strong> and download the following:</p>
 </ul><p>From <strong>Physical</strong>:</p>
 <ul><li>Rivers, Lake Centerlines (line)</li>
 </ul><p>Save all files to your Session_1a folder and add them to your QGIS
-project.</p>
+project using <strong>Layer → Add Layer → Add Vector Layer</strong> (or
+drag the <code>.shp</code> files directly onto the Layers Panel).</p>
 </div>
 <div class="section level4">
-<h4 id="step-2-add-ufo-sighting-data-from-a-csv"><strong>Step 2 — Add UFO sighting data from a CSV</strong><a class="anchor" aria-label="anchor" href="#step-2-add-ufo-sighting-data-from-a-csv"></a></h4>
+<h4 id="step-2-add-point-data-from-a-csv-file">Step 2 — Add point data from a CSV file<a class="anchor" aria-label="anchor" href="#step-2-add-point-data-from-a-csv-file"></a></h4>
 <p>Download <code>UFOreports_USonly_WorkshopLayer.csv</code> from the
-shared Session 1a Google folder. Use <strong>Layer → Data Source Manager
-→ Delimited Text</strong> to add it as a point layer, setting the X and
-Y fields to the longitude and latitude columns.</p>
+shared Session 1a Google folder and save it to your Session_1a folder.
+Then:</p>
+<ol style="list-style-type: decimal"><li>Click the <strong>Open Data Source Manager</strong> button in the
+toolbar (or <strong>Layer → Data Source Manager</strong>).</li>
+<li>Select <strong>Delimited Text</strong> in the left panel.</li>
+<li>In the <strong>File Name</strong> field, navigate to the CSV
+file.</li>
+<li>Confirm that <strong>File Format</strong> is set to
+<strong>CSV</strong>.</li>
+<li>Verify that the <strong>X field</strong> and <strong>Y
+field</strong> are set to the longitude and latitude columns
+respectively.</li>
+<li>Click <strong>Add</strong>, then close the dialog.</li>
+</ol><p>This creates a temporary point layer. To keep it permanently,
+right-click the layer → <strong>Export → Save Features As…</strong> and
+save it as a shapefile or GeoPackage.</p>
 </div>
 <div class="section level4">
-<h4 id="step-3-add-live-osm-data"><strong>Step 3 — Add live OSM data</strong><a class="anchor" aria-label="anchor" href="#step-3-add-live-osm-data"></a></h4>
-<p>Use the <strong>QuickOSM</strong> plugin to query two features in
-West Lafayette, IN:</p>
-<ul><li>
-<code>facilities/education/universities</code> (to get Purdue
-University)</li>
-<li>
-<code>shops/food</code> (to get food stores near campus)</li>
-</ul><p>Style each layer with a distinct color and adjust transparency as
-needed.</p>
+<h4 id="step-3-add-live-data-via-the-quickosm-plugin">Step 3 — Add live data via the QuickOSM plugin<a class="anchor" aria-label="anchor" href="#step-3-add-live-data-via-the-quickosm-plugin"></a></h4>
+<p>OpenStreetMap contains a vast, continuously updated collection of
+mapped features. The <strong>QuickOSM</strong> plugin lets you query
+this data directly from within QGIS.</p>
+<p><strong>Install the plugin first:</strong></p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Plugins → Manage and Install Plugins…</strong>
+</li>
+<li>Search for <strong>QuickOSM</strong> and click <strong>Install
+Plugin</strong>.</li>
+<li>While you have the plugin manager open, also install <strong>NextGIS
+QuickMapServices</strong> — this gives you access to a wider range of
+basemap options beyond OpenStreetMap.</li>
+</ol><p><strong>Run a query:</strong></p>
+<ol style="list-style-type: decimal"><li>Go to <strong>Vector → QuickOSM → Quick Query</strong>.</li>
+<li>In the <strong>Preset</strong> field, type <code>university</code>
+and select <strong>facilities/education/universities</strong>.</li>
+<li>In the <strong>In</strong> field, type
+<code>West Lafayette, IN</code>.</li>
+<li>Click <strong>Run Query</strong>. A polygon layer for Purdue
+University’s campus should appear on your map.</li>
+<li>Right-click the new layer → <strong>Properties → Symbology</strong>
+to adjust its color and transparency.</li>
+</ol><p>Try a second query: repeat the process with <code>shops/food</code>
+in the Preset field and the same location. This returns footprints for
+food stores around Purdue’s campus.</p>
+<div id="osm-feature-tags" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="osm-feature-tags" class="callout-inner">
+<h3 class="callout-title">OSM Feature Tags</h3>
+<div class="callout-content">
+<p>OpenStreetMap uses a structured tagging system to classify features.
+To explore what categories are available (roads, healthcare facilities,
+landuse types, and more), see the <a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map Features
+Wiki</a>.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="section level4">
-<h4 id="step-4-build-a-map-layout"><strong>Step 4 — Build a map layout</strong><a class="anchor" aria-label="anchor" href="#step-4-build-a-map-layout"></a></h4>
-<p>Turn off all layers except the Purdue campus polygon and the food
-stores layer. Open a new <strong>Print Layout</strong> and build a
-finished map that includes:</p>
+<h4 id="step-4-style-and-build-a-map-layout">Step 4 — Style and build a map layout<a class="anchor" aria-label="anchor" href="#step-4-style-and-build-a-map-layout"></a></h4>
+<p>Style each layer with a distinct color and adjust transparency as
+needed. Then turn off all layers except the Purdue campus polygon and
+the food stores layer. Open a new <strong>Print Layout</strong> and
+build a finished map that includes:</p>
 <ul><li>A descriptive title</li>
 <li>A legend with readable layer names</li>
 <li>A scale bar</li>
@@ -762,36 +724,32 @@ finished map that includes:</p>
 <li>A data credit noting your name, data sources, and today’s date</li>
 </ul></div>
 <div class="section level4">
-<h4 id="step-5-export"><strong>Step 5 — Export</strong><a class="anchor" aria-label="anchor" href="#step-5-export"></a></h4>
+<h4 id="step-5-export">Step 5 — Export<a class="anchor" aria-label="anchor" href="#step-5-export"></a></h4>
 <p>Export your layout as both a PDF and a PNG image.</p>
 </div>
 </div>
 </div>
 </div>
-<hr></section><section><h2 class="section-heading" id="practical-exercise-optional">Practical Exercise (Optional)<a class="anchor" aria-label="anchor" href="#practical-exercise-optional"></a></h2>
-<hr class="half-width"><div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout discussion">
+<hr></section><section><h2 class="section-heading" id="exercise-1a-3-explore-evaluate-and-map-a-dataset-of-your-choice">Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your
+Choice<a class="anchor" aria-label="anchor" href="#exercise-1a-3-explore-evaluate-and-map-a-dataset-of-your-choice"></a></h2>
+<hr class="half-width"><div id="discussion3" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout-inner">
-<h3 class="callout-title">Explore, Evaluate, and Map a Dataset of Your
-Choice</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
-<p>Now that you have a working QGIS project and familiarity with loading
-data (from the previous episode), put those skills together using an
-external data source.</p>
+<p>Put your skills together using an external data source of your
+choosing.</p>
 <p><strong>Part A — Choose and evaluate a dataset</strong></p>
-<p>Browse the data source directory above and select one dataset that
-interests you. Before downloading anything:</p>
+<p>Browse a public data repository and select a dataset that interests
+you. Before downloading:</p>
 <ol style="list-style-type: decimal"><li>Read the source’s homepage or “About” page to understand its origin,
 coverage, and update frequency.</li>
-<li>Find and read the metadata for your chosen dataset. Note:
-<ul><li>When was it last updated?</li>
-<li>How was it collected?</li>
-<li>What geographic area does it cover?</li>
-<li>What do the key attribute fields represent?</li>
-</ul></li>
+<li>Find and read the metadata. Note when it was last updated, how it
+was collected, what geographic area it covers, and what the key
+attribute fields represent.</li>
 <li>Write two to three sentences summarizing whether you think this
 dataset is reliable and appropriate for the kind of analysis you have in
 mind.</li>
@@ -817,10 +775,9 @@ layer.</li>
 <li>Include all required map elements: title, legend, scale bar, north
 arrow, and data credit.</li>
 <li>Export your map as a PNG or PDF.</li>
-</ol><p><strong>Bonus:</strong> Return to the data source directory and find
-a second dataset on a related theme. Add it to your map as a second
-layer and adjust the symbology so both layers are visible and
-distinguishable.</p>
+</ol><p><strong>Bonus:</strong> Find a second dataset on a related theme, add
+it as another layer, and adjust the symbology so both layers are visible
+and distinguishable.</p>
 </div>
 </div>
 </div>
@@ -849,7 +806,7 @@ any links that you are not going to use.
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter Bottom"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="imageryvector.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="introduction.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="additional-reading.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -857,8 +814,8 @@ any links that you are not going to use.
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Acquiring Vector
         </a>
-        <a class="chapter-link float-end" href="introduction.html" rel="next">
-          Next: Introduction to Data...
+        <a class="chapter-link float-end" href="additional-reading.html" rel="next">
+          Next: Additional Reading...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -905,9 +862,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/qgisintro.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/qgisintro.html",
-  "dateCreated": "2026-06-23",
-  "dateModified": "2026-06-23",
-  "datePublished": "2026-06-23"
+  "dateCreated": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "datePublished": "2026-06-24"
 }
 
   </script><script>

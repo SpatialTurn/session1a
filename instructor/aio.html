@@ -261,31 +261,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="introduction.html">3. Introduction to Data Visualization</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush5">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading5">
-        <a href="mapvisual.html">4. Cartography Checklists</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="mapbasics.html">5. Fundamentals of Map Design</a>
+        <a href="additional-reading.html">3. Additional Reading</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -802,7 +778,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-qgisintro"><p>Content from <a href="qgisintro.html">Exercise 1a: Acquiring Data and Making Your First Map in QGIS</a></p>
 <hr>
-<p>Last updated on 2026-06-23 |
+<p>Last updated on 2026-06-24 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/qgisintro.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 105 minutes</p>
@@ -872,18 +848,10 @@ to an unsaved session is the most common beginner mistake.</li>
 <p>QGIS is a free, open-source Geographic Information System that runs
 on Windows, macOS, and Linux. In this episode we will go from a blank
 project to a finished, exported map using real spatial data.</p>
-<p>We will work through three stages:</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Loading data</strong> — adding a basemap, shapefiles, and
-point data</li>
-<li>
-<strong>Styling layers</strong> — controlling how features look on
-the map</li>
-<li>
-<strong>Creating and exporting a layout</strong> — building a
-finished map with all required elements</li>
-</ol>
+<p>The walkthrough below covers the core workflow — loading a shapefile,
+styling it, and building a map layout. The exercises that follow
+introduce additional data types (CSV files and live OpenStreetMap data)
+and give you practice combining multiple layers into a single map.</p>
 <hr></section><section><h2 class="section-heading" id="part-1-loading-data">Part 1: Loading Data<a class="anchor" aria-label="anchor" href="#part-1-loading-data"></a>
 </h2>
 <hr class="half-width">
@@ -1072,8 +1040,8 @@ field. The QGIS sample data includes an elevation CSV
 (<code>elevp</code>) in the <code>csv</code> folder of the same
 repository. Download it and try:</p>
 <ol style="list-style-type: decimal">
-<li>Load the CSV as a delimited text layer (see Part 3, Step 2 below for
-the full method).</li>
+<li>Load the CSV as a delimited text layer (the full method is covered
+in Exercise 1a.2 below).</li>
 <li>Open its Symbology → select <strong>Graduated</strong>.</li>
 <li>Choose the elevation field as the value column.</li>
 <li>Select a sequential color ramp (light to dark).</li>
@@ -1083,104 +1051,7 @@ the full method).</li>
 map of Census data or any other continuous numeric variable.</p>
 <hr>
 </div>
-</section><section><h2 class="section-heading" id="part-3-adding-different-data-types">Part 3: Adding Different Data Types<a class="anchor" aria-label="anchor" href="#part-3-adding-different-data-types"></a>
-</h2>
-<hr class="half-width">
-<p>Real-world GIS projects rarely use a single data source. This section
-covers the three most common ways to bring vector data into QGIS.</p>
-<hr>
-<div class="section level3">
-<h3 id="method-1-add-a-downloaded-shapefile">Method 1: Add a Downloaded Shapefile<a class="anchor" aria-label="anchor" href="#method-1-add-a-downloaded-shapefile"></a>
-</h3>
-<p>This is the method covered in Part 1 Step 2 above. Use it for any
-shapefile you have downloaded to disk:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Layer → Add Layer → Add Vector Layer</strong></li>
-<li>Browse to the <code>.shp</code> file</li>
-<li>Click <strong>Add</strong>
-</li>
-</ol>
-<p>Alternatively, locate the folder containing your shapefiles in your
-file explorer and <strong>drag the <code>.shp</code> file directly onto
-the Layers Panel</strong>.</p>
-<hr>
-</div>
-<div class="section level3">
-<h3 id="method-2-add-a-geocoded-csv-file-point-data-from-coordinates">Method 2: Add a Geocoded CSV File (Point Data from Coordinates)<a class="anchor" aria-label="anchor" href="#method-2-add-a-geocoded-csv-file-point-data-from-coordinates"></a>
-</h3>
-<p>If you have a spreadsheet containing latitude and longitude columns,
-QGIS can treat it as a point layer. We will use a UFO sightings dataset
-for this example — download it from the shared Session 1a Google folder
-(<code>UFOreports_USonly_WorkshopLayer.csv</code>) and save it to your
-Session_1a folder.</p>
-<ol style="list-style-type: decimal">
-<li>Click the <strong>Open Data Source Manager</strong> button in the
-toolbar (or <strong>Layer → Data Source Manager</strong>).</li>
-<li>Select <strong>Delimited Text</strong> in the left panel.</li>
-<li>In the <strong>File Name</strong> field, navigate to
-<code>UFOreports_USonly_WorkshopLayer.csv</code>.</li>
-<li>Confirm that <strong>File Format</strong> is set to
-<strong>CSV</strong>.</li>
-<li>Verify that the <strong>X field</strong> and <strong>Y
-field</strong> are set to the longitude and latitude columns
-respectively.</li>
-<li>Click <strong>Add</strong>, then close the dialog.</li>
-</ol>
-<p>This creates a temporary point layer. If you want to keep it
-permanently, right-click the layer → <strong>Export → Save Features
-As…</strong> and save it as a shapefile or GeoPackage.</p>
-<hr>
-</div>
-<div class="section level3">
-<h3 id="method-3-add-live-data-via-the-quickosm-plugin">Method 3: Add Live Data via the QuickOSM Plugin<a class="anchor" aria-label="anchor" href="#method-3-add-live-data-via-the-quickosm-plugin"></a>
-</h3>
-<p>OpenStreetMap contains a vast, continuously updated collection of
-mapped features — roads, buildings, parks, universities, restaurants,
-and much more. The QuickOSM plugin lets you query this data directly
-from within QGIS without downloading anything manually.</p>
-<p><strong>Install the plugin first:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Go to <strong>Plugins → Manage and Install Plugins…</strong>
-</li>
-<li>Search for <strong>QuickOSM</strong> and click <strong>Install
-Plugin</strong>.</li>
-<li>While you have the plugin manager open, also install <strong>NextGIS
-QuickMapServices</strong> — this gives you access to a much wider range
-of basemap options beyond OpenStreetMap.</li>
-</ol>
-<p><strong>Run a query:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Go to <strong>Vector → QuickOSM → Quick Query</strong>.</li>
-<li>In the <strong>Preset</strong> field, type <code>university</code>
-and select <strong>facilities/education/universities</strong>.</li>
-<li>In the <strong>In</strong> field, type
-<code>West Lafayette, IN</code>.</li>
-<li>Click <strong>Run Query</strong>. A polygon layer for Purdue
-University’s campus should appear on your map.</li>
-<li>Right-click the new layer → <strong>Properties → Symbology</strong>
-to adjust its color and transparency.</li>
-</ol>
-<p>Try a second query: repeat the process with <code>shops/food</code>
-in the Preset field and the same location. This returns footprints for
-food stores around Purdue’s campus.</p>
-<div id="osm-feature-tags" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="osm-feature-tags" class="callout-inner">
-<h3 class="callout-title">OSM Feature Tags</h3>
-<div class="callout-content">
-<p>OpenStreetMap uses a structured tagging system to classify features.
-To explore what categories are available (roads, healthcare facilities,
-landuse types, and more), see the <a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map Features
-Wiki</a>.</p>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="part-4-creating-a-map-layout">Part 4: Creating a Map Layout<a class="anchor" aria-label="anchor" href="#part-4-creating-a-map-layout"></a>
+</section><section><h2 class="section-heading" id="part-3-creating-a-map-layout">Part 3: Creating a Map Layout<a class="anchor" aria-label="anchor" href="#part-3-creating-a-map-layout"></a>
 </h2>
 <hr class="half-width">
 <p>The <strong>Print Layout</strong> is QGIS’s dedicated tool for
@@ -1329,25 +1200,48 @@ something specific</td>
 </tr>
 </tbody>
 </table>
-<hr></section><section><h2 class="section-heading" id="hands-on-exercise">Hands-On Exercise<a class="anchor" aria-label="anchor" href="#hands-on-exercise"></a>
+<hr></section><section><h2 class="section-heading" id="exercise-1a-1-guided-walkthrough">Exercise 1a.1: Guided Walkthrough<a class="anchor" aria-label="anchor" href="#exercise-1a-1-guided-walkthrough"></a>
 </h2>
 <hr class="half-width">
-<div id="build-a-multi-layer-map-of-west-lafayette" class="callout discussion">
+<div id="load-style-and-export-your-first-map" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="build-a-multi-layer-map-of-west-lafayette" class="callout-inner">
-<h3 class="callout-title">Build a Multi-Layer Map of West Lafayette</h3>
+<div id="load-style-and-export-your-first-map" class="callout-inner">
+<h3 class="callout-title">Load, Style, and Export Your First Map</h3>
 <div class="callout-content">
-<p>In this exercise you will combine all three data-loading methods to
-build a multi-layer map.</p>
+<p>Complete Parts 1–3 above using the QGIS sample airport dataset. By
+the end you should have:</p>
+<ol style="list-style-type: decimal">
+<li>A QGIS project with an OpenStreetMap basemap and the airports
+shapefile loaded</li>
+<li>The airports layer styled with a symbol of your choice</li>
+<li>A Print Layout exported as a PDF or PNG that includes a title,
+legend, scale bar, north arrow, and data credit</li>
+</ol>
+</div>
+</div>
+</div>
+<hr></section><section><h2 class="section-heading" id="exercise-1a-2-build-a-multi-layer-map-of-west-lafayette">Exercise 1a.2: Build a Multi-Layer Map of West Lafayette<a class="anchor" aria-label="anchor" href="#exercise-1a-2-build-a-multi-layer-map-of-west-lafayette"></a>
+</h2>
+<hr class="half-width">
+<div id="discussion2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>Real-world GIS projects rarely use a single data source. In this
+exercise you will combine three different data-loading methods —
+shapefiles, a geocoded CSV, and a live OpenStreetMap query — to build a
+multi-layer map.</p>
 <p><strong>Setup:</strong> Create a new QGIS project saved to your
 Session_1a folder.</p>
 <div class="section level4">
-<h4 id="step-1-download-shapefiles-from-natural-earth">
-<strong>Step 1 — Download shapefiles from Natural
-Earth</strong><a class="anchor" aria-label="anchor" href="#step-1-download-shapefiles-from-natural-earth"></a>
+<h4 id="step-1-download-shapefiles-from-natural-earth">Step 1 — Download shapefiles from Natural Earth<a class="anchor" aria-label="anchor" href="#step-1-download-shapefiles-from-natural-earth"></a>
 </h4>
 <p>Go to <a href="https://www.naturalearthdata.com" class="external-link">naturalearthdata.com</a> and
 read the homepage briefly to understand the data’s purpose, scale, and
@@ -1364,40 +1258,86 @@ Data</strong> and download the following:</p>
 <li>Rivers, Lake Centerlines (line)</li>
 </ul>
 <p>Save all files to your Session_1a folder and add them to your QGIS
-project.</p>
+project using <strong>Layer → Add Layer → Add Vector Layer</strong> (or
+drag the <code>.shp</code> files directly onto the Layers Panel).</p>
 </div>
 <div class="section level4">
-<h4 id="step-2-add-ufo-sighting-data-from-a-csv">
-<strong>Step 2 — Add UFO sighting data from a CSV</strong><a class="anchor" aria-label="anchor" href="#step-2-add-ufo-sighting-data-from-a-csv"></a>
+<h4 id="step-2-add-point-data-from-a-csv-file">Step 2 — Add point data from a CSV file<a class="anchor" aria-label="anchor" href="#step-2-add-point-data-from-a-csv-file"></a>
 </h4>
 <p>Download <code>UFOreports_USonly_WorkshopLayer.csv</code> from the
-shared Session 1a Google folder. Use <strong>Layer → Data Source Manager
-→ Delimited Text</strong> to add it as a point layer, setting the X and
-Y fields to the longitude and latitude columns.</p>
+shared Session 1a Google folder and save it to your Session_1a folder.
+Then:</p>
+<ol style="list-style-type: decimal">
+<li>Click the <strong>Open Data Source Manager</strong> button in the
+toolbar (or <strong>Layer → Data Source Manager</strong>).</li>
+<li>Select <strong>Delimited Text</strong> in the left panel.</li>
+<li>In the <strong>File Name</strong> field, navigate to the CSV
+file.</li>
+<li>Confirm that <strong>File Format</strong> is set to
+<strong>CSV</strong>.</li>
+<li>Verify that the <strong>X field</strong> and <strong>Y
+field</strong> are set to the longitude and latitude columns
+respectively.</li>
+<li>Click <strong>Add</strong>, then close the dialog.</li>
+</ol>
+<p>This creates a temporary point layer. To keep it permanently,
+right-click the layer → <strong>Export → Save Features As…</strong> and
+save it as a shapefile or GeoPackage.</p>
 </div>
 <div class="section level4">
-<h4 id="step-3-add-live-osm-data">
-<strong>Step 3 — Add live OSM data</strong><a class="anchor" aria-label="anchor" href="#step-3-add-live-osm-data"></a>
+<h4 id="step-3-add-live-data-via-the-quickosm-plugin">Step 3 — Add live data via the QuickOSM plugin<a class="anchor" aria-label="anchor" href="#step-3-add-live-data-via-the-quickosm-plugin"></a>
 </h4>
-<p>Use the <strong>QuickOSM</strong> plugin to query two features in
-West Lafayette, IN:</p>
-<ul>
-<li>
-<code>facilities/education/universities</code> (to get Purdue
-University)</li>
-<li>
-<code>shops/food</code> (to get food stores near campus)</li>
-</ul>
+<p>OpenStreetMap contains a vast, continuously updated collection of
+mapped features. The <strong>QuickOSM</strong> plugin lets you query
+this data directly from within QGIS.</p>
+<p><strong>Install the plugin first:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Plugins → Manage and Install Plugins…</strong>
+</li>
+<li>Search for <strong>QuickOSM</strong> and click <strong>Install
+Plugin</strong>.</li>
+<li>While you have the plugin manager open, also install <strong>NextGIS
+QuickMapServices</strong> — this gives you access to a wider range of
+basemap options beyond OpenStreetMap.</li>
+</ol>
+<p><strong>Run a query:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Vector → QuickOSM → Quick Query</strong>.</li>
+<li>In the <strong>Preset</strong> field, type <code>university</code>
+and select <strong>facilities/education/universities</strong>.</li>
+<li>In the <strong>In</strong> field, type
+<code>West Lafayette, IN</code>.</li>
+<li>Click <strong>Run Query</strong>. A polygon layer for Purdue
+University’s campus should appear on your map.</li>
+<li>Right-click the new layer → <strong>Properties → Symbology</strong>
+to adjust its color and transparency.</li>
+</ol>
+<p>Try a second query: repeat the process with <code>shops/food</code>
+in the Preset field and the same location. This returns footprints for
+food stores around Purdue’s campus.</p>
+<div id="osm-feature-tags" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="osm-feature-tags" class="callout-inner">
+<h3 class="callout-title">OSM Feature Tags</h3>
+<div class="callout-content">
+<p>OpenStreetMap uses a structured tagging system to classify features.
+To explore what categories are available (roads, healthcare facilities,
+landuse types, and more), see the <a href="https://wiki.openstreetmap.org/wiki/Map_features" class="external-link">OSM Map Features
+Wiki</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section level4">
+<h4 id="step-4-style-and-build-a-map-layout">Step 4 — Style and build a map layout<a class="anchor" aria-label="anchor" href="#step-4-style-and-build-a-map-layout"></a>
+</h4>
 <p>Style each layer with a distinct color and adjust transparency as
-needed.</p>
-</div>
-<div class="section level4">
-<h4 id="step-4-build-a-map-layout">
-<strong>Step 4 — Build a map layout</strong><a class="anchor" aria-label="anchor" href="#step-4-build-a-map-layout"></a>
-</h4>
-<p>Turn off all layers except the Purdue campus polygon and the food
-stores layer. Open a new <strong>Print Layout</strong> and build a
-finished map that includes:</p>
+needed. Then turn off all layers except the Purdue campus polygon and
+the food stores layer. Open a new <strong>Print Layout</strong> and
+build a finished map that includes:</p>
 <ul>
 <li>A descriptive title</li>
 <li>A legend with readable layer names</li>
@@ -1407,43 +1347,36 @@ finished map that includes:</p>
 </ul>
 </div>
 <div class="section level4">
-<h4 id="step-5-export">
-<strong>Step 5 — Export</strong><a class="anchor" aria-label="anchor" href="#step-5-export"></a>
+<h4 id="step-5-export">Step 5 — Export<a class="anchor" aria-label="anchor" href="#step-5-export"></a>
 </h4>
 <p>Export your layout as both a PDF and a PNG image.</p>
 </div>
 </div>
 </div>
 </div>
-<hr></section><section><h2 class="section-heading" id="practical-exercise-optional">Practical Exercise (Optional)<a class="anchor" aria-label="anchor" href="#practical-exercise-optional"></a>
+<hr></section><section><h2 class="section-heading" id="exercise-1a-3-explore-evaluate-and-map-a-dataset-of-your-choice">Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your
+Choice<a class="anchor" aria-label="anchor" href="#exercise-1a-3-explore-evaluate-and-map-a-dataset-of-your-choice"></a>
 </h2>
 <hr class="half-width">
-<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout discussion">
+<div id="discussion3" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="explore-evaluate-and-map-a-dataset-of-your-choice" class="callout-inner">
-<h3 class="callout-title">Explore, Evaluate, and Map a Dataset of Your
-Choice</h3>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
-<p>Now that you have a working QGIS project and familiarity with loading
-data (from the previous episode), put those skills together using an
-external data source.</p>
+<p>Put your skills together using an external data source of your
+choosing.</p>
 <p><strong>Part A — Choose and evaluate a dataset</strong></p>
-<p>Browse the data source directory above and select one dataset that
-interests you. Before downloading anything:</p>
+<p>Browse a public data repository and select a dataset that interests
+you. Before downloading:</p>
 <ol style="list-style-type: decimal">
 <li>Read the source’s homepage or “About” page to understand its origin,
 coverage, and update frequency.</li>
-<li>Find and read the metadata for your chosen dataset. Note:
-<ul>
-<li>When was it last updated?</li>
-<li>How was it collected?</li>
-<li>What geographic area does it cover?</li>
-<li>What do the key attribute fields represent?</li>
-</ul>
-</li>
+<li>Find and read the metadata. Note when it was last updated, how it
+was collected, what geographic area it covers, and what the key
+attribute fields represent.</li>
 <li>Write two to three sentences summarizing whether you think this
 dataset is reliable and appropriate for the kind of analysis you have in
 mind.</li>
@@ -1476,10 +1409,9 @@ layer.</li>
 arrow, and data credit.</li>
 <li>Export your map as a PNG or PDF.</li>
 </ol>
-<p><strong>Bonus:</strong> Return to the data source directory and find
-a second dataset on a related theme. Add it to your map as a second
-layer and adjust the symbology so both layers are visible and
-distinguishable.</p>
+<p><strong>Bonus:</strong> Find a second dataset on a related theme, add
+it as another layer, and adjust the symbology so both layers are visible
+and distinguishable.</p>
 </div>
 </div>
 </div>
@@ -1508,12 +1440,12 @@ approach?</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</section></section><section id="aio-introduction"><p>Content from <a href="introduction.html">Introduction to Data Visualization</a></p>
+</section></section><section id="aio-additional-reading"><p>Content from <a href="additional-reading.html">Additional Reading</a></p>
 <hr>
-<p>Last updated on 2026-06-16 |
+<p>Last updated on 2026-06-24 |
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 75 minutes</p>
+        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/additional-reading.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1525,16 +1457,12 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What is data visualization and how does it differ from simply
-displaying charts?</li>
-<li>Why do humans process visualized data so much faster than raw
-numbers or tables?</li>
-<li>What are the advantages and risks of using visuals in data
-analysis?</li>
-<li>How does visualization help when working with big data?</li>
-<li>Which tools are most suitable for beginners, intermediate users, and
-advanced programmers?</li>
-<li>What makes a visualization “good” versus “misleading”?</li>
+<li>What makes a visualization effective versus misleading?</li>
+<li>What are the essential elements of a well-designed map?</li>
+<li>How do color, scale, projection, and classification choices shape
+what a map communicates?</li>
+<li>What are the main thematic map types and when should each be
+used?</li>
 </ul>
 </div>
 </div>
@@ -1544,45 +1472,15 @@ advanced programmers?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Define data visualization and explain its core purpose</li>
-<li>Distinguish between exploratory and explanatory visualizations with
-real-world examples</li>
-<li>Describe at least five advantages and three disadvantages of data
-visualization</li>
-<li>Describe how visualization addresses challenges posed by big
-data</li>
-<li>Compare popular open-source and commercial tools for creating
-visualizations</li>
-<li>Recognize key principles of effective visualization design</li>
-<li>Understand ethical considerations and accessibility best
-practices</li>
+<li>Understand the purpose and principles of data visualization</li>
+<li>Identify the core components of an effective map</li>
+<li>Select appropriate colors, symbols, projections, and classification
+methods for your data</li>
+<li>Recognize common thematic map types and when to use them</li>
+<li>Apply a checklist-based approach to cartographic design</li>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>Data visualization turns numbers into stories that the human brain
-can understand quickly.</li>
-<li>Good visualizations reveal patterns, trends, and outliers that are
-invisible in spreadsheets.</li>
-<li>Poor design can mislead audiences more powerfully than raw data ever
-could.</li>
-<li>Big data demands interactive, scalable, and often multi-dimensional
-visualizations.</li>
-<li>Choose the right tool for your audience and skill level — start
-simple and iterate.</li>
-<li>Always prioritize clarity, honesty, and accessibility over visual
-flair.</li>
-</ul>
 </div>
 </div>
 </div>
@@ -1590,110 +1488,73 @@ flair.</li>
 </h2>
 <hr class="half-width">
 <p><strong>Data visualization</strong> is the graphical representation
-of information and data. Instead of showing rows and columns of numbers,
-it uses charts, graphs, maps, diagrams, and interactive dashboards to
-make patterns, trends, relationships, and outliers immediately
-understandable.</p>
-<p>Think of it as <strong>data storytelling</strong> with graphics. A
-well-designed visualization does in seconds what a 10-page spreadsheet
-cannot: it lets the human brain — which processes images 60,000 times
-faster than text — grasp complex information at a glance.</p>
-<p>In the Carpentries context, data visualization is not just “making
-pretty pictures.” It is a core skill that bridges <strong>data
-wrangling</strong> (covered in previous episodes) and
-<strong>data-driven decision making</strong>.</p>
-<p>There are two broad modes of visualization, and knowing which one you
-are doing shapes every design decision:</p>
+of information. Instead of rows and columns of numbers, it uses charts,
+graphs, maps, and dashboards to make patterns, trends, and outliers
+immediately understandable.</p>
+<p>Our brains devote more than half their processing power to vision. A
+well-chosen chart is not just convenient — it is cognitively more
+efficient than a table. Visualization helps because it:</p>
+<ul>
+<li>
+<strong>Reveals what numbers hide</strong> — trends, clusters,
+correlations, and geographic patterns are rarely obvious in raw data but
+become clear in a well-designed graphic.</li>
+<li>
+<strong>Speeds up decision-making</strong> — researchers,
+policymakers, and the public routinely use visuals to interpret evidence
+quickly.</li>
+<li>
+<strong>Surfaces data quality problems</strong> — missing values,
+impossible ranges, and duplicates often become obvious once the data is
+plotted.</li>
+<li>
+<strong>Communicates across audiences</strong> — a clear map or
+chart can be understood by both domain experts and non-technical
+stakeholders.</li>
+</ul>
+<p>There are two broad modes of visualization:</p>
 <ul>
 <li>
 <strong>Exploratory visualizations</strong> help <em>you</em>
-discover insights while analyzing data — quick, rough, and
-disposable.</li>
+discover insights — quick, rough, disposable.</li>
 <li>
 <strong>Explanatory visualizations</strong> help <em>others</em>
-understand your discoveries — polished, annotated, and purposeful.</li>
-</ul></section><section><h2 class="section-heading" id="why-visualize-data">Why Visualize Data?<a class="anchor" aria-label="anchor" href="#why-visualize-data"></a>
+understand your findings — polished, annotated, purposeful.</li>
+</ul>
+<p>Knowing which mode you are in shapes every design decision that
+follows.</p>
+<hr></section><section><h2 class="section-heading" id="advantages-and-risks">Advantages and Risks<a class="anchor" aria-label="anchor" href="#advantages-and-risks"></a>
 </h2>
 <hr class="half-width">
-<p>Our brains devote more than 50% of their processing power to vision.
-This means a well-chosen chart is not just convenient — it is
-cognitively more efficient than a table for most tasks. Visualization
-matters because it:</p>
-<ul>
-<li>
-<strong>Reveals what numbers hide</strong> — trends over time,
-clusters, correlations, outliers, geographic patterns, and distributions
-are rarely obvious in raw data but leap out in a well-chosen chart.</li>
-<li>
-<strong>Enables faster decision-making</strong> — executives,
-scientists, journalists, and policymakers routinely use visualizations
-to justify budgets, publish findings, or inform public opinion.</li>
-<li>
-<strong>Democratizes data</strong> — a clear chart can be understood
-by domain experts and non-technical stakeholders alike, lowering the
-barrier to engaging with evidence.</li>
-<li>
-<strong>Supports error detection</strong> — visuals often surface
-data quality problems (missing values, impossible ranges, duplicate
-records) that automated checks miss entirely.</li>
-</ul></section><section><h2 class="section-heading" id="advantages-and-disadvantages">Advantages and Disadvantages<a class="anchor" aria-label="anchor" href="#advantages-and-disadvantages"></a>
-</h2>
-<hr class="half-width">
-<p>Understanding both sides helps you use visualization responsibly.</p>
 <div class="section level3">
 <h3 id="advantages">Advantages<a class="anchor" aria-label="anchor" href="#advantages"></a>
 </h3>
 <ul>
-<li>
-<strong>Speed</strong>: Spot trends in seconds rather than hours of
-table-reading.</li>
-<li>
-<strong>Clarity</strong>: One well-designed image can replace
-thousands of numbers and reduce cognitive load significantly.</li>
-<li>
-<strong>Pattern recognition</strong>: Humans excel at detecting
-lines, clusters, and shapes — abilities that do not transfer well to
-reading numbers.</li>
-<li>
-<strong>Engagement</strong>: Interactive or well-designed visuals
-capture attention and improve information retention.</li>
-<li>
-<strong>Storytelling power</strong>: Visualization turns dry
-statistics into compelling, memorable narratives.</li>
-<li>
-<strong>Accessibility across audiences</strong>: Good visuals
-communicate across language barriers and varying technical skill
-levels.</li>
+<li>Spot trends in seconds rather than hours of reading tables.</li>
+<li>One well-designed image can replace thousands of numbers.</li>
+<li>Interactive visuals capture attention and improve retention.</li>
+<li>Visualization turns statistics into compelling, memorable
+narratives.</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="disadvantages-and-risks">Disadvantages and Risks<a class="anchor" aria-label="anchor" href="#disadvantages-and-risks"></a>
+<h3 id="risks">Risks<a class="anchor" aria-label="anchor" href="#risks"></a>
 </h3>
 <ul>
 <li>
-<strong>Misleading results</strong>: A truncated y-axis, 3D
-perspective effects, or cherry-picked color scales can distort the truth
-— sometimes dramatically.</li>
+<strong>Misleading design</strong> — a truncated axis, 3D effects,
+or cherry-picked color scales can distort the truth.</li>
 <li>
-<strong>Chartjunk</strong> (Edward Tufte’s term): Decorative
-elements that add visual noise without adding information, such as
-unnecessary gridlines, shadows, or clip art.</li>
+<strong>Chartjunk</strong> — decorative elements (unnecessary
+gridlines, shadows, clip art) that add noise without adding
+information.</li>
 <li>
-<strong>Time investment</strong>: Creating a professional,
-publication-ready visualization can take longer than the underlying
-analysis.</li>
+<strong>Over-simplification</strong> — reducing a complex
+relationship to a single chart can flatten important nuance.</li>
 <li>
-<strong>Skill gap</strong>: Effective visualization requires both
-analytical thinking <em>and</em> design sensibility — a combination that
-takes practice to develop.</li>
-<li>
-<strong>Over-simplification</strong>: Reducing a complex
-multi-variable relationship to a single chart can flatten important
-nuance into something misleading.</li>
-<li>
-<strong>Accessibility barriers</strong>: Poor color contrast, the
-absence of alt text, or reliance on color alone to encode information
-excludes users with color blindness or who use screen readers.</li>
+<strong>Accessibility barriers</strong> — poor color contrast or
+reliance on color alone to encode information excludes users with color
+vision deficiencies.</li>
 </ul>
 <div id="the-lying-with-charts-phenomenon" class="callout">
 <div class="callout-square">
@@ -1705,964 +1566,50 @@ excludes users with color blindness or who use screen readers.</li>
 <div class="callout-content">
 <p>Visual choices that seem minor — axis scale, color palette, which
 data points to include — can completely change what a chart appears to
-say. Always ask yourself: <em>“Does this visual tell the whole story, or
-just the story I want to tell?”</em></p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="big-data-and-the-need-for-visualization">Big Data and the Need for Visualization<a class="anchor" aria-label="anchor" href="#big-data-and-the-need-for-visualization"></a>
-</h2>
-<hr class="half-width">
-<p>The explosion of big data — characterized by high
-<strong>volume</strong>, <strong>velocity</strong>,
-<strong>variety</strong>, and <strong>veracity</strong> — has made
-visualization not just helpful, but <strong>essential</strong>.</p>
-<ul>
-<li>
-<strong>Volume</strong>: A dataset with one million rows is
-impossible to read. A heatmap or density plot can show the entire
-distribution at a glance.</li>
-<li>
-<strong>Velocity</strong>: Real-time dashboards (stock markets,
-public health trackers, IoT sensor networks) must update continuously
-and communicate change instantly.</li>
-<li>
-<strong>Variety</strong>: Combining structured tables, free text,
-imagery, and geospatial data requires multi-layered visuals — for
-example, a choropleth map with an overlaid time-series.</li>
-<li>
-<strong>Dimensionality</strong>: With 50 or more variables,
-techniques like PCA, t-SNE, or parallel coordinates plots are needed to
-reduce complexity without losing meaning.</li>
-</ul>
-<p>Modern big-data visualizations are generally:</p>
-<ul>
-<li>
-<strong>Interactive</strong> — users can zoom, filter, and hover for
-tooltips rather than reading a static snapshot.</li>
-<li>
-<strong>Scalable</strong> — capable of rendering millions of data
-points without crashing the browser or notebook.</li>
-<li>
-<strong>Collaborative</strong> — built on shared dashboard platforms
-(Tableau Server, Power BI, Plotly Dash) so teams can explore the same
-data together.</li>
-</ul></section><section><h2 class="section-heading" id="real-world-examples">Real-World Examples<a class="anchor" aria-label="anchor" href="#real-world-examples"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="simple-but-powerful">Simple but powerful<a class="anchor" aria-label="anchor" href="#simple-but-powerful"></a>
-</h3>
-<ul>
-<li>
-<strong>Line chart</strong>: Global average temperature rise from
-1880 to present — a single trend line communicates over a century of
-climate data immediately.</li>
-<li>
-<strong>Bar chart</strong>: Top 10 countries by share of renewable
-energy, ranked — comparisons across categories are instant.</li>
-<li>
-<strong>Scatter plot</strong>: Study hours versus exam scores with a
-regression line — reveals both the relationship and individual
-variation.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="more-advanced">More advanced<a class="anchor" aria-label="anchor" href="#more-advanced"></a>
-</h3>
-<ul>
-<li>
-<strong>Heatmap</strong>: Correlation matrix of 20 genomics
-variables — shows which pairs of variables are related without producing
-190 individual scatter plots.</li>
-<li>
-<strong>Treemap</strong>: Company revenue broken down by department
-and region — shows both composition and relative size
-simultaneously.</li>
-<li>
-<strong>Network graph</strong>: Social media follower connections or
-protein interaction maps — structures that have no natural x/y
-axis.</li>
-<li>
-<strong>Choropleth map</strong>: COVID case rates or election
-results by county — geographic patterns that are invisible in a
-table.</li>
-<li>
-<strong>Animated bubble chart</strong> (Hans Rosling style): 200
-years of global health and wealth data — adds time as a dimension
-without requiring 200 separate charts.</li>
-</ul>
-<div id="good-vs.-bad" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="good-vs.-bad" class="callout-inner">
-<h3 class="callout-title">Good vs. Bad</h3>
-<div class="callout-content">
-<p>Look at the two descriptions below and identify what makes one
-effective and one misleading:</p>
-<ul>
-<li>
-<strong>Chart A</strong>: A line chart showing annual global CO₂
-emissions from 1960 to present. The y-axis starts at zero, the source is
-labeled, and the title reads “Global CO₂ Emissions Have Risen Steadily
-Since 1960.”</li>
-<li>
-<strong>Chart B</strong>: A 3D exploding pie chart with 12
-color-coded slices, no legend, a y-axis that starts at 94%, and a title
-that reads “Our Product Dominates the Market.”</li>
-</ul>
-<p>What specific design choices in Chart B make it misleading? What
-would you change?</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="popular-tools-from-beginner-to-advanced">Popular Tools — From Beginner to Advanced<a class="anchor" aria-label="anchor" href="#popular-tools-from-beginner-to-advanced"></a>
-</h2>
-<hr class="half-width">
-<table class="table">
-<colgroup>
-<col width="20%">
-<col width="20%">
-<col width="20%">
-<col width="20%">
-<col width="20%">
-</colgroup>
-<thead><tr>
-<th>Skill Level</th>
-<th>Tool / Library</th>
-<th>Best For</th>
-<th>Open Source?</th>
-<th>Carpentries Recommendation</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Beginner</td>
-<td>Excel / Google Sheets</td>
-<td>Quick bar, line, and pie charts</td>
-<td>No</td>
-<td>Great starting point</td>
-</tr>
-<tr>
-<td>Intermediate</td>
-<td>Python + Matplotlib</td>
-<td>Publication-quality static plots</td>
-<td>Yes</td>
-<td><strong>Highly recommended</strong></td>
-</tr>
-<tr>
-<td>Intermediate</td>
-<td>QGIS (uses Python)</td>
-<td>Publication-quality static maps</td>
-<td>Yes</td>
-<td><strong>Highly recommended</strong></td>
-</tr>
-<tr>
-<td>Advanced</td>
-<td>R + ggplot2</td>
-<td>Statistical graphics</td>
-<td>Yes</td>
-<td>Data Carpentry favorite</td>
-</tr>
-<tr>
-<td>Advanced</td>
-<td>JavaScript + D3.js</td>
-<td>Fully custom web visualizations</td>
-<td>Yes</td>
-<td>For web developers</td>
-</tr>
-</tbody>
-</table>
-<p>In this workshop we focus primarily on <strong>QGIS</strong> and
-<strong>Python</strong> because these tools integrate directly with the
-data-cleaning and analysis skills that we will be covering today.</p>
-</section><section><h2 class="section-heading" id="principles-of-effective-visualization">Principles of Effective Visualization<a class="anchor" aria-label="anchor" href="#principles-of-effective-visualization"></a>
-</h2>
-<hr class="half-width">
-<p>These principles draw on the work of Edward Tufte, William Cleveland,
-and Alberto Cairo:</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Maximize the data-ink ratio</strong> — every drop of ink (or
-pixel) should carry information. Remove gridlines, borders, and
-decorations that do not contribute.</li>
-<li>
-<strong>Use small multiples</strong> instead of overloading a single
-chart with too many variables or series.</li>
-<li>
-<strong>Choose the right chart type</strong> for the message — bar
-charts for comparison, lines for trends, scatter plots for
-relationships. Avoid pie charts with more than four or five slices.</li>
-<li>
-<strong>Label everything clearly</strong> — titles, axis labels,
-legends, and units should never require guessing.</li>
-<li>
-<strong>Be honest about scale</strong> — never truncate axes without
-a clear disclosure; never use 3D effects that distort area or
-angle.</li>
-<li>
-<strong>Choose colors deliberately</strong> — use
-colorblind-friendly palettes such as ColorBrewer or viridis; avoid
-rainbow scales that imply ordering where none exists.</li>
-<li>
-<strong>Make it accessible</strong> — provide alt text for images,
-ensure sufficient contrast ratios, and encode information with shape or
-pattern in addition to color alone.</li>
-<li>
-<strong>Guide the viewer</strong> — use titles, subtitles, and
-annotations to direct attention and make the main takeaway
-explicit.</li>
-</ol></section><section><h2 class="section-heading" id="ethical-considerations">Ethical Considerations<a class="anchor" aria-label="anchor" href="#ethical-considerations"></a>
-</h2>
-<hr class="half-width">
-<p>Visualizations can influence policy, investment decisions, and public
-opinion at scale, which creates real responsibility:</p>
-<ul>
-<li>
-<strong>Avoid cherry-picking</strong>: Selecting only the time
-window or data subset that supports your conclusion is a form of
-dishonesty, even if every data point shown is accurate.</li>
-<li>
-<strong>Disclose sources and limitations</strong>: Readers cannot
-evaluate a chart they cannot trace back to its data. Always cite the
-source and note key caveats (sample size, date range, missing
-data).</li>
-<li>
-<strong>Respect privacy</strong>: Geospatial and demographic data
-can expose individuals even when names are removed. Consider aggregation
-levels carefully.</li>
-<li>
-<strong>Consider unintended consequences</strong>: A map of crime
-rates, for example, can reinforce harmful stereotypes if presented
-without context about policing patterns or historical
-disinvestment.</li>
-</ul></section><section><h2 class="section-heading" id="challenges-you-will-face">Challenges You Will Face<a class="anchor" aria-label="anchor" href="#challenges-you-will-face"></a>
-</h2>
-<hr class="half-width">
-<table class="table">
-<colgroup>
-<col width="50%">
-<col width="50%">
-</colgroup>
-<thead><tr>
-<th>Challenge</th>
-<th>Recommended approach</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Too many variables to show at once</td>
-<td>Use dimensionality reduction (PCA, t-SNE) or faceting (small
-multiples)</td>
-</tr>
-<tr>
-<td>Slow rendering with millions of data points</td>
-<td>Sample the data, pre-aggregate, or use WebGL-based tools like
-Datashader</td>
-</tr>
-<tr>
-<td>Plots that can’t be reproduced later</td>
-<td>Always save the code that generated the image alongside the image
-file</td>
-</tr>
-<tr>
-<td>Tracking how a visualization changes over time</td>
-<td>Store plots and notebooks in version control (Git)</td>
-</tr>
-<tr>
-<td>Color choices that exclude colorblind users</td>
-<td>Test palettes with a simulator; default to viridis or ColorBrewer
-sequential schemes</td>
-</tr>
-<tr>
-<td>Audiences with different technical backgrounds</td>
-<td>Provide layered detail — a clear headline finding up front,
-supporting data behind a click or in an appendix</td>
-</tr>
-</tbody>
-</table>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- --></section></section><section id="aio-mapvisual"><p>Content from <a href="mapvisual.html">Cartography Checklists</a></p>
-<hr>
-<p>Last updated on 2026-06-16 |
-
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/mapvisual.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 75 minutes</p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>Who is the primary audience for your map?</li>
-<li>What message or story are you trying to communicate?</li>
-<li>Which data attributes are most important to show?</li>
-<li>How will your audience interpret or react to your map?</li>
-<li>What medium will your map be presented in (web, print,
-presentation)?</li>
-<li>Will your map be used to inform decisions?</li>
-<li>What does your audience already know, and what do they need
-explained?</li>
-<li>Do you need more data to support your map?</li>
-<li>Do you fully understand the topic you are mapping?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Identify the purpose and audience of a map before starting
-design</li>
-<li>Choose appropriate data and variables to support your message</li>
-<li>Design maps that communicate clearly, honestly, and accessibly</li>
-<li>Evaluate whether additional data or context is needed</li>
-<li>Apply a checklist-based approach to cartographic design
-decisions</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>Always define your audience and message before making any design
-decisions.</li>
-<li>Not all data belongs on a map — choose variables that are spatially
-meaningful and support your story.</li>
-<li>Design choices (color, scale, symbology) are never neutral; they
-shape how readers interpret your map.</li>
-<li>Match your map’s complexity and medium to what your audience needs
-and expects.</li>
-<li>If your map informs decisions, accuracy, transparency, and
-uncertainty communication are critical.</li>
-<li>Run through the cartography checklist before finalizing any
-map.</li>
-</ul>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="why-thoughtful-map-design-matters">Why Thoughtful Map Design Matters<a class="anchor" aria-label="anchor" href="#why-thoughtful-map-design-matters"></a>
-</h2>
-<hr class="half-width">
-<p>Maps are powerful tools for communication. A well-designed map can
-reveal spatial patterns, support decisions, and tell compelling stories.
-A poorly designed map can mislead, confuse, or hide important
-insights.</p>
-<p>Before making a map, it is essential to ask the right questions. Good
-cartography is guided by a set of core design principles:</p>
-<ul>
-<li>
-<strong>Legibility</strong> — the map is easy to read at its
-intended size and medium</li>
-<li>
-<strong>Visual contrast</strong> — important elements stand out from
-the background</li>
-<li>
-<strong>Figure-ground</strong> — the main features pop from the
-background clearly</li>
-<li>
-<strong>Hierarchy</strong> — the most important information is
-visually prominent</li>
-<li>
-<strong>Balance</strong> — the layout feels organized without
-clutter</li>
-</ul>
-<p>These principles interact with every decision you make, from color
-palette to label placement. The nine sections below translate them into
-concrete questions you should answer before finalizing any map.</p>
-<hr></section><section><h2 class="section-heading" id="know-your-audience">1. Know Your Audience<a class="anchor" aria-label="anchor" href="#know-your-audience"></a>
-</h2>
-<hr class="half-width">
-<p>Your audience determines everything — the level of detail, the choice
-of terminology, the complexity of symbology, and even whether a legend
-needs to define basic terms.</p>
-<div class="section level3">
-<h3 id="ask-yourself">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself"></a>
-</h3>
-<ul>
-<li>Are they experts, policymakers, or the general public?</li>
-<li>How familiar are they with maps and with your specific topic?</li>
-<li>What level of detail is appropriate, and what would overwhelm
-them?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
-</h3>
-<ul>
-<li>
-<strong>General audience</strong> → simple labels, clear legend,
-minimal jargon, large text</li>
-<li>
-<strong>Scientific audience</strong> → more detail, precise scale
-bars, technical terminology, data source citations</li>
-</ul>
-<div id="key-idea" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="key-idea" class="callout-inner">
-<h3 class="callout-title">Key Idea</h3>
-<div class="callout-content">
-<p>A map designed for scientists and a map designed for the general
-public should not look the same — even if they show identical data.
-Tailor every design choice to the reader, not to the data.</p>
+say. Always ask: <em>“Does this visual tell the whole story, or just the
+story I want to tell?”</em></p>
 </div>
 </div>
 </div>
 <hr>
 </div>
-</section><section><h2 class="section-heading" id="define-your-message">2. Define Your Message<a class="anchor" aria-label="anchor" href="#define-your-message"></a>
+</section><section><h2 class="section-heading" id="what-makes-a-good-map">What Makes a Good Map?<a class="anchor" aria-label="anchor" href="#what-makes-a-good-map"></a>
 </h2>
 <hr class="half-width">
-<p>Every map should answer a single, clearly stated question. Maps that
-try to show everything end up communicating nothing.</p>
-<div class="section level3">
-<h3 id="ask-yourself-1">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-1"></a>
-</h3>
-<ul>
-<li>What is the one most important takeaway a reader should leave
-with?</li>
-<li>Are you showing spatial patterns, comparisons between places, or
-change over time?</li>
-<li>Can you state the map’s purpose in a single sentence?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="avoid">Avoid<a class="anchor" aria-label="anchor" href="#avoid"></a>
-</h3>
-<ul>
-<li>Encoding too many variables at once (e.g., color + size + shape +
-animation simultaneously)</li>
-<li>Leaving the reader to “figure it out” without a guiding title or
-annotation</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="good-example">Good example<a class="anchor" aria-label="anchor" href="#good-example"></a>
-</h3>
-<blockquote>
-<p>“This map shows U.S. counties projected to face the highest flood
-risk by 2050.”</p>
-</blockquote>
-<p>That sentence is a complete map brief: it names the variable (flood
-risk), the geography (U.S. counties), the time horizon (2050), and the
-framing (highest risk).</p>
-<figure><img src="../floodrisk.png" title="A map showing projected flood risk changes in the USA between 2020 and 2050." alt="Flood-Risk USA Map" class="figure mx-auto d-block"><div class="figcaption">Flood-Risk USA Map</div>
-</figure><hr>
-</div>
-</section><section><h2 class="section-heading" id="choose-the-right-data-attributes">3. Choose the Right Data Attributes<a class="anchor" aria-label="anchor" href="#choose-the-right-data-attributes"></a>
-</h2>
-<hr class="half-width">
-<p>Not all data belongs on your map. Only include variables that are
-spatially meaningful and directly support your stated message.</p>
-<div class="section level3">
-<h3 id="ask-yourself-2">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-2"></a>
-</h3>
-<ul>
-<li>Which single variable is most important to show?</li>
-<li>Are there supporting variables (e.g., population, elevation) that
-add necessary context without cluttering the map?</li>
-<li>Is the data type appropriate for the geometry — points for discrete
-locations, lines for networks, polygons for areas?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="visual-encoding-guidelines">Visual encoding guidelines<a class="anchor" aria-label="anchor" href="#visual-encoding-guidelines"></a>
-</h3>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr>
-<th>Visual variable</th>
-<th>Best used for</th>
-<th>Example</th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>Color hue</strong></td>
-<td>Categories (nominal data)</td>
-<td>Land use types</td>
-</tr>
-<tr>
-<td>
-<strong>Color value</strong> (light → dark)</td>
-<td>Magnitude (ordinal or continuous data)</td>
-<td>Rainfall amount</td>
-</tr>
-<tr>
-<td><strong>Size</strong></td>
-<td>Quantities at point locations</td>
-<td>City population</td>
-</tr>
-<tr>
-<td><strong>Shape</strong></td>
-<td>Distinguishing symbol types</td>
-<td>Hospitals vs. schools</td>
-</tr>
-<tr>
-<td><strong>Pattern / texture</strong></td>
-<td>Categories on print maps</td>
-<td>Zoning districts</td>
-</tr>
-</tbody>
-</table>
-<div id="quick-check" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="quick-check" class="callout-inner">
-<h3 class="callout-title">Quick Check</h3>
-<div class="callout-content">
-<p>You have three variables available: temperature, precipitation, and
-elevation.</p>
-<p>Your goal is to create a map that highlights areas at greatest
-drought risk.</p>
-<ul>
-<li>Which variable would you prioritize as your primary encoded
-attribute?</li>
-<li>Which (if any) would you include as supporting context?</li>
-<li>Which would you leave off entirely, and why?</li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="consider-audience-perception">4. Consider Audience Perception<a class="anchor" aria-label="anchor" href="#consider-audience-perception"></a>
-</h2>
-<hr class="half-width">
-<p>Maps are never neutral. Every design choice — color, scale,
-projection, classification method — shapes how readers interpret what
-they see. Being aware of this is not optional; it is part of responsible
-cartography.</p>
-<div class="section level3">
-<h3 id="ask-yourself-3">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-3"></a>
-</h3>
-<ul>
-<li>Could your color choices carry unintended connotations (e.g., red
-implying danger, green implying safety)?</li>
-<li>Are you inadvertently introducing bias through classification breaks
-or data selection?</li>
-<li>Can the map’s main message be grasped within a few seconds?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="common-perception-pitfalls">Common perception pitfalls<a class="anchor" aria-label="anchor" href="#common-perception-pitfalls"></a>
-</h3>
-<ul>
-<li>
-<strong>Color value confusion</strong>: Using very light colors for
-high values (or vice versa) contradicts most readers’ intuition that
-darker = more.</li>
-<li>
-<strong>Unequal class intervals</strong>: A choropleth using natural
-breaks will look very different from one using equal intervals on the
-same data — neither is “correct,” but the choice must match your
-message.</li>
-<li>
-<strong>Colorblind inaccessibility</strong>: Approximately 8% of men
-and 0.5% of women have some form of color vision deficiency. Red-green
-combinations are the most common problem. Always test your palette.</li>
-</ul>
-<figure><img src="../badmap.jpg" title="A map demonstrating how poor color choices distort the interpretation of data." alt="Bad USA Map" class="figure mx-auto d-block"><div class="figcaption">Bad USA Map</div>
-</figure><p><strong>Best practice:</strong> Establish clear contrast between your
-data layer (foreground) and the basemap (background). Use figure-ground
-techniques — such as a lighter or desaturated basemap — so your data
-stands out without competition.</p>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="choose-the-right-medium">5. Choose the Right Medium<a class="anchor" aria-label="anchor" href="#choose-the-right-medium"></a>
-</h2>
-<hr class="half-width">
-<p>Where and how your map will be displayed has a direct effect on every
-design decision, from font size to layer complexity.</p>
-<div class="section level3">
-<h3 id="common-display-contexts">Common display contexts<a class="anchor" aria-label="anchor" href="#common-display-contexts"></a>
-</h3>
-<ul>
-<li>
-<strong>Web maps</strong> → interactive and zoomable; can include
-multiple layers, tooltips, and filters</li>
-<li>
-<strong>Print maps</strong> → static and fixed-resolution; require
-careful attention to font size, line weight, and color accuracy across
-printers</li>
-<li>
-<strong>Presentation slides</strong> → typically viewed from a
-distance; need bold, simple visuals with large text and minimal fine
-detail</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="ask-yourself-4">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-4"></a>
-</h3>
-<ul>
-<li>Will users be able to zoom in, or is this a fixed view?</li>
-<li>Could the map be printed in black and white? If so, does it still
-work?</li>
-<li>How large will the map appear in its final context — full screen,
-half a slide, a column in a report?</li>
-</ul>
-<p><strong>Web tip:</strong> Simplify basemaps and add halos (outlines)
-behind text labels so they remain readable over varied background
-colors. <strong>Print tip:</strong> Always test a physical proof before
-finalizing — colors on screen differ from colors on paper.</p>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="will-your-map-inform-decisions">6. Will Your Map Inform Decisions?<a class="anchor" aria-label="anchor" href="#will-your-map-inform-decisions"></a>
-</h2>
-<hr class="half-width">
-<p>Some maps are purely exploratory tools for the analyst. Others are
-used by planners, health officials, emergency managers, or the public to
-make real-world decisions. The stakes of design errors are very
-different in each case.</p>
-<div class="section level3">
-<h3 id="decision-making-maps-should">Decision-making maps should<a class="anchor" aria-label="anchor" href="#decision-making-maps-should"></a>
-</h3>
-<ul>
-<li>Be as accurate as the underlying data allows</li>
-<li>Communicate uncertainty explicitly (e.g., confidence intervals, data
-vintage, known gaps)</li>
-<li>Avoid simplifications that could lead to misinterpretation with
-serious consequences</li>
-<li>Be reviewed by a domain expert before publication</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="examples-1">Examples<a class="anchor" aria-label="anchor" href="#examples-1"></a>
-</h3>
-<ul>
-<li>Flood-risk maps used by city planners to determine zoning
-regulations</li>
-<li>Public health maps showing disease outbreak locations used by
-response teams</li>
-<li>Wildfire evacuation route maps used by emergency services</li>
-</ul>
-<div id="important" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="important" class="callout-inner">
-<h3 class="callout-title">Important</h3>
-<div class="callout-content">
-<p>If your map could influence a policy, resource allocation, or safety
-decision, treat accuracy and clarity as non-negotiable. Include a data
-source citation, a date, and any relevant caveats directly on the
-map.</p>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="understand-your-audiences-knowledge">7. Understand Your Audience’s Knowledge<a class="anchor" aria-label="anchor" href="#understand-your-audiences-knowledge"></a>
-</h2>
-<hr class="half-width">
-<p>Even a technically accurate map fails if the audience cannot decode
-it. Match your map’s language and symbology to what your readers already
-understand.</p>
-<div class="section level3">
-<h3 id="ask-yourself-5">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-5"></a>
-</h3>
-<ul>
-<li>Do your readers understand the variables and units you are
-using?</li>
-<li>Do you need to explain what the color scale represents, or will they
-infer it correctly?</li>
-<li>Would annotations or a short explanatory text block help orient the
-reader?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="tips">Tips<a class="anchor" aria-label="anchor" href="#tips"></a>
-</h3>
-<ul>
-<li>Always include a legend for any encoded variable</li>
-<li>Use plain language in labels and titles wherever possible</li>
-<li>Provide temporal context (e.g., “Data from 2021 ACS 5-Year
-Estimates”)</li>
-<li>Cite your data source directly on the map, not just in a
-caption</li>
-<li>Include a <strong>scale bar</strong> whenever distance relationships
-matter</li>
-<li>Include a <strong>north arrow</strong> if map orientation is not
-immediately obvious from context</li>
-</ul>
-<p><strong>Pro tip:</strong> Aim for “maximum information at minimum
-effort.” The reader should grasp the map’s main message within a few
-seconds, without having to search for the legend or decode ambiguous
-symbology.</p>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="do-you-need-more-data">8. Do You Need More Data?<a class="anchor" aria-label="anchor" href="#do-you-need-more-data"></a>
-</h2>
-<hr class="half-width">
-<p>A map built on incomplete data can be accurate in what it shows while
-being misleading about what it omits. Missing data, outdated data, or
-insufficient spatial resolution can all undermine your conclusions.</p>
-<div class="section level3">
-<h3 id="ask-yourself-6">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-6"></a>
-</h3>
-<ul>
-<li>Are there variables absent from your dataset that a reader would
-need to interpret your map correctly?</li>
-<li>Is your data current enough for the decision or story it will
-support?</li>
-<li>Is the spatial resolution (e.g., county vs. census tract vs. block
-group) appropriate for the patterns you are trying to show?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h3>
-<p>The two maps below illustrate why supporting context matters. The
-income map alone suggests a clear geographic pattern — but without the
-population density map alongside it, a reader might draw incorrect
-conclusions about <em>why</em> that pattern exists.</p>
-<figure><img src="../incomemap.png" title="Median household income by U.S. county, 2021." alt="A choropleth map of median household income across U.S. counties in 2021. Green shading indicates higher income. The map shows a clear pattern but requires additional context for full interpretation." class="figure mx-auto d-block"><div class="figcaption">A choropleth map of median household income
-across U.S. counties in 2021. Green shading indicates higher income. The
-map shows a clear pattern but requires additional context for full
-interpretation.</div>
-</figure><figure><img src="../popden.png" title="U.S. population density by county." alt="A map of U.S. population density by county. Lighter shading indicates greater population density. This map is positively correlated with the income map above — higher-density counties tend to have higher median incomes." class="figure mx-auto d-block"><div class="figcaption">A map of U.S. population density by county.
-Lighter shading indicates greater population density. This map is
-positively correlated with the income map above — higher-density
-counties tend to have higher median incomes.</div>
-</figure><hr>
-</div>
-</section><section><h2 class="section-heading" id="do-you-understand-your-data">9. Do You Understand Your Data?<a class="anchor" aria-label="anchor" href="#do-you-understand-your-data"></a>
-</h2>
-<hr class="half-width">
-<p>Before mapping, you should have a thorough understanding of the
-dataset itself — not just the spatial layer but what each variable
-actually measures, how it was collected, and where it may be
-unreliable.</p>
-<div class="section level3">
-<h3 id="ask-yourself-7">Ask yourself<a class="anchor" aria-label="anchor" href="#ask-yourself-7"></a>
-</h3>
-<ul>
-<li>What does each variable represent, and at what level of
-aggregation?</li>
-<li>Are there known biases, gaps, or limitations in the data collection
-methodology?</li>
-<li>Have you explored the data with summary statistics and distributions
-before committing to a map?</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="if-the-answer-to-any-of-these-is-not-yet">If the answer to any of these is “not yet”<a class="anchor" aria-label="anchor" href="#if-the-answer-to-any-of-these-is-not-yet"></a>
-</h3>
-<ul>
-<li>Perform exploratory data analysis (EDA) first — histograms, summary
-statistics, and scatter plots before you touch a spatial layer</li>
-<li>Read the metadata and any accompanying documentation carefully</li>
-<li>Look up the source methodology online or consult a domain
-expert</li>
-<li>For high-stakes maps, consider sensitivity testing: does the pattern
-change meaningfully if you use a different classification scheme or
-exclude outliers?</li>
-</ul>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="cartography-checklist">Cartography Checklist<a class="anchor" aria-label="anchor" href="#cartography-checklist"></a>
-</h2>
-<hr class="half-width">
-<p>Before finalizing your map, work through this checklist. If you
-cannot check a box, revisit that section above before publishing.</p>
-<ul class="task-list">
-<li><label><input type="checkbox">I have identified my target audience
-and tailored the design to their needs</label></li>
-<li><label><input type="checkbox">My map has a single, clearly stated
-purpose or message</label></li>
-<li><label><input type="checkbox">I have selected only the data
-variables that support that message</label></li>
-<li><label><input type="checkbox">My design choices (color, scale,
-symbology) do not introduce misleading interpretations</label></li>
-<li><label><input type="checkbox">The map is designed for its intended
-medium (web, print, or presentation)</label></li>
-<li><label><input type="checkbox">If the map informs decisions, I have
-ensured accuracy and communicated uncertainty</label></li>
-<li><label><input type="checkbox">I have accounted for my audience’s
-level of knowledge and included appropriate context</label></li>
-<li><label><input type="checkbox">My dataset is complete, current, and
-at an appropriate spatial resolution</label></li>
-<li><label><input type="checkbox">I fully understand what the data
-measures and its known limitations</label></li>
-<li><label><input type="checkbox">The map includes a legend, data
-source citation, and scale bar (where applicable)</label></li>
-</ul>
-<hr></section><section><h2 class="section-heading" id="final-thought">Final Thought<a class="anchor" aria-label="anchor" href="#final-thought"></a>
-</h2>
-<hr class="half-width">
-<p>A good map is not just visually appealing — it is honest, clear, and
-purposeful. It respects the data, serves the audience, and communicates
-effectively without distortion.</p>
-<div id="reflect-and-share" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="reflect-and-share" class="callout-inner">
-<h3 class="callout-title">Reflect and Share</h3>
-<div class="callout-content">
-<ul>
-<li>Think of a map you have seen recently — in the news, in a report, or
-online. What did it do well? What could be improved?</li>
-<li>How might the same data be presented differently for a different
-audience (e.g., the same flood-risk data shown to engineers versus to
-homeowners)?</li>
-<li>Can you recall a map that misled you, or one that succeeded
-brilliantly at making a complex pattern clear? What design choices made
-the difference?</li>
-</ul>
-</div>
-</div>
-</div>
-<!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
-</section></section><section id="aio-mapbasics"><p>Content from <a href="mapbasics.html">Fundamentals of Map Design</a></p>
-<hr>
-<p>Last updated on 2026-06-16 |
-
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/mapbasics.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 105 minutes</p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>What is a map and what makes it effective?</li>
-<li>How do visual hierarchy and design influence interpretation?</li>
-<li>How should colors and symbols be used in maps?</li>
-<li>What are map scales and projections, and why do they matter?</li>
-<li>What are common thematic map types and when should you use
-them?</li>
-<li>Should your map be static or interactive?</li>
-<li>How should data be classified for choropleth maps?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Understand the core components and elements of an effective map</li>
-<li>Apply visual hierarchy principles to improve clarity and guide the
-viewer</li>
-<li>Select appropriate colors, symbols, scales, and projections for your
-data</li>
-<li>Identify and correctly use different thematic map types</li>
-<li>Choose between static and interactive maps based on your
-purpose</li>
-<li>Select appropriate data classification methods for choropleth
-maps</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>A map is a communication tool — every design decision should serve a
-clear purpose.</li>
-<li>Visual hierarchy, color, and symbology guide what the reader notices
-and how they interpret it.</li>
-<li>No projection is perfect; choose based on what property (area,
-shape, distance) matters most for your message.</li>
-<li>Match your thematic map type to your data type — choropleth for
-normalized rates, proportional symbols for magnitudes, dot density for
-distributions.</li>
-<li>Classification method choice can dramatically change what a
-choropleth appears to say; always choose intentionally.</li>
-<li>Use interactive maps for exploration; use static maps to communicate
-a single clear message.</li>
-</ul>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="what-is-a-map">What is a Map?<a class="anchor" aria-label="anchor" href="#what-is-a-map"></a>
-</h2>
-<hr class="half-width">
-<p>A <strong>map</strong> is a visual representation of spatial data
-designed to communicate information about locations, patterns, and
-relationships.</p>
+<p>A map is not just a picture — it is a <strong>communication
+tool</strong>. Every element you include or omit sends a message.</p>
 <p>A good map:</p>
 <ul>
-<li>Has a clear purpose</li>
+<li>Has a clear, single purpose</li>
 <li>Accurately represents data</li>
 <li>Is easy to interpret</li>
 <li>Minimizes misleading elements</li>
-<li>Includes all essential map elements (title, legend, scale bar, north
-arrow, data source)</li>
+<li>Includes essential map elements: <strong>title, legend, scale bar,
+north arrow, and data source</strong>
+</li>
 </ul>
-<figure><img src="../mapelements.png" title="Map Elements" alt="An annotated diagram showing all essential map elements including title, legend, scale bar, north arrow, and source citation. Including these elements is necessary to convey accurate information to the audience." class="figure mx-auto d-block"><div class="figcaption">An annotated diagram showing all essential map
+<figure><img src="../mapelements.png" title="Map Elements" alt="An annotated diagram showing all essential map elements including title, legend, scale bar, north arrow, and source citation." class="figure mx-auto d-block"><div class="figcaption">An annotated diagram showing all essential map
 elements including title, legend, scale bar, north arrow, and source
-citation. Including these elements is necessary to convey accurate
-information to the audience.</div>
-</figure><div id="key-idea" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="key-idea" class="callout-inner">
-<h3 class="callout-title">Key Idea</h3>
-<div class="callout-content">
-<p>A map is not just a picture — it is a <strong>communication
-tool</strong>. Every element you include (or omit) sends a message to
-your reader.</p>
-</div>
-</div>
-</div>
+citation.</div>
+</figure><p>Before making any design decisions, answer these three questions:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Who is my audience?</strong> — Experts need detail and
+precision; a general audience needs simplicity and clear labels.</li>
+<li>
+<strong>What is my message?</strong> — State it in one sentence.
+Maps that try to show everything communicate nothing.</li>
+<li>
+<strong>Where will it be displayed?</strong> — Web maps can be
+interactive; print maps are static and must work at a fixed size;
+presentation slides need bold, simple visuals.</li>
+</ol>
 <hr></section><section><h2 class="section-heading" id="visual-hierarchy">Visual Hierarchy<a class="anchor" aria-label="anchor" href="#visual-hierarchy"></a>
 </h2>
 <hr class="half-width">
 <p>Visual hierarchy controls what the viewer notices first, second, and
-last. A well-structured hierarchy guides the reader’s eye toward the
-most important information without requiring effort on their part.</p>
-<div class="section level3">
-<h3 id="how-to-create-hierarchy">How to create hierarchy<a class="anchor" aria-label="anchor" href="#how-to-create-hierarchy"></a>
-</h3>
+last. A well-structured hierarchy guides the eye toward the most
+important information without effort.</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -2678,7 +1625,7 @@ most important information without requiring effort on their part.</p>
 <tr>
 <td><strong>Size</strong></td>
 <td>Larger elements draw attention first</td>
-<td>Make your primary data layer the most visually prominent</td>
+<td>Make your primary data layer the most prominent</td>
 </tr>
 <tr>
 <td><strong>Color</strong></td>
@@ -2687,60 +1634,24 @@ most important information without requiring effort on their part.</p>
 </tr>
 <tr>
 <td><strong>Position</strong></td>
-<td>Central elements are noticed before edge elements</td>
-<td>Place your main map center-frame; push supporting elements to
-margins</td>
+<td>Central elements are noticed before edges</td>
+<td>Place the main map center-frame</td>
 </tr>
 <tr>
 <td><strong>Contrast</strong></td>
-<td>Strong differences between elements signal importance</td>
-<td>High contrast between data and background keeps the data
-readable</td>
+<td>Strong differences signal importance</td>
+<td>High contrast between data and background</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level3">
-<h3 id="applied-example">Applied example<a class="anchor" aria-label="anchor" href="#applied-example"></a>
-</h3>
-<ul>
-<li>
-<strong>Main data layer</strong> → bold, saturated colors</li>
-<li>
-<strong>Background basemap</strong> → muted, desaturated tones</li>
-<li>
-<strong>Labels</strong> → legible but visually subordinate to the
-data</li>
-</ul>
-<div id="analyzing-hierarchy-in-the-wild" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="analyzing-hierarchy-in-the-wild" class="callout-inner">
-<h3 class="callout-title">Analyzing Hierarchy in the Wild</h3>
-<div class="callout-content">
-<p>Find any map — in a news article, a textbook, or online.</p>
-<ul>
-<li>What is the first thing your eye goes to?</li>
-<li>Is that the element the mapmaker intended to be most prominent?</li>
-<li>If not, what design choice created the unintended emphasis (color,
-size, position)?</li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="visual-variables-in-mapping">Visual Variables in Mapping<a class="anchor" aria-label="anchor" href="#visual-variables-in-mapping"></a>
+<p>In practice: bold, saturated colors for your data layer; muted tones
+for the basemap; labels that are legible but visually subordinate.</p>
+<hr></section><section><h2 class="section-heading" id="visual-variables">Visual Variables<a class="anchor" aria-label="anchor" href="#visual-variables"></a>
 </h2>
 <hr class="half-width">
-<p>Cartographic variables (also called visual variables) are the visual
-properties used to encode data on a map. Choosing the right variable for
-your data type is one of the most important decisions in map design.</p>
-<div class="section level3">
-<h3 id="the-main-visual-variables-and-their-appropriate-uses">The main visual variables and their appropriate uses<a class="anchor" aria-label="anchor" href="#the-main-visual-variables-and-their-appropriate-uses"></a>
-</h3>
+<p>Visual variables are the properties used to encode data on a map.
+Choosing the right one for your data type is one of the most important
+decisions in map design.</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -2787,143 +1698,66 @@ your data type is one of the most important decisions in map design.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level3">
-<h3 id="quick-rule-of-thumb">Quick rule of thumb<a class="anchor" aria-label="anchor" href="#quick-rule-of-thumb"></a>
-</h3>
-<ul>
-<li>
-<strong>Quantitative data</strong> (numbers that can be ordered) →
-color value, size</li>
-<li>
-<strong>Categorical data</strong> (named groups with no inherent
-order) → color hue, shape, texture</li>
-</ul>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="colors-on-maps">Colors on Maps<a class="anchor" aria-label="anchor" href="#colors-on-maps"></a>
+<p><strong>Rule of thumb:</strong> Quantitative data (numbers with
+order) → color value or size. Categorical data (named groups, no order)
+→ color hue, shape, or texture.</p>
+<hr></section><section><h2 class="section-heading" id="colors-on-maps">Colors on Maps<a class="anchor" aria-label="anchor" href="#colors-on-maps"></a>
 </h2>
 <hr class="half-width">
-<p>Color is the most powerful visual variable on a map — and the most
-commonly misused. The right color scheme depends entirely on the type of
-data you are encoding.</p>
-<div class="section level3">
-<h3 id="types-of-color-schemes">Types of color schemes<a class="anchor" aria-label="anchor" href="#types-of-color-schemes"></a>
-</h3>
+<p>Color is the most powerful visual variable — and the most commonly
+misused. The right color scheme depends on the type of data.</p>
 <ul>
 <li>
-<strong>Sequential</strong> → for data that runs from low to high
-values; colors progress from light to dark (e.g., pale yellow → dark red
-for population density).</li>
+<strong>Sequential</strong> — low to high values; light to dark
+(e.g., pale yellow → dark red for population density).</li>
 <li>
-<strong>Diverging</strong> → for data that varies around a
-meaningful midpoint such as zero or an average; colors diverge in two
-directions (e.g., blue–white–red for temperature anomaly).</li>
+<strong>Diverging</strong> — values that vary around a midpoint; two
+directions from a neutral center (e.g., blue–white–red for temperature
+anomaly).</li>
 <li>
-<strong>Categorical</strong> → for data with distinct groups and no
-inherent order; uses visually distinct hues (e.g., land cover
-classes).</li>
+<strong>Categorical</strong> — distinct groups with no order;
+visually distinct hues (e.g., land cover classes).</li>
 </ul>
-<figure><img src="../colorpallete.png" title="Color Scheme Types" alt="Examples of sequential, diverging, and categorical color palettes. Using the wrong palette type for your data can produce an inaccurate or misleading representation." class="figure mx-auto d-block"><div class="figcaption">Examples of sequential, diverging, and
-categorical color palettes. Using the wrong palette type for your data
-can produce an inaccurate or misleading representation.</div>
-</figure>
-</div>
-<div class="section level3">
-<h3 id="best-practices">Best practices<a class="anchor" aria-label="anchor" href="#best-practices"></a>
-</h3>
+<figure><img src="../colorpallete.png" title="Color Scheme Types" alt="Examples of sequential, diverging, and categorical color palettes." class="figure mx-auto d-block"><div class="figcaption">Examples of sequential, diverging, and
+categorical color palettes.</div>
+</figure><p><strong>Best practices:</strong></p>
 <ul>
-<li>Use lighter shades for lower values and darker shades for higher
-values in sequential schemes — this matches most readers’
-intuition.</li>
-<li>Avoid overly bright or clashing colors, which increase cognitive
-load and fatigue.</li>
-<li>Always use colorblind-friendly palettes. Approximately 8% of men
-have some form of color vision deficiency; red-green combinations are
-the most common problem. Tools like <a href="https://colorbrewer2.org" class="external-link">ColorBrewer</a> provide tested,
-accessible palettes.</li>
+<li>Lighter shades for lower values, darker for higher — this matches
+most readers’ intuition.</li>
+<li>Always use colorblind-friendly palettes. About 8% of men have some
+form of color vision deficiency, and red-green combinations are the most
+common problem.</li>
 <li>Ensure sufficient contrast between adjacent classes so boundaries
-are visible without needing to zoom in.</li>
+are visible.</li>
+<li>When in doubt, use <a href="https://colorbrewer2.org" class="external-link">ColorBrewer</a> — it provides palettes
+that are colorblind-safe, print-friendly, and photocopy-safe.</li>
 </ul>
-<div id="tip" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="tip" class="callout-inner">
-<h3 class="callout-title">Tip</h3>
-<div class="callout-content">
-<p>When in doubt, use <a href="https://colorbrewer2.org" class="external-link">ColorBrewer</a>. It provides sequential,
-diverging, and categorical palettes that are colorblind-safe,
-print-friendly, and photocopy-safe — with a filter to find schemes that
-meet all three criteria simultaneously.</p>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="scale">Scale<a class="anchor" aria-label="anchor" href="#scale"></a>
+<hr></section><section><h2 class="section-heading" id="scale">Scale<a class="anchor" aria-label="anchor" href="#scale"></a>
 </h2>
 <hr class="half-width">
-<p>Map scale defines the relationship between a distance measured on the
-map and the corresponding distance on the ground.</p>
-<div class="section level3">
-<h3 id="two-types-of-scale">Two types of scale<a class="anchor" aria-label="anchor" href="#two-types-of-scale"></a>
-</h3>
+<p>Map scale defines the relationship between distance on the map and
+distance on the ground.</p>
 <ul>
 <li>
-<strong>Large-scale maps</strong> cover a small geographic area with
-a high level of detail (e.g., a neighborhood street map at 1:5,000).
-Individual buildings, paths, and features are distinguishable.</li>
+<strong>Large-scale maps</strong> cover a small area with high
+detail (e.g., a neighborhood at 1:5,000).</li>
 <li>
-<strong>Small-scale maps</strong> cover a large geographic area with
-less detail (e.g., a world map at 1:50,000,000). Only major features
-such as country borders and major rivers are shown.</li>
+<strong>Small-scale maps</strong> cover a large area with less
+detail (e.g., a world map at 1:50,000,000).</li>
 </ul>
-</div>
-<div class="section level3">
-<h3 id="why-scale-matters">Why scale matters<a class="anchor" aria-label="anchor" href="#why-scale-matters"></a>
-</h3>
-<ul>
-<li>It determines what level of detail is visible and appropriate to
-include.</li>
-<li>Features that look correct at one scale can be misleading or
-meaningless at another — a neighborhood-level pattern should not be
-inferred from a country-level map.</li>
-<li>Always display a <strong>scale bar</strong> (not just a ratio) so
-readers can estimate real-world distances regardless of how the map is
-printed or displayed.</li>
-</ul>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="projections">Projections<a class="anchor" aria-label="anchor" href="#projections"></a>
+<p>Scale determines what level of detail is visible and appropriate.
+Features that look correct at one scale can be misleading at another — a
+neighborhood-level pattern should not be inferred from a country-level
+map. Always include a <strong>scale bar</strong> so readers can estimate
+real-world distances.</p>
+<hr></section><section><h2 class="section-heading" id="projections">Projections<a class="anchor" aria-label="anchor" href="#projections"></a>
 </h2>
 <hr class="half-width">
-<p>A map projection is a mathematical transformation used to represent
-the curved surface of the Earth on a flat plane. Because it is
-geometrically impossible to flatten a sphere without distortion, every
-projection sacrifices at least one spatial property.</p>
-<div class="section level3">
-<h3 id="the-four-properties-that-can-be-distorted">The four properties that can be distorted<a class="anchor" aria-label="anchor" href="#the-four-properties-that-can-be-distorted"></a>
-</h3>
-<ul>
-<li>
-<strong>Area</strong> — regions may appear larger or smaller than
-they actually are</li>
-<li>
-<strong>Shape</strong> — the outlines of regions may be stretched or
-compressed</li>
-<li>
-<strong>Distance</strong> — measured distances may be inaccurate
-except along specific lines</li>
-<li>
-<strong>Direction</strong> — angles and bearings may not be
-preserved</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="common-projection-families-and-their-trade-offs">Common projection families and their trade-offs<a class="anchor" aria-label="anchor" href="#common-projection-families-and-their-trade-offs"></a>
-</h3>
+<p>A map projection transforms the curved surface of the Earth onto a
+flat plane. Because you cannot flatten a sphere without distortion,
+every projection sacrifices at least one property:
+<strong>area</strong>, <strong>shape</strong>,
+<strong>distance</strong>, or <strong>direction</strong>.</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -2937,224 +1771,204 @@ preserved</li>
 </tr></thead>
 <tbody>
 <tr>
-<td>Equal-area (e.g., Albers, Mollweide)</td>
+<td>Equal-area (Albers, Mollweide)</td>
 <td>Area</td>
 <td>Thematic maps where region size comparison matters</td>
 </tr>
 <tr>
-<td>Conformal (e.g., Mercator, Lambert)</td>
+<td>Conformal (Mercator, Lambert)</td>
 <td>Local shape and angles</td>
-<td>Navigation, large-scale topographic maps</td>
+<td>Navigation, topographic maps</td>
 </tr>
 <tr>
-<td>Equidistant (e.g., Azimuthal equidistant)</td>
+<td>Equidistant (Azimuthal equidistant)</td>
 <td>Distance from a central point</td>
-<td>Radial distance maps, some atlases</td>
+<td>Radial distance maps</td>
 </tr>
 <tr>
-<td>Compromise (e.g., Robinson, Winkel Tripel)</td>
+<td>Compromise (Robinson, Winkel Tripel)</td>
 <td>None perfectly, but minimizes all</td>
 <td>General-purpose world maps</td>
 </tr>
 </tbody>
 </table>
-<figure><img src="../projections.png" title="Different Projected Maps" alt="Examples of different map projections showing how each distorts shape, area, distance, or direction differently. Each projection has a specific purpose for which it is best suited." class="figure mx-auto d-block"><div class="figcaption">Examples of different map projections showing
-how each distorts shape, area, distance, or direction differently. Each
-projection has a specific purpose for which it is best suited.</div>
-</figure><p>To see just how dramatically the Mercator projection distorts the
-apparent size of countries, try <a href="https://thetruesize.com/#?borders=1~!MTQ0MTQxNzQ.MzE5MDM0NQ*MzMyMDA2Mzk(NjIwMDYzOQ~!CONTIGUOUS_US*MTAwMjQwNzU.MjUwMjM1MTc(MTc1)MQ~!IN*NDMzNzg1.MTIxNjQ4Nzk)Mg~!CN*OTkyMTY5Nw.NzMxNDcwNQ(MjI1)Mw" class="external-link">The
-True Size Of…</a>. You can drag a country to different latitudes and
-compare its true size against others. Try dragging Russia down to where
-Africa sits — the size difference is striking.</p>
-<div id="important" class="callout">
+<figure><img src="../projections.png" title="Different Projected Maps" alt="Examples of different map projections." class="figure mx-auto d-block"><div class="figcaption">Examples of different map projections.</div>
+</figure><p>To see how dramatically Mercator distorts apparent country size, try
+<a href="https://thetruesize.com" class="external-link">The True Size Of…</a>. Drag Russia
+down to where Africa sits — the difference is striking.</p>
+<div id="tip" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="important" class="callout-inner">
-<h3 class="callout-title">Important</h3>
+<div id="tip" class="callout-inner">
+<h3 class="callout-title">Tip</h3>
 <div class="callout-content">
-<p>There is no universally “correct” projection — only projections
-suited to specific purposes. For U.S. Census and demographic work, the
-<strong>Albers Equal Area Conic</strong> projection is standard because
-it preserves area relationships between states and counties.</p>
+<p>There is no “correct” projection — only projections suited to
+specific purposes. For U.S. Census and demographic work, the
+<strong>Albers Equal Area Conic</strong> is standard because it
+preserves area relationships between states and counties.</p>
 </div>
 </div>
 </div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="labeling-and-legends">Labeling and Legends<a class="anchor" aria-label="anchor" href="#labeling-and-legends"></a>
+<hr></section><section><h2 class="section-heading" id="labeling-and-legends">Labeling and Legends<a class="anchor" aria-label="anchor" href="#labeling-and-legends"></a>
 </h2>
 <hr class="half-width">
-<p>Labels and legends are not optional decoration — they are what
-transform a spatial image into a readable map. A map without a legend or
-with ambiguous labels forces the reader to guess.</p>
-<div class="section level3">
-<h3 id="labels">Labels<a class="anchor" aria-label="anchor" href="#labels"></a>
-</h3>
-<ul>
-<li>Use a font size and weight that is readable at the intended display
-size (screen or print).</li>
-<li>Place labels to avoid overlapping other features; offset or use
-leader lines where needed.</li>
-<li>Apply a visual hierarchy to labels — names of major features should
-be larger or bolder than minor ones.</li>
-<li>Use halos (white outlines behind text) to keep labels legible over
-varied backgrounds.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="legends">Legends<a class="anchor" aria-label="anchor" href="#legends"></a>
-</h3>
-<ul>
-<li>Every encoded variable (color, size, symbol shape) must be explained
-in the legend.</li>
-<li>Keep legend entries concise and use plain language — avoid variable
-codes like <code>B19013_001E</code> in favor of “Median Household
-Income.”</li>
-<li>Always include units (e.g., “per 1,000 residents” or “USD,
-2021”).</li>
-<li>Order legend entries logically — low to high for sequential data,
-alphabetically for categories.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="when-to-omit-map-elements">When to omit map elements<a class="anchor" aria-label="anchor" href="#when-to-omit-map-elements"></a>
-</h3>
-<p>Not every map needs every element. Omit a north arrow if north is
-obviously up and the audience will know this. Omit a scale bar on
-schematic or concept maps where exact distance is not the point.
-However, when in doubt, include it — a reader who does not need it will
-ignore it; a reader who does need it will be stuck without it.</p>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="thematic-map-types">Thematic Map Types<a class="anchor" aria-label="anchor" href="#thematic-map-types"></a>
+<p>Labels and legends transform a spatial image into a readable map.</p>
+<p><strong>Labels:</strong> Use readable font sizes, avoid overlapping
+features, apply halos (white outlines) for legibility over varied
+backgrounds, and size labels hierarchically — major features larger,
+minor features smaller.</p>
+<p><strong>Legends:</strong> Every encoded variable must be explained.
+Use plain language (not variable codes like <code>B19013_001E</code>),
+include units, and order entries logically — low to high for sequential
+data, alphabetically for categories.</p>
+<p><strong>When to omit elements:</strong> Skip a north arrow if north
+is obviously up. Skip a scale bar on schematic maps where exact distance
+is not the point. When in doubt, include it — a reader who does not need
+it will ignore it; a reader who does need it will be stuck.</p>
+<hr></section><section><h2 class="section-heading" id="thematic-map-types">Thematic Map Types<a class="anchor" aria-label="anchor" href="#thematic-map-types"></a>
 </h2>
 <hr class="half-width">
-<p>A thematic map uses visual variables to show the spatial distribution
-of one or more attributes. Choosing the wrong map type for your data is
-one of the most common cartographic errors. The sections below describe
-the most common types, what they are best suited for, and what to
-avoid.</p>
-<hr>
+<p>Choosing the wrong map type for your data is one of the most common
+cartographic errors. Here are the most common types.</p>
 <div class="section level3">
 <h3 id="choropleth-maps">Choropleth Maps<a class="anchor" aria-label="anchor" href="#choropleth-maps"></a>
 </h3>
-<p>A choropleth map uses color value (light to dark) to represent a
-single quantitative attribute aggregated over geographic regions such as
-counties, states, or countries.</p>
-<figure><img src="../choropleth.png" title="Choropleth Map" alt="A choropleth map of U.S. states shown in varying shades of green, where darker green indicates higher values." class="figure mx-auto d-block"><div class="figcaption">A choropleth map of U.S. states shown in varying
-shades of green, where darker green indicates higher values.</div>
-</figure><p><strong>Best for:</strong> Rates, ratios, and normalized data — for
-example, population per square kilometer, median income, or percentage
-of residents with a college degree.</p>
-<p><strong>Avoid for:</strong> Raw counts (e.g., total population).
-Larger regions will almost always have higher raw counts than smaller
-regions, making the map reflect area size rather than the phenomenon of
-interest. Always normalize before using a choropleth.</p>
-<hr>
+<p>Uses color value (light to dark) across geographic regions.</p>
+<figure><img src="../choropleth.png" title="Choropleth Map" alt="A choropleth map of U.S. states in varying shades of green." class="figure mx-auto d-block"><div class="figcaption">A choropleth map of U.S. states in varying
+shades of green.</div>
+</figure><p><strong>Best for:</strong> Rates, ratios, and normalized data —
+population per square km, median income, percentage with a college
+degree. <strong>Avoid for:</strong> Raw counts. Larger regions will
+almost always have higher counts, making the map reflect area rather
+than the phenomenon. Always normalize before using a choropleth.</p>
 </div>
 <div class="section level3">
 <h3 id="proportional-symbol-maps">Proportional Symbol Maps<a class="anchor" aria-label="anchor" href="#proportional-symbol-maps"></a>
 </h3>
-<p>A proportional symbol map scales a symbol (typically a circle) at
-each location in proportion to the data value at that point.</p>
-<figure><img src="../proportional.png" title="Proportional Symbol Map" alt="A proportional symbol map of the USA where circles of varying sizes are centered on cities. Larger circles represent larger populations." class="figure mx-auto d-block"><div class="figcaption">A proportional symbol map of the USA where
-circles of varying sizes are centered on cities. Larger circles
-represent larger populations.</div>
+<p>Scales a symbol (typically a circle) at each location in proportion
+to a data value.</p>
+<figure><img src="../proportional.png" title="Proportional Symbol Map" alt="A proportional symbol map of the USA with circles sized by population." class="figure mx-auto d-block"><div class="figcaption">A proportional symbol map of the USA with
+circles sized by population.</div>
 </figure><p><strong>Best for:</strong> Comparing absolute magnitudes across
-discrete locations — for example, total population of cities, number of
-COVID cases per hospital, or total exports per port.</p>
-<p><strong>Avoid for:</strong> Continuous phenomena that cover entire
-regions without discrete point locations.</p>
-<hr>
+discrete locations — total city population, number of cases per
+hospital. <strong>Avoid for:</strong> Continuous phenomena that cover
+entire regions.</p>
 </div>
 <div class="section level3">
 <h3 id="dot-density-maps">Dot Density Maps<a class="anchor" aria-label="anchor" href="#dot-density-maps"></a>
 </h3>
-<p>A dot density map places a fixed number of dots within each
-geographic unit, where each dot represents a set quantity of the mapped
-phenomenon.</p>
-<figure><img src="../dotdensity.png" title="Dot Density Map" alt="A dot density map of the USA where dots are distributed within regions. A greater concentration of dots indicates a higher presence of the mapped variable in that area." class="figure mx-auto d-block"><div class="figcaption">A dot density map of the USA where dots are
-distributed within regions. A greater concentration of dots indicates a
-higher presence of the mapped variable in that area.</div>
-</figure><p><strong>Best for:</strong> Showing the spatial distribution and
-relative density of a phenomenon — for example, one dot = 1,000 people,
-or one dot = 500 farms.</p>
-<p><strong>Avoid for:</strong> Precise counts or when the geographic
-unit boundaries would create artificial clustering effects.</p>
-<hr>
+<p>Places dots within each geographic unit, where each dot represents a
+set quantity.</p>
+<figure><img src="../dotdensity.png" title="Dot Density Map" alt="A dot density map of the USA." class="figure mx-auto d-block"><div class="figcaption">A dot density map of the USA.</div>
+</figure><p><strong>Best for:</strong> Showing spatial distribution and relative
+density — e.g., one dot = 1,000 people. <strong>Avoid for:</strong>
+Precise counts or when unit boundaries would create artificial
+clustering.</p>
 </div>
 <div class="section level3">
 <h3 id="non-contiguous-cartograms">Non-Contiguous Cartograms<a class="anchor" aria-label="anchor" href="#non-contiguous-cartograms"></a>
 </h3>
-<p>A non-contiguous cartogram resizes each geographic region in
-proportion to a data value, then separates the regions so their
-recognized outlines are preserved without overlap.</p>
-<figure><img src="../nonconti.png" title="Non-Contiguous Cartogram" alt="A non-contiguous cartogram of U.S. states where each state is separated from its neighbors and resized according to a data value, preserving recognizable state shapes." class="figure mx-auto d-block"><div class="figcaption">A non-contiguous cartogram of U.S. states where
-each state is separated from its neighbors and resized according to a
-data value, preserving recognizable state shapes.</div>
-</figure><p><strong>Best for:</strong> Emphasizing the magnitude of a phenomenon
-(such as GDP or electoral votes) when geographic area would otherwise
-dominate and mislead.</p>
-<p><strong>Note:</strong> Readers may find cartograms disorienting if
-they are unfamiliar with the genre. A brief explanatory note in the map
-caption or title can help.</p>
-<hr>
+<p>Resizes each region in proportion to a data value and separates them
+so outlines remain recognizable.</p>
+<figure><img src="../nonconti.png" title="Non-Contiguous Cartogram" alt="A non-contiguous cartogram of U.S. states resized by a data value." class="figure mx-auto d-block"><div class="figcaption">A non-contiguous cartogram of U.S. states
+resized by a data value.</div>
+</figure><p><strong>Best for:</strong> Emphasizing magnitude (GDP, electoral
+votes) when geographic area would otherwise dominate.
+<strong>Note:</strong> Readers unfamiliar with cartograms may find them
+disorienting — include a brief explanation.</p>
 </div>
 <div class="section level3">
 <h3 id="multivariate-maps">Multivariate Maps<a class="anchor" aria-label="anchor" href="#multivariate-maps"></a>
 </h3>
-<p>A multivariate map encodes two or more variables simultaneously using
-different visual variables — for example, color for one attribute and
-symbol size for another.</p>
-<figure><img src="../multivariate.png" title="Multivariate Map" alt="A multivariate map of the USA combining choropleth shading for one variable and dot density for a second variable, demonstrating how two datasets can be shown together." class="figure mx-auto d-block"><div class="figcaption">A multivariate map of the USA combining
-choropleth shading for one variable and dot density for a second
-variable, demonstrating how two datasets can be shown together.</div>
-</figure><p><strong>Best for:</strong> Exploring the spatial relationship between
-two variables — for example, income (color) alongside educational
-attainment (symbol size) to reveal where they correlate or diverge.</p>
-<p><strong>Use with caution:</strong> Multivariate maps can become
-visually overwhelming quickly. Limit to two variables when possible, and
-only add a third if the relationship between all three is genuinely the
-story you are telling.</p>
+<p>Encodes two or more variables simultaneously using different visual
+channels.</p>
+<figure><img src="../multivariate.png" title="Multivariate Map" alt="A multivariate map combining choropleth shading and dot density." class="figure mx-auto d-block"><div class="figcaption">A multivariate map combining choropleth shading
+and dot density.</div>
+</figure><p><strong>Best for:</strong> Exploring the relationship between two
+variables — e.g., income (color) alongside education (symbol size).
+<strong>Use with caution:</strong> Limit to two variables when possible.
+A third should only be added if the three-way relationship is genuinely
+the story.</p>
 <hr>
 </div>
-</section><section><h2 class="section-heading" id="static-vs--interactive-maps">Static vs. Interactive Maps<a class="anchor" aria-label="anchor" href="#static-vs--interactive-maps"></a>
+</section><section><h2 class="section-heading" id="data-classification-methods">Data Classification Methods<a class="anchor" aria-label="anchor" href="#data-classification-methods"></a>
 </h2>
 <hr class="half-width">
-<p>The display context — whether a map will be printed, embedded in a
-report, or viewed in a browser — is a fundamental design constraint that
-should be decided before any other design choices are made.</p>
-<div class="section level3">
-<h3 id="static-maps">Static maps<a class="anchor" aria-label="anchor" href="#static-maps"></a>
-</h3>
-<ul>
-<li>Produce a fixed image (PNG, PDF, SVG) with no user interaction.</li>
-<li>Best suited for print publications, academic reports, and
-presentations where a single message needs to be communicated
-clearly.</li>
-<li>Give the mapmaker full control over what the reader sees.</li>
-<li>All the thematic map examples shown above are static maps.</li>
-</ul>
+<p>When creating a choropleth, continuous data must be grouped into
+classes (typically 4–7) so distinct colors can be assigned. The method
+you choose has a large effect on the visual pattern — and therefore on
+the story the map appears to tell.</p>
+<figure><img src="../classifications.png" title="Classification Methods Compared" alt="The same dataset classified using four different methods." class="figure mx-auto d-block"><div class="figcaption">The same dataset classified using four different
+methods.</div>
+</figure><table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr>
+<th>Method</th>
+<th>How it works</th>
+<th>Best for</th>
+<th>Watch out for</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Equal Interval</strong></td>
+<td>Divides the full range into bins of equal width</td>
+<td>Evenly distributed data</td>
+<td>Misleading with skewed data — most observations may fall in one or
+two classes</td>
+</tr>
+<tr>
+<td><strong>Quantile</strong></td>
+<td>Places an equal number of observations in each class</td>
+<td>Ranking and relative comparison</td>
+<td>Similar values can end up in different classes</td>
+</tr>
+<tr>
+<td><strong>Natural Breaks (Jenks)</strong></td>
+<td>Finds boundaries at natural gaps in the distribution</td>
+<td>Clustered or uneven data</td>
+<td>Boundaries shift if the data changes</td>
+</tr>
+<tr>
+<td><strong>Standard Deviation</strong></td>
+<td>Classes defined by distance from the mean</td>
+<td>Highlighting anomalies and extremes</td>
+<td>Requires the audience to understand standard deviations</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When in doubt, start with Natural Breaks.</strong> It tends
+to produce the most honest representation of the underlying data
+structure.</p>
+<div id="choosing-a-classification-method" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div class="section level3">
-<h3 id="interactive-web-maps">Interactive (web) maps<a class="anchor" aria-label="anchor" href="#interactive-web-maps"></a>
-</h3>
-<ul>
-<li>Delivered through a browser and allow users to zoom, pan, toggle
-layers, and hover for tooltips.</li>
-<li>Best suited for exploratory analysis, public-facing data portals,
-and situations where readers need to look up specific locations.</li>
-<li>Require more development effort and may need ongoing
-maintenance.</li>
-<li>See a live example on the <a href="https://spatialturn.github.io/" class="external-link">workshop website</a> — scroll down
-to find the interactive map of West Lafayette.</li>
-</ul>
+<span class="callout-header">Discussion</span>
+<div id="choosing-a-classification-method" class="callout-inner">
+<h3 class="callout-title">Choosing a Classification Method</h3>
+<div class="callout-content">
+<p>You have U.S. county median household income data ranging from
+$25,000 to $150,000. Most counties cluster between $45,000 and $75,000,
+with a small number of very high-income outliers.</p>
+<ol style="list-style-type: decimal">
+<li>Which classification method would you choose and why?</li>
+<li>Which method would produce the most misleading map, and what would
+it get wrong?</li>
+</ol>
 </div>
-<div class="section level3">
-<h3 id="capabilities-comparison">Capabilities comparison<a class="anchor" aria-label="anchor" href="#capabilities-comparison"></a>
-</h3>
+</div>
+</div>
+<hr></section><section><h2 class="section-heading" id="static-vs--interactive-maps">Static vs. Interactive Maps<a class="anchor" aria-label="anchor" href="#static-vs--interactive-maps"></a>
+</h2>
+<hr class="half-width">
+<p>Decide your display format before making other design choices.</p>
 <table class="table">
 <thead><tr>
 <th>Feature</th>
@@ -3173,7 +1987,7 @@ to find the interactive map of West Lafayette.</li>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Hover / click for details</td>
+<td>Hover for details</td>
 <td>No</td>
 <td>Yes</td>
 </tr>
@@ -3199,193 +2013,79 @@ to find the interactive map of West Lafayette.</li>
 </tr>
 </tbody>
 </table>
-<div id="guideline" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="guideline" class="callout-inner">
-<h3 class="callout-title">Guideline</h3>
-<div class="callout-content">
-<p>Use <strong>interactive maps</strong> when readers need to explore,
-filter, or look up specific values in the data. Use <strong>static
-maps</strong> when you want to communicate a single, pre-determined
-message as clearly as possible.</p>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="data-classification-methods">Data Classification Methods<a class="anchor" aria-label="anchor" href="#data-classification-methods"></a>
+<p>Use <strong>static maps</strong> when you want to communicate one
+message as clearly as possible. Use <strong>interactive maps</strong>
+when readers need to explore, filter, or look up specific values. In
+this workshop we focus primarily on static maps produced in QGIS.</p>
+<hr></section><section><h2 class="section-heading" id="ethical-considerations">Ethical Considerations<a class="anchor" aria-label="anchor" href="#ethical-considerations"></a>
 </h2>
 <hr class="half-width">
-<p>When creating a choropleth map, continuous numeric data must be
-grouped into a small number of classes (typically 4–7) so that distinct
-colors can be assigned. The method used to define those class boundaries
-has a large effect on the visual pattern the map produces — and
-therefore on what story it appears to tell.</p>
-<figure><img src="../classifications.png" title="Choropleth Maps Using Different Classification Methods" alt="A grid showing the same choropleth dataset classified using four different methods. Notice how the apparent spatial pattern changes significantly depending on the classification chosen." class="figure mx-auto d-block"><div class="figcaption">A grid showing the same choropleth dataset
-classified using four different methods. Notice how the apparent spatial
-pattern changes significantly depending on the classification
-chosen.</div>
-</figure><div class="section level3">
-<h3 id="equal-interval">Equal Interval<a class="anchor" aria-label="anchor" href="#equal-interval"></a>
-</h3>
-<p>Divides the full data range into bins of equal width. If income
-ranges from $25k to $125k and you want 5 classes, each class spans
-$20k.</p>
+<p>Visualizations can influence policy, investment, and public opinion.
+That creates responsibility.</p>
 <ul>
 <li>
-<strong>Best for:</strong> Data that is roughly evenly distributed
-across its range.</li>
+<strong>Avoid cherry-picking</strong> — selecting only the time
+window or subset that supports your conclusion is dishonest, even if
+every data point shown is accurate.</li>
 <li>
-<strong>Weakness:</strong> If data is skewed or clustered, most
-observations may fall into just one or two classes, leaving others
-nearly empty.</li>
+<strong>Disclose sources and limitations</strong> — always cite the
+data source, note the date range, sample size, and known gaps.</li>
+<li>
+<strong>Respect privacy</strong> — geospatial and demographic data
+can expose individuals even when names are removed. Consider aggregation
+levels carefully.</li>
+<li>
+<strong>Consider unintended consequences</strong> — a crime-rate
+map, for example, can reinforce stereotypes if presented without context
+about policing patterns or historical disinvestment.</li>
 </ul>
-</div>
-<div class="section level3">
-<h3 id="quantile">Quantile<a class="anchor" aria-label="anchor" href="#quantile"></a>
-</h3>
-<p>Places an equal number of observations in each class, regardless of
-the value range each class covers.</p>
-<ul>
-<li>
-<strong>Best for:</strong> Comparing the relative rank of places —
-showing which third or fifth of the distribution each region falls
-into.</li>
-<li>
-<strong>Weakness:</strong> Two regions with very similar values can
-end up in different classes if they happen to straddle a class
-boundary.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="natural-breaks-jenks">Natural Breaks (Jenks)<a class="anchor" aria-label="anchor" href="#natural-breaks-jenks"></a>
-</h3>
-<p>Identifies class boundaries at the natural gaps in the data
-distribution — the points where the difference between adjacent values
-is largest. This minimizes within-class variance and maximizes
-between-class variance.</p>
-<ul>
-<li>
-<strong>Best for:</strong> Data with clear clusters or uneven
-distributions where natural groupings exist.</li>
-<li>
-<strong>Beginner recommendation:</strong> When in doubt, start here.
-Natural Breaks tends to produce the most honest visual representation of
-the underlying data structure.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="standard-deviation">Standard Deviation<a class="anchor" aria-label="anchor" href="#standard-deviation"></a>
-</h3>
-<p>Classes are defined by distance from the mean, measured in standard
-deviations (e.g., more than 1 SD above average, within 1 SD, more than 1
-SD below average).</p>
-<ul>
-<li>
-<strong>Best for:</strong> Highlighting regions that deviate
-significantly from the norm — useful for anomaly detection or showing
-extremes.</li>
-<li>
-<strong>Weakness:</strong> Assumes readers understand what a
-standard deviation is; may need explanation in the map or caption.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="choosing-the-right-method">Choosing the right method<a class="anchor" aria-label="anchor" href="#choosing-the-right-method"></a>
-</h3>
-<table class="table">
-<colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
-</colgroup>
-<thead><tr>
-<th>Method</th>
-<th>Best use case</th>
-<th>Watch out for</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Equal Interval</td>
-<td>Uniform, evenly spread data</td>
-<td>Misleading with skewed distributions</td>
-</tr>
-<tr>
-<td>Quantile</td>
-<td>Ranking and relative comparison</td>
-<td>Similar values split across classes</td>
-</tr>
-<tr>
-<td>Natural Breaks</td>
-<td>Clustered or uneven data</td>
-<td>Class boundaries shift if data changes</td>
-</tr>
-<tr>
-<td>Standard Deviation</td>
-<td>Identifying anomalies and extremes</td>
-<td>Requires statistical literacy in the audience</td>
-</tr>
-</tbody>
-</table>
-<div id="choosing-a-classification-method" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="choosing-a-classification-method" class="callout-inner">
-<h3 class="callout-title">Choosing a Classification Method</h3>
-<div class="callout-content">
-<p>You have U.S. county median household income data ranging from
-$25,000 to $150,000. Summary statistics show that most counties cluster
-between $45,000 and $75,000, with a small number of very high-income
-outliers pulling the upper tail.</p>
-<ol style="list-style-type: decimal">
-<li>Which classification method would you choose and why?</li>
-<li>Which method would produce the most misleading map for this data,
-and what would it get wrong?</li>
-<li>How many classes would you use, and how did you decide?</li>
-</ol>
-</div>
-</div>
-</div>
-<hr>
-</div>
-</section><section><h2 class="section-heading" id="final-takeaways">Final Takeaways<a class="anchor" aria-label="anchor" href="#final-takeaways"></a>
+<hr></section><section><h2 class="section-heading" id="cartography-checklist">Cartography Checklist<a class="anchor" aria-label="anchor" href="#cartography-checklist"></a>
 </h2>
 <hr class="half-width">
-<ul>
-<li>Maps are communication tools — every design decision should be
-intentional and serve your stated purpose.</li>
-<li>Match your thematic map type to your data type and your message, not
-to personal preference.</li>
-<li>Color scheme, projection, and classification method choices are not
-aesthetic — they directly affect what your map appears to say.</li>
-<li>Always consider who your audience is and what they need to walk away
-understanding.</li>
-<li>When in doubt about any single design decision, ask: “Does this
-choice make the map easier to read, or harder?”</li>
+<p>Before finalizing any map, work through this list:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">I have identified my target audience
+and tailored the design to their needs</label></li>
+<li><label><input type="checkbox">My map has a single, clearly stated
+purpose</label></li>
+<li><label><input type="checkbox">I have selected only the data
+variables that support that purpose</label></li>
+<li><label><input type="checkbox">My design choices (color, scale,
+symbology) do not introduce misleading interpretations</label></li>
+<li><label><input type="checkbox">The map is designed for its intended
+medium (web, print, or presentation)</label></li>
+<li><label><input type="checkbox">If the map informs decisions, I have
+communicated uncertainty and cited sources</label></li>
+<li><label><input type="checkbox">My dataset is complete, current, and
+at an appropriate spatial resolution</label></li>
+<li><label><input type="checkbox">I understand what the data measures
+and its known limitations</label></li>
+<li><label><input type="checkbox">The map includes a legend, data
+source citation, and scale bar where applicable</label></li>
+<li><label><input type="checkbox">I have tested my color palette for
+colorblind accessibility</label></li>
 </ul>
-<div id="reflect-and-share" class="callout discussion">
+<hr>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="key"></i>
 </div>
-<span class="callout-header">Discussion</span>
-<div id="reflect-and-share" class="callout-inner">
-<h3 class="callout-title">Reflect and Share</h3>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>When might an interactive map actually be <em>worse</em> than a
-static map? Can you think of a situation where interactivity would
-distract from rather than support the message?</li>
-<li>Take the income clustering scenario from the challenge above. Map it
-mentally using Equal Interval instead of Natural Breaks. How does the
-story the map tells change?</li>
-<li>Think of a thematic map you have seen recently. Which map type was
-used? Was it the right choice for the data? What would you have done
-differently?</li>
+<li>Data visualization turns numbers into stories the human brain can
+process quickly — but poor design can mislead more powerfully than raw
+data.</li>
+<li>Every map is a communication tool; define your audience, message,
+and medium before making design decisions.</li>
+<li>Match your thematic map type to your data: choropleth for normalized
+rates, proportional symbols for magnitudes, dot density for
+distributions.</li>
+<li>Color scheme, projection, and classification method choices directly
+affect what a map appears to say — choose intentionally.</li>
+<li>Run through the cartography checklist before publishing any
+map.</li>
 </ul>
 </div>
 </div>
@@ -3443,9 +2143,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
-  "dateCreated": "2026-06-23",
-  "dateModified": "2026-06-23",
-  "datePublished": "2026-06-23"
+  "dateCreated": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "datePublished": "2026-06-24"
 }
 
   </script><script>
