@@ -67,6 +67,12 @@ As a rule: **explore the data before you use it.** Load it into QGIS, open the a
 
 The following sections organize free, publicly accessible vector data sources by category. Sources specific to your local area (city, county, or state open data portals) are not listed here but are worth bookmarking — search for `[your city or state] open data GIS`.
 
+::::::::::::::::::::::::::::::::::::: callout
+
+For our next part of this session, check out the shared google doc [here](https://drive.google.com/drive/folders/1I5Rr3TaLPu4EHz8Bfe_3HKNPrzYwzL7B). Go to `Day 1 Session 1a: Vector Data/QGIS` to find resources that we will be using in our upcoming modules!
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 This list is provided as a reference only; we do not guarantee the accuracy or timeliness of any individual dataset.
 
 ---

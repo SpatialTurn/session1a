@@ -258,7 +258,7 @@ Save all files to your Session_1a folder and add them to your QGIS project using
 
 #### Step 2 — Add point data from a CSV file
 
-Download `UFOreports_USonly_WorkshopLayer.csv` from the shared Session 1a Google folder and save it to your Session_1a folder. Then:
+Download `UFOreports_USonly_WorkshopLayer.csv` from the shared [Session 1a Google folder](https://drive.google.com/drive/folders/1Bpkl9ppNTvdLsTAILz_cLnDs5XfN6DQ1) and save it to your Session_1a folder. Then:
 
 1. Click the **Open Data Source Manager** button in the toolbar (or **Layer → Data Source Manager**).
 2. Select **Delimited Text** in the left panel.
@@ -319,7 +319,7 @@ Export your layout as both a PDF and a PNG image.
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-Put your skills together using an external data source of your choosing.
+Put your skills together using an external data source of your choosing. You can find a source in the previous episode [here](https://spatialturn.github.io/session1a/imageryvector.html).
 
 **Part A — Choose and evaluate a dataset**
 
