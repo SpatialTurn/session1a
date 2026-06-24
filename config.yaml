@@ -69,9 +69,7 @@ contact: 'team@carpentries.org' # FIXME
 episodes: 
 - imageryvector.md
 - qgisintro.md
-- introduction.md
-- mapvisual.md
-- mapbasics.md
+- additional-reading.md
 
 # Information for Learners
 learners: 
