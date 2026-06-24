@@ -37,11 +37,7 @@ exercises: 45
 
 QGIS is a free, open-source Geographic Information System that runs on Windows, macOS, and Linux. In this episode we will go from a blank project to a finished, exported map using real spatial data.
 
-We will work through three stages:
-
-1. **Loading data** — adding a basemap, shapefiles, and point data
-2. **Styling layers** — controlling how features look on the map
-3. **Creating and exporting a layout** — building a finished map with all required elements
+The walkthrough below covers the core workflow — loading a shapefile, styling it, and building a map layout. The exercises that follow introduce additional data types (CSV files and live OpenStreetMap data) and give you practice combining multiple layers into a single map.
 
 ---
 
@@ -147,7 +143,7 @@ For the airports layer, try **Single Symbol** first to get comfortable with the 
 
 Graduated symbology is useful when your data has a meaningful numeric field. The QGIS sample data includes an elevation CSV (`elevp`) in the `csv` folder of the same repository. Download it and try:
 
-1. Load the CSV as a delimited text layer (see Part 3, Step 2 below for the full method).
+1. Load the CSV as a delimited text layer (the full method is covered in Exercise 1a.2 below).
 2. Open its Symbology → select **Graduated**.
 3. Choose the elevation field as the value column.
 4. Select a sequential color ramp (light to dark).
@@ -157,70 +153,7 @@ This is the same graduated approach you would use for a choropleth map of Census
 
 ---
 
-## Part 3: Adding Different Data Types
-
-Real-world GIS projects rarely use a single data source. This section covers the three most common ways to bring vector data into QGIS.
-
----
-
-### Method 1: Add a Downloaded Shapefile
-
-This is the method covered in Part 1 Step 2 above. Use it for any shapefile you have downloaded to disk:
-
-1. **Layer → Add Layer → Add Vector Layer**
-2. Browse to the `.shp` file
-3. Click **Add**
-
-Alternatively, locate the folder containing your shapefiles in your file explorer and **drag the `.shp` file directly onto the Layers Panel**.
-
----
-
-### Method 2: Add a Geocoded CSV File (Point Data from Coordinates)
-
-If you have a spreadsheet containing latitude and longitude columns, QGIS can treat it as a point layer. We will use a UFO sightings dataset for this example — download it from the shared Session 1a Google folder (`UFOreports_USonly_WorkshopLayer.csv`) and save it to your Session_1a folder.
-
-1. Click the **Open Data Source Manager** button in the toolbar (or **Layer → Data Source Manager**).
-2. Select **Delimited Text** in the left panel.
-3. In the **File Name** field, navigate to `UFOreports_USonly_WorkshopLayer.csv`.
-4. Confirm that **File Format** is set to **CSV**.
-5. Verify that the **X field** and **Y field** are set to the longitude and latitude columns respectively.
-6. Click **Add**, then close the dialog.
-
-This creates a temporary point layer. If you want to keep it permanently, right-click the layer → **Export → Save Features As…** and save it as a shapefile or GeoPackage.
-
----
-
-### Method 3: Add Live Data via the QuickOSM Plugin
-
-OpenStreetMap contains a vast, continuously updated collection of mapped features — roads, buildings, parks, universities, restaurants, and much more. The QuickOSM plugin lets you query this data directly from within QGIS without downloading anything manually.
-
-**Install the plugin first:**
-
-1. Go to **Plugins → Manage and Install Plugins…**
-2. Search for **QuickOSM** and click **Install Plugin**.
-3. While you have the plugin manager open, also install **NextGIS QuickMapServices** — this gives you access to a much wider range of basemap options beyond OpenStreetMap.
-
-**Run a query:**
-
-1. Go to **Vector → QuickOSM → Quick Query**.
-2. In the **Preset** field, type `university` and select **facilities/education/universities**.
-3. In the **In** field, type `West Lafayette, IN`.
-4. Click **Run Query**. A polygon layer for Purdue University's campus should appear on your map.
-5. Right-click the new layer → **Properties → Symbology** to adjust its color and transparency.
-
-Try a second query: repeat the process with `shops/food` in the Preset field and the same location. This returns footprints for food stores around Purdue's campus.
-
-::::::::::::::::::::::::::::::::::::: callout
-
-### OSM Feature Tags
-
-OpenStreetMap uses a structured tagging system to classify features. To explore what categories are available (roads, healthcare facilities, landuse types, and more), see the [OSM Map Features Wiki](https://wiki.openstreetmap.org/wiki/Map_features).
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
----
-
-## Part 4: Creating a Map Layout
+## Part 3: Creating a Map Layout
 
 The **Print Layout** is QGIS's dedicated tool for building finished, export-ready maps. It is separate from the main map canvas — the main canvas is for exploration, the Print Layout is for publication.
 
@@ -283,17 +216,31 @@ Below is an example of a finished map created using this workflow — Alaska air
 
 ---
 
-## Hands-On Exercise
+## Exercise 1a.1: Guided Walkthrough
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-### Build a Multi-Layer Map of West Lafayette
+### Load, Style, and Export Your First Map
 
-In this exercise you will combine all three data-loading methods to build a multi-layer map.
+Complete Parts 1–3 above using the QGIS sample airport dataset. By the end you should have:
+
+1. A QGIS project with an OpenStreetMap basemap and the airports shapefile loaded
+2. The airports layer styled with a symbol of your choice
+3. A Print Layout exported as a PDF or PNG that includes a title, legend, scale bar, north arrow, and data credit
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+---
+
+## Exercise 1a.2: Build a Multi-Layer Map of West Lafayette
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+Real-world GIS projects rarely use a single data source. In this exercise you will combine three different data-loading methods — shapefiles, a geocoded CSV, and a live OpenStreetMap query — to build a multi-layer map.
 
 **Setup:** Create a new QGIS project saved to your Session_1a folder.
 
-#### **Step 1 — Download shapefiles from Natural Earth**
+#### Step 1 — Download shapefiles from Natural Earth
 
 Go to [naturalearthdata.com](https://www.naturalearthdata.com) and read the homepage briefly to understand the data's purpose, scale, and reliability. Then navigate to **Downloads → Medium Scale Data** and download the following:
 
@@ -307,24 +254,52 @@ From **Physical**:
 
 - Rivers, Lake Centerlines (line)
 
-Save all files to your Session_1a folder and add them to your QGIS project.
+Save all files to your Session_1a folder and add them to your QGIS project using **Layer → Add Layer → Add Vector Layer** (or drag the `.shp` files directly onto the Layers Panel).
 
-#### **Step 2 — Add UFO sighting data from a CSV**
+#### Step 2 — Add point data from a CSV file
 
-Download `UFOreports_USonly_WorkshopLayer.csv` from the shared Session 1a Google folder. Use **Layer → Data Source Manager → Delimited Text** to add it as a point layer, setting the X and Y fields to the longitude and latitude columns.
+Download `UFOreports_USonly_WorkshopLayer.csv` from the shared Session 1a Google folder and save it to your Session_1a folder. Then:
 
-#### **Step 3 — Add live OSM data**
+1. Click the **Open Data Source Manager** button in the toolbar (or **Layer → Data Source Manager**).
+2. Select **Delimited Text** in the left panel.
+3. In the **File Name** field, navigate to the CSV file.
+4. Confirm that **File Format** is set to **CSV**.
+5. Verify that the **X field** and **Y field** are set to the longitude and latitude columns respectively.
+6. Click **Add**, then close the dialog.
 
-Use the **QuickOSM** plugin to query two features in West Lafayette, IN:
+This creates a temporary point layer. To keep it permanently, right-click the layer → **Export → Save Features As…** and save it as a shapefile or GeoPackage.
 
-- `facilities/education/universities` (to get Purdue University)
-- `shops/food` (to get food stores near campus)
+#### Step 3 — Add live data via the QuickOSM plugin
 
-Style each layer with a distinct color and adjust transparency as needed.
+OpenStreetMap contains a vast, continuously updated collection of mapped features. The **QuickOSM** plugin lets you query this data directly from within QGIS.
 
-#### **Step 4 — Build a map layout**
+**Install the plugin first:**
 
-Turn off all layers except the Purdue campus polygon and the food stores layer. Open a new **Print Layout** and build a finished map that includes:
+1. Go to **Plugins → Manage and Install Plugins…**
+2. Search for **QuickOSM** and click **Install Plugin**.
+3. While you have the plugin manager open, also install **NextGIS QuickMapServices** — this gives you access to a wider range of basemap options beyond OpenStreetMap.
+
+**Run a query:**
+
+1. Go to **Vector → QuickOSM → Quick Query**.
+2. In the **Preset** field, type `university` and select **facilities/education/universities**.
+3. In the **In** field, type `West Lafayette, IN`.
+4. Click **Run Query**. A polygon layer for Purdue University's campus should appear on your map.
+5. Right-click the new layer → **Properties → Symbology** to adjust its color and transparency.
+
+Try a second query: repeat the process with `shops/food` in the Preset field and the same location. This returns footprints for food stores around Purdue's campus.
+
+::::::::::::::::::::::::::::::::::::: callout
+
+### OSM Feature Tags
+
+OpenStreetMap uses a structured tagging system to classify features. To explore what categories are available (roads, healthcare facilities, landuse types, and more), see the [OSM Map Features Wiki](https://wiki.openstreetmap.org/wiki/Map_features).
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+#### Step 4 — Style and build a map layout
+
+Style each layer with a distinct color and adjust transparency as needed. Then turn off all layers except the Purdue campus polygon and the food stores layer. Open a new **Print Layout** and build a finished map that includes:
 
 - A descriptive title
 - A legend with readable layer names
@@ -332,7 +307,7 @@ Turn off all layers except the Purdue campus polygon and the food stores layer. 
 - A north arrow
 - A data credit noting your name, data sources, and today's date
 
-#### **Step 5 — Export**
+#### Step 5 — Export
 
 Export your layout as both a PDF and a PNG image.
 
@@ -340,24 +315,18 @@ Export your layout as both a PDF and a PNG image.
 
 ---
 
-## Practical Exercise (Optional)
+## Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your Choice
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-### Explore, Evaluate, and Map a Dataset of Your Choice
-
-Now that you have a working QGIS project and familiarity with loading data (from the previous episode), put those skills together using an external data source.
+Put your skills together using an external data source of your choosing.
 
 **Part A — Choose and evaluate a dataset**
 
-Browse the data source directory above and select one dataset that interests you. Before downloading anything:
+Browse a public data repository and select a dataset that interests you. Before downloading:
 
 1. Read the source's homepage or "About" page to understand its origin, coverage, and update frequency.
-2. Find and read the metadata for your chosen dataset. Note:
-   - When was it last updated?
-   - How was it collected?
-   - What geographic area does it cover?
-   - What do the key attribute fields represent?
+2. Find and read the metadata. Note when it was last updated, how it was collected, what geographic area it covers, and what the key attribute fields represent.
 3. Write two to three sentences summarizing whether you think this dataset is reliable and appropriate for the kind of analysis you have in mind.
 
 **Part B — Download and add to QGIS**
@@ -375,7 +344,7 @@ Browse the data source directory above and select one dataset that interests you
 2. Include all required map elements: title, legend, scale bar, north arrow, and data credit.
 3. Export your map as a PNG or PDF.
 
-**Bonus:** Return to the data source directory and find a second dataset on a related theme. Add it to your map as a second layer and adjust the symbology so both layers are visible and distinguishable.
+**Bonus:** Find a second dataset on a related theme, add it as another layer, and adjust the symbology so both layers are visible and distinguishable.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
