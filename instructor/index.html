@@ -338,334 +338,80 @@ any links that you are not going to use.
  --></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul><li>What is QGIS and why is it useful?</li>
-<li>How do I install QGIS on my system?</li>
-<li>How do I load spatial data into QGIS?</li>
-<li>How can I style and visualize data on a map?</li>
-<li>How do I export a finished map?</li>
-</ul></div>
+      </section><section id="setup"><section><h2 class="section-heading" id="what-you-need-for-session-a">What You Need for Session A<a class="anchor" aria-label="anchor" href="#what-you-need-for-session-a"></a></h2>
+<hr class="half-width"><p>Sessions 1a, 2a, and 3a form the <strong>QGIS and Raster
+Data</strong> track. Complete the items below before the first session
+begins. If you already finished the main workshop setup page, you are
+ready.</p>
+<div class="section level3">
+<h3 id="software">Software<a class="anchor" aria-label="anchor" href="#software"></a></h3>
+<p><strong>QGIS Desktop (LTR)</strong> — download and install from <a href="https://qgis.org/download/" class="external-link">https://qgis.org/download/</a>. Open
+QGIS once to confirm it launches. You can check out a quick guide to
+QGIS <a href="https://spatialturn.github.io/intromoduletest/qgisintro.html" class="external-link">here</a>.</p>
 </div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul><li>Install QGIS successfully</li>
-<li>Understand the QGIS interface</li>
-<li>Load and explore spatial datasets</li>
-<li>Create and style a simple map</li>
-<li>Export a publication-ready map</li>
-</ul></div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="what-is-qgis">What is QGIS?<a class="anchor" aria-label="anchor" href="#what-is-qgis"></a></h2>
-<hr class="half-width"><p><strong>QGIS</strong> (Quantum GIS) is a free, open-source Geographic
-Information System (GIS) used to:</p>
-<ul><li>Visualize spatial data</li>
-<li>Analyze geographic patterns</li>
-<li>Create professional-quality maps</li>
-</ul><div id="why-qgis" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="why-qgis" class="callout-inner">
-<h3 class="callout-title">Why QGIS?</h3>
-<div class="callout-content">
-<p>QGIS is widely used in academia, industry, and government — and it is
-completely free. It supports a wide range of vector and raster formats,
-connects to spatial databases, and has a rich plugin ecosystem.</p>
-</div>
-</div>
-</div>
-<hr></section><section><h2 class="section-heading" id="installing-qgis">Installing QGIS<a class="anchor" aria-label="anchor" href="#installing-qgis"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="step-1-download-qgis">Step 1: Download QGIS<a class="anchor" aria-label="anchor" href="#step-1-download-qgis"></a></h3>
-<ol style="list-style-type: decimal"><li><p>Go to the official QGIS website: Here: <a href="https://qgis.org" class="external-link uri">https://qgis.org</a></p></li>
-<li><p>Click <strong>Download Now</strong></p></li>
-<li>
-<p>Choose the appropriate version for your operating system:</p>
+<div class="section level3">
+<h3 id="accounts">Accounts<a class="anchor" aria-label="anchor" href="#accounts"></a></h3>
 <ul><li>
-<strong>Windows</strong> → Use the <em>Standalone Installer
-(LTR)</em> for the most stable release</li>
+<strong>USGS EarthExplorer</strong> — for downloading CORONA imagery
+and SRTM elevation data (Session 2a) → <a href="https://ers.cr.usgs.gov/register" class="external-link">Register here</a>
+</li>
 <li>
-<strong>Mac</strong> → Download the macOS package</li>
-</ul></li>
-</ol><div id="which-version-should-i-choose" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<strong>Copernicus Data Space</strong> — for downloading Sentinel-2
+satellite imagery (Session 2a) → <a href="https://dataspace.copernicus.eu" class="external-link">Register here</a>
+</li>
+</ul><p>Both accounts are free. Email verification can take a few minutes, so
+please register ahead of time.</p>
 </div>
-<span class="callout-header">Callout</span>
-<div id="which-version-should-i-choose" class="callout-inner">
-<h3 class="callout-title">Which version should I choose?</h3>
-<div class="callout-content">
-<p>QGIS offers a <strong>Latest Release</strong> and a <strong>Long Term
-Release (LTR)</strong>. For workshops and beginners, the
-<strong>LTR</strong> is recommended because it is more stable and better
-tested.</p>
-</div>
-</div>
-</div>
+<div class="section level3">
+<h3 id="project-folder">Project Folder<a class="anchor" aria-label="anchor" href="#project-folder"></a></h3>
+<p>Create a folder on your desktop called <strong>Session_1a</strong>.
+You will save all downloaded data and QGIS project files here. Keeping
+everything in one place prevents broken layer links.</p>
 <hr></div>
-<div class="section level3">
-<h3 id="step-2-install-qgis">Step 2: Install QGIS<a class="anchor" aria-label="anchor" href="#step-2-install-qgis"></a></h3>
-<ul><li>Run the downloaded installer</li>
-<li>Keep the default settings (recommended for beginners)</li>
-<li>Wait for the installation to complete</li>
-</ul><hr></div>
-<div class="section level3">
-<h3 id="step-3-launch-qgis">Step 3: Launch QGIS<a class="anchor" aria-label="anchor" href="#step-3-launch-qgis"></a></h3>
-<ul><li>Open <strong>QGIS Desktop</strong> from your applications menu</li>
-<li>You should see the main interface</li>
-</ul><hr></div>
-</section><section><h2 class="section-heading" id="understanding-the-qgis-interface">Understanding the QGIS Interface<a class="anchor" aria-label="anchor" href="#understanding-the-qgis-interface"></a></h2>
-<hr class="half-width"><figure><img src="../qgisinterface.png" title="Map Elements" alt="QGIS Interface Features." class="figure mx-auto d-block"><div class="figcaption">QGIS Interface Features.</div>
-</figure><div class="section level3">
-<h3 id="key-components">Key Components<a class="anchor" aria-label="anchor" href="#key-components"></a></h3>
-<ul><li>
-<strong>Map Canvas</strong> → The central area where your map is
-displayed</li>
-<li>
-<strong>Layers Panel</strong> → Shows all loaded datasets; controls
-layer visibility and order</li>
-<li>
-<strong>Browser Panel</strong> → Lets you navigate and access files
-on your system</li>
-<li>
-<strong>Toolbar</strong> → Tools for navigation, selection, and
-editing</li>
-</ul><div id="tip" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="tip" class="callout-inner">
-<h3 class="callout-title">Tip</h3>
-<div class="callout-content">
-<p>If a panel is missing, you can enable it via <strong>View →
-Panels</strong>.</p>
-</div>
-</div>
-</div>
-<hr></div>
-</section><section><h2 class="section-heading" id="loading-spatial-data">Loading Spatial Data<a class="anchor" aria-label="anchor" href="#loading-spatial-data"></a></h2>
-<hr class="half-width"><p>QGIS supports many spatial data formats. The most common are:</p>
-<ul><li>
-<strong>Shapefiles</strong> (<code>.shp</code>) — a widely used
-vector format</li>
-<li>
-<strong>GeoJSON</strong> (<code>.geojson</code>) — lightweight,
-text-based vector format</li>
-<li>
-<strong>GeoPackage</strong> (<code>.gpkg</code>) — a modern,
-self-contained format (recommended)</li>
-<li>
-<strong>CSV with coordinates</strong> — tabular data with
-latitude/longitude columns</li>
-<li>
-<strong>Raster files</strong> (<code>.tif</code>, <code>.img</code>)
-— gridded data such as satellite imagery or elevation models</li>
-</ul><div class="section level3">
-<h3 id="adding-a-vector-layer">Adding a Vector Layer<a class="anchor" aria-label="anchor" href="#adding-a-vector-layer"></a></h3>
-<ol style="list-style-type: decimal"><li>Go to <strong>Layer → Add Layer → Add Vector Layer</strong>
-</li>
-<li>Browse to your file (e.g., a <code>.shp</code> or
-<code>.geojson</code> file)</li>
-<li>Click <strong>Add</strong>, then <strong>Close</strong>
-</li>
-</ol><p>The layer will appear in the <strong>Layers Panel</strong> and
-display on the <strong>Map Canvas</strong>.</p>
-</div>
-<div class="section level3">
-<h3 id="adding-a-csv-with-coordinates">Adding a CSV with Coordinates<a class="anchor" aria-label="anchor" href="#adding-a-csv-with-coordinates"></a></h3>
-<ol style="list-style-type: decimal"><li>Go to <strong>Layer → Add Layer → Add Delimited Text
-Layer</strong>
-</li>
-<li>Select your <code>.csv</code> file</li>
-<li>Set the <strong>X field</strong> (longitude) and <strong>Y
-field</strong> (latitude)</li>
-<li>Choose the appropriate coordinate reference system (CRS) —
-<code>EPSG:4326</code> is common for lat/lon data</li>
-<li>Click <strong>Add</strong>
-</li>
-</ol><div id="exercise-1-load-and-explore-a-dataset" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="exercise-1-load-and-explore-a-dataset" class="callout-inner">
-<h3 class="callout-title">Exercise 1: Load and Explore a Dataset</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal"><li>Download a sample shapefile from a public source (your instructor
-will provide one, or try <a href="https://www.naturalearthdata.com/downloads/" class="external-link">Natural
-Earth</a>)</li>
-<li>Open QGIS and add the shapefile as a vector layer</li>
-<li>Right-click the layer in the Layers Panel and select <strong>Open
-Attribute Table</strong>
-</li>
-<li>Explore the data: How many features are there? What columns are
-available?</li>
-</ol></div>
-</div>
-</div>
-<hr></div>
-</section><section><h2 class="section-heading" id="styling-and-visualizing-data">Styling and Visualizing Data<a class="anchor" aria-label="anchor" href="#styling-and-visualizing-data"></a></h2>
-<hr class="half-width"><p>Once your data is loaded, you can change how it looks on the map.</p>
-<div class="section level3">
-<h3 id="changing-layer-style">Changing Layer Style<a class="anchor" aria-label="anchor" href="#changing-layer-style"></a></h3>
-<ol style="list-style-type: decimal"><li>Right-click the layer in the <strong>Layers Panel</strong>
-</li>
-<li>Select <strong>Properties → Symbology</strong>
-</li>
-<li>Choose a style type:
-<ul><li>
-<strong>Single Symbol</strong> — one color for all features</li>
-<li>
-<strong>Categorized</strong> — different colors by category (e.g.,
-land use type)</li>
-<li>
-<strong>Graduated</strong> — a color ramp based on numeric values
-(e.g., population density)</li>
-</ul></li>
-<li>Adjust colors, borders, and opacity as needed</li>
-<li>Click <strong>Apply</strong>, then <strong>OK</strong>
-</li>
-</ol></div>
-<div class="section level3">
-<h3 id="adding-labels">Adding Labels<a class="anchor" aria-label="anchor" href="#adding-labels"></a></h3>
-<ol style="list-style-type: decimal"><li>Open <strong>Layer Properties → Labels</strong>
-</li>
-<li>Set the label type to <strong>Single Labels</strong>
-</li>
-<li>Choose the field to display (e.g., a name column)</li>
-<li>Adjust font size and placement as needed</li>
-<li>Click <strong>Apply</strong>
-</li>
-</ol><div id="exercise-2-style-your-map" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="exercise-2-style-your-map" class="callout-inner">
-<h3 class="callout-title">Exercise 2: Style Your Map</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal"><li>Using the layer you loaded in Exercise 1, open the
-<strong>Symbology</strong> tab</li>
-<li>Change the style from <strong>Single Symbol</strong> to
-<strong>Categorized</strong> or <strong>Graduated</strong> (depending on
-your data)</li>
-<li>Choose a column to classify by and pick a color ramp</li>
-<li>Apply the style and observe how the map changes</li>
-<li>Add labels for a text field of your choice</li>
-</ol></div>
-</div>
-</div>
-<hr></div>
-</section><section><h2 class="section-heading" id="exporting-a-map">Exporting a Map<a class="anchor" aria-label="anchor" href="#exporting-a-map"></a></h2>
-<hr class="half-width"><p>QGIS includes a <strong>Print Layout</strong> tool for creating
-publication-ready maps.</p>
-<div class="section level3">
-<h3 id="creating-a-print-layout">Creating a Print Layout<a class="anchor" aria-label="anchor" href="#creating-a-print-layout"></a></h3>
-<ol style="list-style-type: decimal"><li>Go to <strong>Project → New Print Layout</strong>
-</li>
-<li>Give your layout a name and click <strong>OK</strong>
-</li>
-<li>The Print Layout window will open</li>
-</ol></div>
-<div class="section level3">
-<h3 id="adding-map-elements">Adding Map Elements<a class="anchor" aria-label="anchor" href="#adding-map-elements"></a></h3>
-<ul><li>
-<strong>Add the map:</strong> Go to <strong>Add Item → Add
-Map</strong>, then draw a rectangle on the canvas</li>
-<li>
-<strong>Add a title:</strong> <strong>Add Item → Add Label</strong>,
-then type your title</li>
-<li>
-<strong>Add a legend:</strong> <strong>Add Item → Add
-Legend</strong>
-</li>
-<li>
-<strong>Add a scale bar:</strong> <strong>Add Item → Add Scale
-Bar</strong>
-</li>
-<li>
-<strong>Add a north arrow:</strong> <strong>Add Item → Add North
-Arrow</strong> (or <strong>Add Picture</strong> and select a north arrow
-image)</li>
-</ul></div>
-<div class="section level3">
-<h3 id="exporting">Exporting<a class="anchor" aria-label="anchor" href="#exporting"></a></h3>
-<ul><li>
-<strong>Export as Image:</strong> <strong>Layout → Export as
-Image</strong> (PNG, JPEG)</li>
-<li>
-<strong>Export as PDF:</strong> <strong>Layout → Export as
-PDF</strong>
-</li>
-<li>
-<strong>Export as SVG:</strong> <strong>Layout → Export as
-SVG</strong>
-</li>
-</ul><div id="tip-1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="tip-1" class="callout-inner">
-<h3 class="callout-title">Tip</h3>
-<div class="callout-content">
-<p>For the best print quality, export as PDF. For web use, PNG at
-150–300 DPI works well.</p>
-</div>
-</div>
-</div>
-<hr></div>
-</section><section><h2 class="section-heading" id="troubleshooting">Troubleshooting<a class="anchor" aria-label="anchor" href="#troubleshooting"></a></h2>
-<hr class="half-width"><ul><li>
-<strong>Layer not displaying?</strong> Check that the CRS matches
-your other layers. Right-click the layer → <strong>Set CRS → Set Layer
-CRS</strong>.</li>
-<li>
-<strong>QGIS running slowly?</strong> Large raster files or complex
-vector layers can slow things down. Try zooming into a smaller area or
-simplifying your data.</li>
-<li>
-<strong>Plugin not working?</strong> Go to <strong>Plugins → Manage
-and Install Plugins</strong> and check for updates.</li>
-<li>
-<strong>Need help?</strong> Raise your hand during the
-workshop.</li>
-</ul><hr><div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul><li>QGIS is a free, open-source GIS application suitable for mapping,
-visualization, and spatial analysis.</li>
-<li>Spatial data can be loaded from shapefiles, GeoJSON, GeoPackage,
-CSV, and raster formats.</li>
-<li>The Symbology panel controls how data appears on the map — use
-categorized or graduated styles to highlight patterns.</li>
-<li>The Print Layout tool lets you compose and export professional maps
-with titles, legends, and scale bars.</li>
-</ul></div>
-</div>
-</div>
-<!--
+</section><section><h2 class="section-heading" id="session-a-schedule-day-1">Session A Schedule — Day 1<a class="anchor" aria-label="anchor" href="#session-a-schedule-day-1"></a></h2>
+<hr class="half-width"><table class="table"><colgroup><col width="21%"><col width="32%"><col width="21%"><col width="25%"></colgroup><thead><tr><th>Time</th>
+<th>Session</th>
+<th>Room</th>
+<th>Topic</th>
+</tr></thead><tbody><tr><td>10:30 AM</td>
+<td><strong>Session 1a</strong></td>
+<td>WALC 2121</td>
+<td>Acquiring data and making your first map in QGIS</td>
+</tr><tr><td>12:30 PM</td>
+<td>Lunch</td>
+<td>WALC 2051</td>
+<td></td>
+</tr><tr><td>1:15 PM</td>
+<td><strong>Session 2a</strong></td>
+<td>WALC 2121</td>
+<td>Acquiring raster data — historical imagery, Sentinel-2, and SRTM
+DEMs</td>
+</tr><tr><td>2:45 PM</td>
+<td>Coffee break</td>
+<td></td>
+<td></td>
+</tr><tr><td>3:00 PM</td>
+<td><strong>Session 3a</strong></td>
+<td>WALC 2121</td>
+<td>DEM analysis and visualization in QGIS</td>
+</tr><tr><td>4:30 PM</td>
+<td>Group discussion</td>
+<td>WALC 2127</td>
+<td>Both tracks rejoin</td>
+</tr></tbody></table><hr><div class="section level3">
+<h3 id="checklist">Checklist<a class="anchor" aria-label="anchor" href="#checklist"></a></h3>
+<ul class="task-list"><li><label><input type="checkbox">QGIS installed and opens
+successfully</label></li>
+<li><label><input type="checkbox">USGS EarthExplorer account created
+and verified</label></li>
+<li><label><input type="checkbox">Copernicus Data Space account
+created and verified</label></li>
+<li><label><input type="checkbox">Project folder created on your
+desktop</label></li>
+</ul><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- -->
+ --></div>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="../instructor/imageryvector.html" rel="next">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
@@ -717,8 +463,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/instructor/index.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/index.html",
   "dateCreated": "2026-06-24",
-  "dateModified": "2026-06-24",
-  "datePublished": "2026-06-24"
+  "dateModified": "2026-06-25",
+  "datePublished": "2026-06-25"
 }
 
   </script><script>

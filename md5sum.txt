@@ -9,5 +9,5 @@
 "episodes/additional-reading.md" "a8c8ac85a83cc9adb2672749db7edeae" "site/built/additional-reading.md" "2026-06-24"
 "instructors/instructor-notes.md" "cae72b6712578d74a49fea7513099f8c" "site/built/instructor-notes.md" "2023-03-16"
 "learners/reference.md" "1c7cc4e229304d9806a13f69ca1b8ba4" "site/built/reference.md" "2023-03-16"
-"learners/setup.md" "5a478b15bea40ba0ca935d381e155020" "site/built/setup.md" "2026-06-19"
+"learners/setup.md" "3f760415e5ff942c017137ea9d0b620d" "site/built/setup.md" "2026-06-25"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2022-04-22"
