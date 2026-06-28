@@ -216,7 +216,7 @@ Below is an example of a finished map created using this workflow — Alaska air
 
 ---
 
-## Exercise 1a.1: Guided Walkthrough
+## Exercise 1a.1: Guided Walkthrough {#exercise-1a-1}
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -232,7 +232,7 @@ Complete Parts 1–3 above using the QGIS sample airport dataset. By the end you
 
 ---
 
-## Exercise 1a.2: Build a Multi-Layer Map of West Lafayette
+## Exercise 1a.2: Build a Multi-Layer Map of West Lafayette {#exercise-1a-2}
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -315,7 +315,7 @@ Export your layout as both a PDF and a PNG image.
 
 ---
 
-## Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your Choice
+## Exercise 1a.3: Explore, Evaluate, and Map a Dataset of Your Choice {#exercise-1a-3}
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
